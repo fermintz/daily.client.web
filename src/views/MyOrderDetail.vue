@@ -184,13 +184,18 @@
       </ul>
 
       <div class="breakdown">
+        <h4>선결제처리 내역</h4>
+        <dl>
+          <dt>상품합계</dt>
+          <dd>18,600</dd>
+        </dl>
         <dl>
           <dt>쿠폰할인</dt>
-          <dd>34500</dd>
+          <dd>-5,000</dd>
         </dl>
         <dl>
           <dt>수거배송비</dt>
-          <dd>34500</dd>
+          <dd>0</dd>
         </dl>
       </div>
 
@@ -503,6 +508,10 @@ export default {
       border: 1px solid #e2e2e2;
       padding: 15px;
       border-radius: 5px;
+      h4{
+        margin-bottom:10px;
+      }
+
       dl {
         align-items: center;
         justify-content: space-between;
@@ -511,6 +520,7 @@ export default {
 
         dt {
           font-size: 12px;
+          color:#888;
         }
 
         dd:after {
