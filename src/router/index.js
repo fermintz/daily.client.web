@@ -5,6 +5,7 @@ import DailyPrice from "../views/DailyPrice"
 import MyOrderDetail from "../views/MyOrderDetail"
 import DeliveryInfo from '../views/DeliveryInfo'
 import OrderDetail from '../views/orderDetail'
+import WorkHistory from '../views/workHistory'
 
 Vue.use(VueRouter);
 
@@ -33,6 +34,11 @@ const routes = [
     path:"/orderDetail",
     name:"OrderDetail",
     component: OrderDetail,
+  },
+  {
+    path:"/workHistory",
+    name:"workHistory",
+    component: WorkHistory,
   }
 ];
 
