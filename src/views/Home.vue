@@ -115,11 +115,15 @@
     <div class="promotion">
       <h3>프로모션</h3>
       <ul>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
-        <li></li>
+        <li>
+          <img src="/img/event-01.png" />
+        </li>
+        <li>
+          <img src="/img/event-02.png" />
+        </li>
+        <li>
+          <img src="/img/event-03.png" />
+        </li>
       </ul>
     </div>
 
@@ -227,7 +231,6 @@ export default {
   }
 }
 
-
 .quick-order{
   .title{
     span{
@@ -320,10 +323,19 @@ export default {
     margin-bottom:15px;
   }
   li{
-    height:120px;
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    height:140px;
     border-radius:5px;
     background:#e2e2e2;
     margin-bottom:15px;
+    overflow:hidden;
+
+    img{
+      display:block;
+      height:100%;
+    }
   }
 }
 
