@@ -11,6 +11,7 @@ import TimeSelect from '../views/order/timeSelect'
 import Product from '../views/order/product'
 import Basket from '../views/order/basket'
 import UserMessage from '../views/order/userMessage'
+import MyOrder from '../views/myOrder'
 
 Vue.use(VueRouter);
 
@@ -70,6 +71,11 @@ const routes = [
     path:"/userMessage",
     name:"userMessage",
     component: UserMessage,
+  },
+  {
+    path:"/myOrder",
+    name:"myOrder",
+    component: MyOrder,
   },
 ];
 
