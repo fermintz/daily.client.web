@@ -61,7 +61,7 @@
 
 
     <div class="btns">
-      <v-btn text class="basket">
+      <v-btn text class="basket" @click="requst('basket',true)">
         장바구니
       </v-btn>
       <v-btn text class="next">
@@ -104,6 +104,11 @@ export default {
       this.priceTable = result;
       console.log(this.priceTable);
     },
+
+    requst(type, value){
+      const data = JSON.stringify({type:type, value:value})
+      window.ReactNativeWebView.postMessage(data)
+    },
   },
 };
 </script>
@@ -111,7 +116,7 @@ export default {
 <style lang="scss" scoped>
 .product {
   padding:0px;
-  
+
   
   .page-title{
     padding:0 20px;
@@ -130,6 +135,10 @@ export default {
       min-width:60px;
       padding:0px;
     }
+  }
+
+  .v-tabs-items{
+    height:100vh
   }
 
 

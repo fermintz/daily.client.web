@@ -9,6 +9,7 @@ import WorkHistory from '../views/workHistory'
 import DateSelect from '../views/order/dateSelect'
 import TimeSelect from '../views/order/timeSelect'
 import Product from '../views/order/product'
+import Basket from '../views/order/basket'
 
 Vue.use(VueRouter);
 
@@ -58,6 +59,11 @@ const routes = [
     path:"/workHistory",
     name:"workHistory",
     component: WorkHistory,
+  },
+  {
+    path:"/basket",
+    name:"basket",
+    component: Basket,
   },
 ];
 
