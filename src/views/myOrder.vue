@@ -1,6 +1,6 @@
 <template>
   <div class="myOrder contents">
-    <div class="myOrderTitle">
+    <div class="page-title">
       <h2><span>어흥</span>님의<br>주문/배송내역</h2>
     </div>
 
@@ -85,14 +85,18 @@ export default {
 .myOrder{
   padding:30px 20px;
 
-  .myOrderTitle{
-    font-size:16px;
-    line-height:30px;
-    span{color:#0CA0E2;font-weight:bold;}
+  .page-title{
+    h2{
+      font-size:24px;
+      line-height:30px;
+    } 
+    span{color:#0CA0E2;
+    font-weight:bold;
+    }
   }
 
   ul{
-    li{margin-bottom:15px;}
+    li{margin-bottom:20px;}
     li:last-child{
       margin-bottom:0px;
     }
@@ -108,6 +112,7 @@ export default {
     overflow: hidden;
     border-radius:10px;
     border:1px solid #e2e2e2;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
 
     .top{
       display:flex;
