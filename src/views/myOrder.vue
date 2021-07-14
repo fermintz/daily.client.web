@@ -25,8 +25,15 @@
             </span>
           </div>
           <div class="order-info">
-            <div class="text">와이셔츠 외 13종</div>
-            <div class="price">98,500 원</div>
+            <div class="product-name">와이셔츠 외</div>
+            <dl class="pickup">
+              <dt>수거일</dt>
+              <dd>2021.07.06 오전</dd>
+            </dl>
+            <dl class="price">
+              <dt>최종결제금액</dt>
+              <dd>98,500 원</dd>
+            </dl>
           </div>
         </div>
         <div class="bottom">
@@ -37,7 +44,7 @@
       <li class="myOrderCard">
         <div class="top">
           <div class="date">
-            2021.07.05
+            2021.06.18
           </div>
           <v-btn text :ripple="false">
             <label>주문/배송 상세</label>
@@ -52,8 +59,15 @@
             </span>
           </div>
           <div class="order-info">
-            <div class="text">와이셔츠 외 13종</div>
-            <div class="price">98,500 원</div>
+            <div class="product-name">이불 대형 외</div>
+            <dl class="pickup">
+              <dt>수거일</dt>
+              <dd>2021.07.06 오전</dd>
+            </dl>
+            <dl class="price">
+              <dt>최종결제금액</dt>
+              <dd>98,500 원</dd>
+            </dl>
           </div>
         </div>
       </li>
@@ -164,17 +178,37 @@ export default {
         flex:1;
         border-left:1px solid #e2e2e2;
         padding-left:20px;
-        .text{
-          font-size:16px;
-        }
-        .price{
-          margin-top:5px;
-          font-size:12px;
-          color:#888;
-        }
-      
-      }
 
+        .product-name{
+          font-size:14px;
+          color:#292929;
+          font-weight:bold;
+          margin-bottom:8px;
+        }
+
+        dl{
+          display:flex;
+          align-items: center;
+          margin-bottom:4px;
+          dt{
+            font-size:11px;
+            color:#888;
+            margin-right:5px;
+          }
+          dd{
+            flex:1;
+            font-size:11px;
+          }
+        }
+
+        dl:last-child{
+          margin-bottom:0px;
+        }
+
+
+        
+
+      }
     }
       
     .bottom{
