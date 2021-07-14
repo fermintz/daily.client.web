@@ -48,7 +48,7 @@
     </dl>
 
     <div class="btns">
-      <v-btn text>
+      <v-btn text @click="request('route','OrderDetail')">
         <label>완료하기</label>
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
@@ -89,7 +89,11 @@ export default {
       const messageBase = this.message
       messageBase[index].active = !this.message[index].active;
       return messageBase 
-    }
+    },
+    request(type, value){
+      const data = JSON.stringify({type:type, value:value})
+      window.ReactNativeWebView.postMessage(data)
+    },
   },
 }
 </script>

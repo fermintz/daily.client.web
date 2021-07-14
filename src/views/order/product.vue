@@ -61,11 +61,11 @@
 
 
     <div class="btns">
-      <v-btn text class="basket" @click="requst('basket',true)">
+      <v-btn text class="basket" @click="request('basket',true)">
         <label>장바구니</label>
         <div class="badge">6</div>
       </v-btn>
-      <v-btn text class="next" @click="requst('route','UserAsk')">
+      <v-btn text class="next" @click="request('route','UserAsk')">
         <label>14,900원 예약하기</label>
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
@@ -107,7 +107,7 @@ export default {
       console.log(this.priceTable);
     },
 
-    requst(type, value){
+    request(type, value){
       const data = JSON.stringify({type:type, value:value})
       window.ReactNativeWebView.postMessage(data)
     },
