@@ -23,6 +23,14 @@ body{
   margin:0px;
 }
 
+input::placeholder{
+  font-size:13px;
+}
+
+textarea::placeholder{
+  font-size:13px;
+}
+
 .contents{
   padding:0 26px;
 }

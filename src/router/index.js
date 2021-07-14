@@ -10,6 +10,7 @@ import DateSelect from '../views/order/dateSelect'
 import TimeSelect from '../views/order/timeSelect'
 import Product from '../views/order/product'
 import Basket from '../views/order/basket'
+import UserMessage from '../views/order/userMessage'
 
 Vue.use(VueRouter);
 
@@ -64,6 +65,11 @@ const routes = [
     path:"/basket",
     name:"basket",
     component: Basket,
+  },
+  {
+    path:"/userMessage",
+    name:"userMessage",
+    component: UserMessage,
   },
 ];
 

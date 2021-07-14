@@ -62,10 +62,12 @@
 
     <div class="btns">
       <v-btn text class="basket" @click="requst('basket',true)">
-        장바구니
+        <label>장바구니</label>
+        <div class="badge">6</div>
       </v-btn>
-      <v-btn text class="next">
-        결제하기
+      <v-btn text class="next" @click="requst('route','UserAsk')">
+        <label>14,900원 예약하기</label>
+        <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
     </div>
   </div>
@@ -261,16 +263,46 @@ export default {
     position: fixed;
     width:100%;
     bottom:0px;
-    padding:15px;
-    padding-bottom:15px;
     z-index:2;
-    background: rgb(0,144,255);
-    background: linear-gradient(180deg, rgba(0,144,255,0) 0%, rgba(0,0,0,0.15) 100%);
+    border-top:1px solid #c2c2c2;
+    border-bottom:1px solid #c2c2c2;
 
     .v-btn{
-      border:1px solid #c2c2c2;
-      height:44px;
+      height:50px;
       background:#fff;
+      border-radius:0;
+      border-right:1px solid #c2c2c2;
+    }
+
+    .v-btn.basket{
+      .badge{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        width:18px;
+        height:18px;
+        border-radius:100px;
+        background:#D20A61;
+        color:#fff;
+        font-size:10px;
+        margin-left:5px;
+      }
+    }
+
+    .v-btn.next{
+      label{
+        font-size:14px;
+      }
+
+      .v-icon{
+        color:#0CA0E2;
+        font-size:18px;
+        margin-left:5px;
+      }
+    }
+    
+    .v-btn:last-child{
+      border-right:0;
     }
 
     .basket{
@@ -279,7 +311,6 @@ export default {
 
     .next{
       flex:2;
-      margin-left:10px;
     }
   }
 }
