@@ -100,7 +100,7 @@
     <div class="payment-info">
       <div class="payment-info-top">
         <h3>결제정보</h3>
-        <v-btn text plain @click="requst('modal',true)">쿠폰사용</v-btn>
+        <v-btn text plain @click="request('modal',true)">쿠폰사용</v-btn>
       </div>
 
       <div class="price-info">
@@ -124,7 +124,7 @@
       </div>
     </div>
 
-    <div class="divider" />
+    <!-- <div class="divider" />
 
     <div class="credit-select">
       <h3>결제카드 선택</h3>
@@ -152,12 +152,16 @@
           <v-icon>mdi-plus</v-icon>
         </v-btn>
       </div>
-    </div>
+    </div> -->
 
     <div class="divider" />
 
     <div class="detail-bottom">
-      <div class="terms-btn" v-ripple>
+      <div 
+        class="terms-btn" 
+        @click="request('termsModal', true)"
+        v-ripple
+      >
         <span>서비스정책(세탁정책, 보상정책, 유실물처리방침)에 대한 동의</span>
         <v-icon>mdi-arrow-right-circle</v-icon>
       </div>
@@ -196,12 +200,6 @@
         <label> 위 내용을 확인하였으며 결제에 동의합니다 </label>
       </v-btn>
 
-      <v-btn 
-        text 
-        plain 
-        class="finish-btn"
-        @click="requst('route','OrderFinish')"
-      > 주문완료 </v-btn>
     </div>
   </div>
 </template>
@@ -215,7 +213,7 @@ export default {
     };
   },
   methods:{
-    requst(type, value){
+    request(type, value){
       const data = JSON.stringify({type:type, value:value})
       window.ReactNativeWebView.postMessage(data)
     },
@@ -225,7 +223,7 @@ export default {
 
 <style lang="scss" scoped>
 .orderDetail {
-  padding-bottom: 26px;
+  padding-bottom: 80px;
 
   .page-title {
     p {
