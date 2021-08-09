@@ -39,7 +39,7 @@
         </div>
         <div class="goods" v-for="item in tab.product" :key="item">
           <div class="goods-info">
-            <span class="title">
+            <span class="goods-name">
               <label>{{ item.name }}</label>
               <v-btn icon>
                 <v-icon >mdi-help-circle-outline</v-icon>
@@ -65,7 +65,7 @@
         <label>장바구니</label>
         <div class="badge">6</div>
       </v-btn>
-      <v-btn text class="next" @click="request('route','UserAsk')">
+      <v-btn text class="next" @click="$router.push('userMessage')">
         <label>14,900원 예약하기</label>
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
@@ -202,7 +202,7 @@ export default {
       .goods-info{
         flex:1;
         span{display:block;}
-        span.title{
+        span.goods-name{
           display:flex;
           align-items: center;
           label{}

@@ -7,7 +7,7 @@
 
     <div class="times">
       <div class="time_item" v-ripple v-for="item in timeData" :key="item"
-        @click="requst('route','ProductSelect')"
+        @click="$router.push('product')"
       >
         <div class="left">
           <strong>{{ item.text }}</strong>

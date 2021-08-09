@@ -5,7 +5,7 @@
         고객님의 세탁물 배달이<br />
         완료되었습니다
       </h2>
-      <a @click="requst('route','workHistory')">작업 히스토리 보기</a>
+      <a @click="$router.push">작업 히스토리 보기</a>
 
       <div class="btns">
         <v-btn text plain @click="requst('message', true)">주문취소</v-btn>
@@ -220,7 +220,8 @@ export default {
 
 <style lang="scss" scoped>
 .myOrderDetail {
-  padding-bottom: 26px;
+  padding: 26px;
+  padding-top:0px;
 
   .order-state {
     a {

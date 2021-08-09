@@ -12,7 +12,7 @@
             class="day_item"
             @click="requst('route','TimeSelect')"
           >
-            <div class="day_in_item" :class="{holiday: item.holiday}">
+            <div class="day_in_item" :class="{holiday: item.holiday}" @click="$router.push('timeSelect')">
               <strong>{{item.day}}</strong>
               <span>{{item.dayText}}</span>
             </div>
@@ -20,11 +20,18 @@
         </v-col>
       </v-row>
     </div>
+
+    <ShopLoading ref="shopLoading"/>
   </div>
 </template>
 
 <script>
+import ShopLoading from '@/components/modal/shopLoading'
+
 export default {
+  components:{
+    ShopLoading
+  },
   data(){
     return{
       days:[
@@ -55,6 +62,11 @@ export default {
         }
       ],
     }
+  },
+  mounted(){
+    setTimeout(()=>{
+      this.$refs.shopLoading.handle(false)
+    },300000)
   },
   methods:{
     requst(type, value){

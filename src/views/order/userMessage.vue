@@ -48,8 +48,8 @@
     </dl>
 
     <div class="btns">
-      <v-btn text @click="request('route','OrderDetail')">
-        <label>완료하기</label>
+      <v-btn text @click="$router.push('orderDetail')">
+        <label>결제하기</label>
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
     </div>
@@ -124,6 +124,8 @@ export default {
 
   .check-list{
     margin-bottom:20px;
+    padding:0px;
+
     li{
       display:Flex;
       align-items: center;

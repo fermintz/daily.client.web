@@ -100,7 +100,7 @@
     <div class="payment-info">
       <div class="payment-info-top">
         <h3>결제정보</h3>
-        <v-btn text plain @click="request('modal',true)">쿠폰사용</v-btn>
+        <v-btn text plain @click="$refs.couponUse.handle(true)">쿠폰사용</v-btn>
       </div>
 
       <div class="price-info">
@@ -159,13 +159,17 @@
     <div class="detail-bottom">
       <div 
         class="terms-btn" 
-        @click="request('termsModal', true)"
+        @click="$refs.termsView.handle(true)"
         v-ripple
       >
         <span>서비스정책(세탁정책, 보상정책, 유실물처리방침)에 대한 동의</span>
         <v-icon>mdi-arrow-right-circle</v-icon>
       </div>
-      <div class="terms-btn" v-ripple>
+      <div 
+        class="terms-btn" 
+        v-ripple
+        @click="$refs.termsView.handle(true)"
+      >
         <span>개인정보 수집 및 이용동의</span>
         <v-icon>mdi-arrow-right-circle</v-icon>
       </div>
@@ -199,13 +203,27 @@
         >
         <label> 위 내용을 확인하였으며 결제에 동의합니다 </label>
       </v-btn>
+      
+      <v-btn text class="order-finish-btn" @click="$router.push('orderFinish')">
+        결제하기
+      </v-btn>
 
     </div>
+
+    <CouponUse ref="couponUse"/>
+    <TermsView ref="termsView"/>
   </div>
 </template>
 
+
 <script>
+import CouponUse from '@/components/modal/couponUse'
+import TermsView from '@/components/modal/termsView'
+
 export default {
+  components:{
+    CouponUse, TermsView
+  },
   data() {
     return {
       creditSeleted: 0,
@@ -309,6 +327,7 @@ export default {
     dl.washing {
       dd {
         .user-check {
+          padding:0px;
           li {
             display: flex;
             font-size: 12px;
@@ -346,6 +365,7 @@ export default {
 
   .product-info {
     ul {
+      padding:0px;
       li {
         display: flex;
         align-items: center;
@@ -443,6 +463,7 @@ export default {
 
   .credit-select {
     .card-list {
+      padding:0px;
       li {
         display: flex;
         border: 1px solid #e2e2e2;
@@ -523,6 +544,7 @@ export default {
     }
 
     ul {
+      padding:0px;
       li {
         color: #888;
         font-size: 12px;
@@ -549,6 +571,19 @@ export default {
     width: 100%;
     margin-top: 20px;
     font-size: 16px;
+  }
+
+  .order-finish-btn{
+    position: fixed;
+    bottom:0px;
+    left:0px;
+    border-radius:0px;
+    width:100%;
+    height:50px;
+    margin-top:20px;
+    background:#0ca0e2;
+    color:#fff;
+    font-size:14px;
   }
 }
 </style>
