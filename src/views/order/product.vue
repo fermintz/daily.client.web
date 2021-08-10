@@ -51,7 +51,7 @@
             {{ item.userAmount }} 원
           </div>
           <div class="goods-btns">
-            <v-btn icon class="add">
+            <v-btn icon class="add" @click="$refs.snackbar.handle(true)">
               <v-icon>mdi-plus</v-icon>
             </v-btn>
           </div>
@@ -72,16 +72,18 @@
     </div>
 
     <Basket ref="basket"/>
+    <Snackbar ref="snackbar" text="장바구니에 담았습니다"/>
   </div>
 </template>
 
 <script>
 import { groupBy } from "lodash";
 import Basket from '@/components/modal/basket'
+import Snackbar from '@/components/modal/snackbar'
 
 export default {
   components:{
-    Basket
+    Basket, Snackbar
   },
   mounted() {
     this.getProductList();
