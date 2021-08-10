@@ -32,7 +32,14 @@
                 placeholder="MM"
                 type="number"
                 color="#0CA0E2"
-              />
+                counter="2"
+                maxlength="20"
+                style="margin-right:10px;"
+              >
+                <template slot:input="{item}">
+                  <input type="text">
+                </template>
+              </v-text-field>
               <v-text-field
                 dense
                 hide-details="auto"
@@ -84,6 +91,7 @@
                 type="number"
                 placeholder="10자리 (예:990214)"
                 color="#0CA0E2"
+                
               />
             </dd>
           </dl>

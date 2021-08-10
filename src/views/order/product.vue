@@ -61,7 +61,7 @@
 
 
     <div class="btns">
-      <v-btn text class="basket" @click="request('basket',true)">
+      <v-btn text class="basket" @click="$refs.basket.handle(true)">
         <label>장바구니</label>
         <div class="badge">6</div>
       </v-btn>
@@ -70,13 +70,19 @@
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
     </div>
+
+    <Basket ref="basket"/>
   </div>
 </template>
 
 <script>
 import { groupBy } from "lodash";
+import Basket from '@/components/modal/basket'
 
 export default {
+  components:{
+    Basket
+  },
   mounted() {
     this.getProductList();
   },
