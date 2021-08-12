@@ -1,8 +1,11 @@
 <template>
   <v-dialog
     v-model="visible"
+    hide-overlay
+    fullscreen
+    transition="dialog-bottom-transition"
   >
-    <div class="termsView">
+    <div class="termsView modal">
       <div class="modal-head">
         <h2>서비스정책</h2>
         <v-btn icon @click="visible = false">

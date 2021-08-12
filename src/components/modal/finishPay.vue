@@ -1,11 +1,9 @@
 <template>
-  <v-dialog
+  <v-bottom-sheet
     v-model="visible"
     hide-overlay
-    fullscreen
-    transition="dialog-bottom-transition"
   >
-    <div class="inner">
+
       <div class="finishPay">
         <div class="head">
           <h3>결제카드 선택</h3>
@@ -39,6 +37,7 @@
           </li>
         </ul>
 
+
         <div class="cardAddBtn">
           <v-btn text>
             <v-icon>mdi-plus</v-icon>
@@ -46,15 +45,21 @@
           </v-btn>
         </div>
 
+        
+
         <div class="finishBtn" @click="$router.push('orderFinish')">
+          <div class="total">
+            <span>최종결제금액</span>
+            <strong>34,900</strong>
+          </div>
           <v-btn text>
             <label>결제완료하기</label>
           </v-btn>
         </div>
       </div> <!-- finishPay -->
-    </div> <!-- inner -->
+
     
-  </v-dialog>
+  </v-bottom-sheet>
 </template>
 
 <script>
@@ -76,18 +81,13 @@ export default {
 
 <style lang="scss" scoped>
 
-.inner{
-  display:flex;
-  height:100%;
-}
+
 
 .finishPay{
   width:100%;
   align-self: flex-end;
   background:#fff;
   border-top:1px solid #e2e2e2;
-  border-radius:15px 15px 0 0;
-  box-shadow: -5px 0 30px rgba(0,0,0,0.15);
 
   .head{
     display:flex;
@@ -100,8 +100,6 @@ export default {
       font-weight:bold;
     }
   }
-
-  
 
   .card-list {
       padding:15px;
@@ -169,10 +167,35 @@ export default {
 
     .finishBtn{
       padding:20px;
+
+      .total{
+        display:flex;
+        justify-content: space-between;
+        align-items: center;
+
+        span{
+          color:#898989;
+        }
+        strong{
+          font-family:'Roboto';
+          font-size:18px;
+          font-weight:bold;
+          color:#d22828;
+        }
+        strong:after{
+          content:'원';
+          font-size:14px;
+          margin-left:5px;
+          font-weight:normal;
+          color:#292929;
+        }
+      }
+
+      
       .v-btn{
         width:100%;
         height:50px;
-        margin-top:20px;
+        margin-top:10px;
         background:#0ca0e2;
         color:#fff;
         font-size:14px;

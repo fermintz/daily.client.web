@@ -1,47 +1,52 @@
 <template>
   <v-dialog
     v-model="visible"
+    overlay-opacity="0"
+    @click="handle(false)"
+    class="dialog"
   >
-    <div class="placeSelect">
-      <div class="modal-head">
-        <h2>수거/배달 장소선택</h2>
-        <p>수거/배달에 필요한 장소를 선택해주세요</p>
-      </div>
-      
-      <div class="list">
-        <div class="no-data">
-          등록된 장소가 없습니다
+    <div class="placeSelect modal">
+      <div class="inner">
+        <div class="modal-head">
+          <h2>수거/배달 장소선택</h2>
+          <p>수거/배달에 필요한 장소를 선택해주세요</p>
         </div>
-        <ul>
-          <li>
-            <strong>우리집</strong>
-            <span>부산광역시 금정구 부산대학로 63번길 2 과학기술연구동 201호 페이오티</span>
-            <p>
-              <v-icon>mdi-lock-outline</v-icon>
-              <span>#1253 누르고 종누르시면 됩니다</span>
-            </p>
-          </li>
+        
+        <div class="list">
+          <div class="no-data">
+            등록된 장소가 없습니다
+          </div>
+          <ul>
+            <li>
+              <strong>우리집</strong>
+              <span>부산광역시 금정구 부산대학로 63번길 2 과학기술연구동 201호 페이오티</span>
+              <p>
+                <v-icon>mdi-lock-outline</v-icon>
+                <span>#1253 누르고 종누르시면 됩니다</span>
+              </p>
+            </li>
 
-          <li>
-            <strong>회사</strong>
-            <span>부산광역시 금정구 부산대학로 63번길 2 과학기술연구동 201호 페이오티</span>
-          </li>
+            <li>
+              <strong>회사</strong>
+              <span>부산광역시 금정구 부산대학로 63번길 2 과학기술연구동 201호 페이오티</span>
+            </li>
 
-          <li>
-            <strong>우리집</strong>
-            <span>부산광역시 금정구 부산대학로 63번길 2 과학기술연구동 201호 페이오티</span>
-            <p>
-              <v-icon>mdi-lock-outline</v-icon>
-              <span>#1253 누르고 종누르시면 됩니다</span>
-            </p>
-          </li>
+            <li>
+              <strong>우리집</strong>
+              <span>부산광역시 금정구 부산대학로 63번길 2 과학기술연구동 201호 페이오티</span>
+              <p>
+                <v-icon>mdi-lock-outline</v-icon>
+                <span>#1253 누르고 종누르시면 됩니다</span>
+              </p>
+            </li>
 
-        </ul>
+          </ul>
 
-        <v-btn text class="addBtn">
-          <v-icon>mdi-plus-circle-outline</v-icon>
-          <label>장소 추가하기</label>
-        </v-btn>
+          <v-btn text class="addBtn">
+            <v-icon>mdi-plus-circle-outline</v-icon>
+            <label>장소 추가하기</label>
+          </v-btn>
+        </div>
       </div>
     </div>
   </v-dialog>
@@ -53,13 +58,24 @@ export default {
     return{
       visible:true,
     }
+  },
+  methods:{
+    handle(value){
+      this.visible = value
+    }
   }
 }
 </script>
 
 <style lang="scss" scoped>
+
+.v-.dialog.dialog{
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+}
+
 .placeSelect{
   background:#fff;
+
   .modal-head{
     border-bottom:1px solid #e2e2e2;
     padding:20px;

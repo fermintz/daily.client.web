@@ -96,15 +96,10 @@ html{
   display:none;
 }
 
-
 .v-dialog{
-  // display:flex;
-  // flex:1;
-  // height:100%;
   box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
-  border-radius:0px;
-  // overflow:hidden;
-  // margin:0px;
-  // padding:0px;
-  // z-index:999;
+}
+
+.v-bottom-sheet{
+  box-shadow: 0 -5px 20px rgba(0,0,0,0.15);
 }

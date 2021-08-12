@@ -1,62 +1,69 @@
 <template>
-  <v-dialog
+  <v-bottom-sheet
     v-model="visible"
-    fullscreen
-    transition="dialog-bottom-transition"
-  >
-    <div class="basket">
-      <div class="basket-head">
-        <h2>
-          장바구니
-        </h2>
-        <v-btn icon @click="handle(false)">
-          <v-icon>mdi-close</v-icon>
-        </v-btn>
-      </div>
+    overlay-opacity="0"
+    scrollable
+   >
 
-      <div class="basket-cont">
-
-        <div class="goods-item" v-for="item in 2" :key="item">
-          <div class="item-top">
-            <label>미용실 수건류 80L</label>
-            <v-btn icon>
+      <div class="basket">
+        <div class="basket-head">
+          <div class="basket-title">
+            <v-icon>mdi-basket-outline</v-icon>
+            <label>장바구니</label>
+          </div>
+          <div class="head-btns">
+            <v-btn text>
+              <label>모두 지우기</label>
+            </v-btn>
+            <v-btn icon class="close">
               <v-icon>mdi-close</v-icon>
             </v-btn>
           </div>
-          <div class="divider" />
-          <div class="item-bottom">
-            <div class="amount">
-              <v-btn text>
-                <v-icon>mdi-minus</v-icon>
-              </v-btn>
-              <span>
-                02
-              </span>
-              <v-btn text>
-                <v-icon>mdi-plus</v-icon>
-              </v-btn>
-            </div>
-            <div class="price">
-              5,000 원
-            </div>
-          </div>
         </div>
 
-      </div>
-      <div class="basket-bottom">
-        <dl class="total">
-          <dt>총금액</dt>
-          <dd>55,800 원</dd>
-        </dl>
-        <div class="divider"></div>
-        <div class="btns">
-          <v-btn text @click="handle(false)"> 
-            장바구니 닫기
-          </v-btn>
+        <div class="basket-cont">
+          <div class="goods-item" v-for="item in 12" :key="item">
+            <div class="item-top">
+              <label>미용실 수건류 80L</label>
+              <v-btn icon>
+                <v-icon>mdi-close</v-icon>
+              </v-btn>
+            </div>
+            <div class="divider" />
+            <div class="item-bottom">
+              <div class="amount">
+                <v-btn text>
+                  <v-icon>mdi-minus</v-icon>
+                </v-btn>
+                <span>
+                  02
+                </span>
+                <v-btn text>
+                  <v-icon>mdi-plus</v-icon>
+                </v-btn>
+              </div>
+              <div class="price">
+                5,000 원
+              </div>
+            </div>
+          </div>
+
+        </div>
+        <div class="basket-bottom">
+          <dl class="total">
+            <dt>총금액</dt>
+            <dd>55,800 원</dd>
+          </dl>
+          <div class="divider"></div>
+          <div class="btns">
+            <v-btn text @click="handle(false)"> 
+              장바구니 닫기
+            </v-btn>
+          </div>
         </div>
       </div>
-    </div>
-  </v-dialog>
+
+  </v-bottom-sheet>
 </template>
 
 <script>
@@ -75,50 +82,85 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
 .basket{
+  padding:15px;
+  padding-top:0px;
+  padding-bottom:80px;
   background:#fff;
-  height:100%;
+  overflow-y:scroll;
 }
 
 .basket-head{
-  position: sticky;
-  display:flex;
-  justify-content: space-between;
-  align-items: center;
+  position:sticky;
   top:0px;
   width:100%;
-  background:#0686D2;
-  border-bottom:1px solid #e2e2e2;
-  z-index:10;
+  display:flex;
+  justify-content:space-between;
+  align-items: center;
   height:60px;
+  background:#fff;
+  z-index:12;
 
+  .basket-title{
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    border-radius:20px;
 
-  h2{
-    margin-left:20px;
-    font-size:18px;
-    color:#fff;
-  }
-  .v-btn{
-    height:40px;
-    width:40px;
-    margin-right:10px;
+    label{
+      font-size:18px;
+      font-weight:bold;
+      color:#292929;
+    }
 
     .v-icon{
-      color:#fff;
+      color:#292929;
+      font-size:18px;
+      margin-right:5px;
+    }
+    
+  }
+
+  .head-btns{
+
+    .v-btn{
+      height:30px;
+      background:#292929;
+      border-radius:20px;
+
+      label{
+        color:#fff;
+      }
+    }
+    .v-btn.close{
+      width:30px;
+      height:30px;
+      background:#292929;
+      margin-left:10px;
+
+      .v-icon{
+        color:#fff;
+        font-size:18px;
+      }
     }
   }
+
+  
+
+  
 }
 
 .basket-cont{
-  padding-bottom:60px;
-  padding-top:10px;
-   
+  background:#fff;
+  overflow-y:auto;
+
     .goods-item{
       padding:15px;
       margin-bottom:10px;
       background:#fff;
-      border-top:1px solid #e2e2e2;
-      border-bottom:1px solid #e2e2e2;
+      border:1px solid #e2e2e2;
+      border-radius:10px;
 
       .divider{
         height:1px;
