@@ -95,3 +95,16 @@ html{
 .v-tabs:not(.v-tabs--vertical):not(.v-tabs--right) > .v-slide-group--is-overflowing.v-tabs-bar--is-mobile:not(.v-slide-group--has-affixes) .v-slide-group__prev{
   display:none;
 }
+
+
+.v-dialog{
+  // display:flex;
+  // flex:1;
+  // height:100%;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
+  border-radius:0px;
+  // overflow:hidden;
+  // margin:0px;
+  // padding:0px;
+  // z-index:999;
+}

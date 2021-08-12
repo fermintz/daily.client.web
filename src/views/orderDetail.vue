@@ -204,7 +204,7 @@
         <label> 위 내용을 확인하였으며 결제에 동의합니다 </label>
       </v-btn>
       
-      <v-btn text class="order-finish-btn" @click="$router.push('orderFinish')">
+      <v-btn text class="order-finish-btn" @click="$refs.finishPay.handle(true)">
         결제하기
       </v-btn>
 
@@ -212,6 +212,7 @@
 
     <CouponUse ref="couponUse"/>
     <TermsView ref="termsView"/>
+    <FisnishPay ref="finishPay"/>
   </div>
 </template>
 
@@ -219,10 +220,11 @@
 <script>
 import CouponUse from '@/components/modal/couponUse'
 import TermsView from '@/components/modal/termsView'
+import FisnishPay from '@/components/modal/finishPay'
 
 export default {
   components:{
-    CouponUse, TermsView
+    CouponUse, TermsView, FisnishPay
   },
   data() {
     return {
