@@ -3,7 +3,7 @@
     <div class="sub">
       <div class="subHead">
         <div class="back">
-          <v-btn icon @click="$router.go(-1)">
+          <v-btn icon @click="request('back')">
             <v-icon>
               mdi-arrow-left
             </v-icon>
@@ -16,6 +16,17 @@
     </div>
   </v-app>
 </template>
+
+<script>
+export default {
+  methods:{
+    requst(type, value){
+      const data = JSON.stringify({type:type, value:value})
+      window.ReactNativeWebView.postMessage(data)
+    },
+  },
+}
+</script>
 
 <style lang="scss" scoped>
 

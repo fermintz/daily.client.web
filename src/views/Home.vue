@@ -14,7 +14,10 @@
           <p>가까운 세탁소에 대신 세탁물을<br>맏겨드립니다</p>
         </div>
 
-        <v-btn @click="$router.push('dateSelect')" class="orderBtn" text plain>
+        <v-btn 
+          @click="requst('route','dateSelect')" class="orderBtn" text plain
+          
+        >
           <label>세탁 예약하기</label>
           <v-icon color="#01A1DF">mdi-arrow-right</v-icon>
         </v-btn>

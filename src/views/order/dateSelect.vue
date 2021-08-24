@@ -1,5 +1,13 @@
 <template>
   <div class="dateSelect contents">
+
+    <div class="back">
+      <v-btn @click="requst('back')" text>
+        <v-icon>mdi-arrow-left</v-icon>
+        <label>뒤로가기</label>
+      </v-btn>
+    </div>
+
     <div class="page-title">
       <h2>어떤 날짜에 수거 해 갈까요?</h2>
       <p>선택하신 날짜에 세탁물을 수거합니다</p>
@@ -79,6 +87,20 @@ export default {
 
 <style lang="scss" scoped>
 .dateSelect{
+
+  .back{
+    margin-bottom:20px;
+    .v-btn{
+      background:#f2f2f2;
+      border-radius:100px;
+      height:40px;
+      
+      .v-icon{
+        margin-right:10px;
+      }
+    }
+  }
+
   .page-title {
     p {
       margin-top: 5px;

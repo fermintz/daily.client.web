@@ -24,6 +24,7 @@ import Phone from '../views/first/phone'
 import Address from '../views/first/address'
 import Gate from '../views/first/gate'
 import OrderFinish from '../views/order/orderFinish'
+import Login from '../views/login'
 
 Vue.use(VueRouter);
 
@@ -47,7 +48,13 @@ const routes = [
         name:"mypage",
         component: Mypage,
       },
+      
     ],
+  },
+  {
+    path:"/login",
+    name:"login",
+    component: Login,
   },
 
   {
