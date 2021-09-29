@@ -11,7 +11,7 @@
     </div>
 
     <div class="finish-btns">
-      <v-btn text>
+      <v-btn text @click="$router.push('/')">
         메인으로 돌아가기
       </v-btn>
       <v-btn text>

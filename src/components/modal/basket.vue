@@ -15,9 +15,6 @@
             <v-btn text>
               <label>모두 지우기</label>
             </v-btn>
-            <v-btn icon class="close">
-              <v-icon>mdi-close</v-icon>
-            </v-btn>
           </div>
         </div>
 
@@ -89,6 +86,7 @@ export default {
   padding-bottom:80px;
   background:#fff;
   overflow-y:scroll;
+  border-top:1px solid #292929;
 }
 
 .basket-head{

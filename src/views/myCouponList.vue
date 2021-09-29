@@ -61,15 +61,20 @@ export default {
     margin:30px 0 ;
     padding:0px;
 
-    li.no-data{
+    .no-data{
+      display:flex;
+      justify-content: center;
+      align-items: center;
       text-align:center;
-      color:#888;
+      height:50px;
+      border-radius:25px;
+      margin-bottom:20px;
+      background:#f8f8f8;
     }
   }
  
   
   .coupon-guide{
-    border:1px solid #e2e2e2;
     padding:15px;
     background:#f8f8f8;
     border-radius:10px;

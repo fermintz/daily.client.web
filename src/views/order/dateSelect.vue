@@ -1,13 +1,5 @@
 <template>
   <div class="dateSelect contents">
-
-    <div class="back">
-      <v-btn @click="requst('back')" text>
-        <v-icon>mdi-arrow-left</v-icon>
-        <label>뒤로가기</label>
-      </v-btn>
-    </div>
-
     <div class="page-title">
       <h2>어떤 날짜에 수거 해 갈까요?</h2>
       <p>선택하신 날짜에 세탁물을 수거합니다</p>
@@ -20,7 +12,7 @@
             class="day_item"
             @click="requst('route','TimeSelect')"
           >
-            <div class="day_in_item" :class="{holiday: item.holiday}" @click="$router.push('timeSelect')">
+            <div class="day_in_item" :class="{holiday: item.holiday}" @click="$router.push('userMessage')">
               <strong>{{item.day}}</strong>
               <span>{{item.dayText}}</span>
             </div>
@@ -29,16 +21,16 @@
       </v-row>
     </div>
 
-    <ShopLoading ref="shopLoading"/>
+
   </div>
 </template>
 
 <script>
-import ShopLoading from '@/components/modal/shopLoading'
+
 
 export default {
   components:{
-    ShopLoading
+
   },
   data(){
     return{
@@ -72,9 +64,7 @@ export default {
     }
   },
   mounted(){
-    setTimeout(()=>{
-      this.$refs.shopLoading.handle(false)
-    },300000)
+
   },
   methods:{
     requst(type, value){

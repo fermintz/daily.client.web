@@ -1,8 +1,30 @@
 <template>
   <div class="product contents">
-    <div class="page-title">
-      <h2>맡기실 세탁물을 선택해주세요</h2>
+    <div class="shop_info">
+      <div class="cate">
+        <span>셀프빨래방</span>
+      </div>
+      <h2>워시프렌즈 광안점</h2>
+      <div class="shop_btns">
+        <v-btn text rounded>
+          <v-icon>mdi-map-marker</v-icon>
+          <label>위치</label>
+        </v-btn>
+        <v-btn text rounded>
+          <v-icon>mdi-phone</v-icon>
+          <label>전화</label>
+        </v-btn>
+      </div>
     </div>
+
+    <div class="info_btns">
+      <div class="btn" v-ripple>
+        <span><v-icon size="18" class="mr-1" color="#aaa">mdi-alert-circle</v-icon>이용불가품목 안내</span>
+        <v-icon>mdi-chevron-right</v-icon>
+      </div>
+    </div>
+
+    <div class="line" />
 
     <v-tabs
       v-model="tabActive"
@@ -48,7 +70,8 @@
             <span class="sub">일반적인 티티티티티셔츠</span>
           </div>
           <div class="goods-price">
-            {{ item.userAmount }} 원
+            <span>{{item.userAmount}}원</span>
+            <strong>{{ item.userAmount }}원</strong>
           </div>
           <div class="goods-btns">
             <v-btn icon class="add" @click="$refs.snackbar.handle(true)">
@@ -65,7 +88,7 @@
         <label>장바구니</label>
         <div class="badge">6</div>
       </v-btn>
-      <v-btn text class="next" @click="$router.push('userMessage')">
+      <v-btn text class="next" @click="$router.push('dateSelect')">
         <label>14,900원 예약하기</label>
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
@@ -127,10 +150,51 @@ export default {
 .product {
   padding:0px;
 
-  
-  .page-title{
-    padding:0 20px;
-    margin-bottom:30px;
+  .shop_info{
+    padding:30px 20px;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    .cate{
+      span{
+        color:#0CA0E2;
+      }
+    }
+    .shop_btns{
+      display:flex;
+      align-items: center;
+      margin-top:15px;
+      .v-btn{
+        background:#f2f2f2;
+        height:24px;
+        width:auto;
+        min-width:auto;
+        padding:0 10px;
+        margin-right:10px;
+        .v-icon{
+          font-size:14px;
+        }
+      }
+    }
+  } 
+
+  .info_btns{
+    border-top:1px solid #e2e2e2;
+    .btn{
+      height:50px;
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+      padding:0 15px;
+    }
+  }
+ 
+  .line{
+    height:10px;
+    background:#fff;
+    border-top:1px solid #e2e2e2;
+    border-bottom:1px solid #e2e2e2;
   }
 
   .v-tabs{
@@ -138,17 +202,19 @@ export default {
     top:0px;
     z-index:99;
     border-bottom:1px solid #e2e2e2;
-    padding:0 15px;
     background:#fff;
+    padding-top:10px;
+    padding-left:10px;
+    padding-right:10px;
 
     .v-tab{
-      min-width:60px;
+      min-width:58px;
       padding:0px;
     }
   }
 
   .v-tabs-items{
-    height:100vh
+    height:100%;
   }
 
 
@@ -168,7 +234,7 @@ export default {
     }
     label {
       display: block;
-      font-size: 9px;
+      font-size: 10px;
       margin-top: 8px;
       letter-spacing: 0;;
     }
@@ -190,35 +256,32 @@ export default {
   }
 
   .goods-list{
-    padding:20px;
     padding-bottom:80px;
     
     .tip{
       text-align:center;
-      background:#F4F5F8;
+      background:#f2f2f2;
       font-size:12px;
       padding:10px;
-      border-radius:5px;
+      color:#898989;
     }
 
     .goods{
       display:flex;
       align-items: center;
       border-bottom:1px solid #e2e2e2;
-      padding:15px 0;
+      padding:15px 15px;
 
       .goods-info{
         flex:1;
-        span{display:block;}
+        span{display:block;line-height:1.2;}
         span.goods-name{
           display:flex;
           align-items: center;
-          label{}
           .v-btn{
             width:20px;
             height:20px;
             padding:0px;
-            
             .v-icon{
               font-size:16px;
               color:#D20A61;
@@ -229,12 +292,25 @@ export default {
         span.sub{
           font-size:11px;
           color:#888;
-          margin-top:5px;
+          margin-top:3px;
         }
       }
       .goods-price{
-        font-size:12px;
-        margin:0 15px;
+        margin-right:15px;
+        text-align:right;
+        span{
+          font-size:11px;
+          color:#999;
+          line-height:1.2;
+          text-decoration:line-through;
+          display:block;
+        }
+        strong{
+          display:block;
+          font-weight:500;
+          line-height:1.2;
+        }
+        
       }
       .goods-btns{
         .v-btn{
@@ -272,17 +348,20 @@ export default {
     width:100%;
     bottom:0px;
     z-index:2;
-    border-top:1px solid #c2c2c2;
-    border-bottom:1px solid #c2c2c2;
+    padding:6px 6px 5px 6px;
+    border-top:1px solid #e2e2e2;
+    background:#fff;
 
     .v-btn{
       height:50px;
       background:#fff;
       border-radius:0;
-      border-right:1px solid #c2c2c2;
     }
 
     .v-btn.basket{
+      border:1px solid #c2c2c2;
+      border-radius:5px;
+      margin-right:6px;
       .badge{
         display:flex;
         justify-content: center;
@@ -298,12 +377,15 @@ export default {
     }
 
     .v-btn.next{
+      background:#0CA0E2;
+      border-radius:5px;
       label{
         font-size:14px;
+        color:#fff
       }
 
       .v-icon{
-        color:#0CA0E2;
+        color:#fff;
         font-size:18px;
         margin-left:5px;
       }

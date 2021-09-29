@@ -1,15 +1,11 @@
 <template>
   <div class="addressCard" v-ripple @click.stop="()=>{}">
     <div class="top">
-      <div class="icon">
-        <v-icon>mdi-check-circle-outline</v-icon>
-        <span>대표주소</span>
-      </div>
       
       <dl>
-        <dt>우리집</dt>
+        <dt>부산광역시 금정구 부산대학로 63번길 2</dt>
         <dd>
-          부산광역시 금정구 부산대학로 63번길 2 과학기술연구동 201호 페이오티
+           과학기술연구동 201호 페이오티
         </dd>
       </dl>
 
@@ -26,33 +22,14 @@
 
 <style lang="scss" scoped>
 .addressCard{
-  border:1px solid #e2e2e2;
-  margin-bottom:15px;
-  padding:15px;
-  border-radius:4px;
+  border-bottom:1px solid #e2e2e2;
+  padding:20px;
 
   .top{
     display:flex;
 
-    .icon{
-      display:flex;
-      flex-direction: column;
-
-      .v-icon{
-        font-size:32px;
-        color:#0CA0E2;
-      }
-      
-      span{
-        text-align: center;
-        font-size:10px;
-        color:#0CA0E2;
-        margin-top:5px;
-      }
-    }
-
-    .del{
-      background:#292929;
+  .del{
+      background:#d2d2d2;
       border-radius:4px;
       width:24px;
       height:24px;
@@ -63,25 +40,25 @@
     }
     dl{
       flex:1;
-      margin-left:20px;
+      margin-right:20px;
 
       dt{
-        font-size:16px;
+        font-size:14px;
         font-weight: bold;
       }
       dd{
-        font-size:12px;
+        font-size:14px;
         line-height:1.4;
         color:#888;
-        margin-top:5px;
+        margin-top:2px;
       }
     }
   }
 
   .gate{
-    background:#f8f8f8;
+    background:#F1F3F5;
     padding:10px;
-    border-radius: 4px;
+    border-radius: 5px;
     margin-top:15px;
 
     .v-icon{

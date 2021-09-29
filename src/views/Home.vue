@@ -3,153 +3,130 @@
     <PlaceSelect ref="placeSelect"/>
     <HomeHeader />
 
-    <div class="inner">
-
-      <AddPayment />
-      <BookingNotice />
-
-      <div class="main-visual">
-        <div class="mainTitle">
-          <h1>쉽고 간편하게<br><span>세탁을 시작해보세요</span></h1>
-          <p>가까운 세탁소에 대신 세탁물을<br>맏겨드립니다</p>
-        </div>
-
-        <v-btn 
-          @click="requst('route','dateSelect')" class="orderBtn" text plain
-          
-        >
-          <label>세탁 예약하기</label>
-          <v-icon color="#01A1DF">mdi-arrow-right</v-icon>
-        </v-btn>
-
-        <div class="quick-menu">
-          <v-row>
-            <v-col cols="3">
-              <dl @click="requst('route','DailyPrice')">
-                <dt>
-                  <img src="@/assets/img/price_table.png">
-                </dt>
-                <dd>세탁가격표</dd>
-              </dl>
-            </v-col>
-            <v-col cols="3">
-              <dl @click="requst('route','HowTo')">
-                <dt>
-                  <img src="@/assets/img/qna.png">
-                </dt>
-                <dd>이용방법</dd>
-              </dl>
-            </v-col>
-            <v-col cols="3">
-              <dl>
-                <dt>
-                  <img src="@/assets/img/talk.png">
-                </dt>
-                <dd>문의하기</dd>
-              </dl>
-            </v-col>
-            <v-col cols="3">
-              <dl @click="requst('route','MyCoupon')">
-                <dt>
-                  <img src="@/assets/img/coupon.png">
-                </dt>
-                <dd>나의쿠폰</dd>
-              </dl>
-            </v-col>
-          </v-row>
-        </div>
+    <div class="alert_message" v-ripple @click="$router.push('AddDetail')">
+      <div class="left">
+        <strong><v-icon class="mr-1" size="18px">mdi-alert</v-icon>주문 변동사항이 있습니다</strong>
+        <span>변동사항에 따라 추가금이 발생할 수 있습니다<br>내용을 확인해주세요</span>
       </div>
-
-      <div class="divider" />
-
-      <!-- <div class="quick-order">
-        <div class="title">
-          <span>빠른 세탁예약!</span>
-          <h2>오늘 세탁을 맡기실 예정이신가요?</h2>
-          <p>선택하신 시간때에 방문할게요</p>
-        </div>
-
-        <div class="quick-order-btns">
-          <v-row>
-            <v-col cols="4">
-              <dl class="disable">
-                <dt v-ripple>
-                  <label>오늘<br>오전</label>
-                  <span>
-                    <v-icon>mdi-arrow-right</v-icon>
-                  </span>
-                </dt>
-                <dd>
-                  <label>08:00 ~ 12:00</label>
-                  <span>예약마감</span>
-                </dd>
-              </dl>
-            </v-col>
-            <v-col cols="4">
-              <dl class="enable">
-                <dt v-ripple>
-                  <label>오늘<br>오후</label>
-                  <span>
-                    <v-icon>mdi-arrow-right</v-icon>
-                  </span>
-                </dt>
-                <dd>
-                  <label>14:00 ~ 19:00</label>
-                  <span>예약가능</span>
-                </dd>
-              </dl>
-            </v-col>
-            <v-col cols="4">
-              <dl class="enable">
-                <dt v-ripple>
-                  <label>9일<br>오전</label>
-                  <span>
-                    <v-icon>mdi-arrow-right</v-icon>
-                  </span>
-                </dt>
-                <dd>
-                  <label>08:00 ~ 12:00</label>
-                  <span>예약가능</span>
-                </dd>
-              </dl>
-            </v-col>
-          </v-row>
-        </div>
-      </div> -->
-
-      <div class="promotion">
-        <h3>프로모션</h3>
-        <ul>
-          <li>
-            <img src="/img/event-01.png" />
-          </li>
-          <li>
-            <img src="/img/event-02.png" />
-          </li>
-          <li>
-            <img src="/img/event-03.png" />
-          </li>
-        </ul>
-      </div>
-
+      <v-icon>mdi-arrow-right-circle</v-icon>
     </div>
 
-    
+    <div class="inner">
+      <div class="mainTitle">
+        <h1>쉽고 간편하게<br><span>세탁을 시작해보세요</span></h1>
+        <p>집앞으로 픽업하고 배송까지!</p>
+      </div>
+    </div>
+
+      <div class="res_btns">
+        <div class="btn" v-ripple @click="$router.push('shopSearch')">
+          <div class="image">
+            <img src="@/assets/img/main_btn01.png">
+          </div>
+          <dl>
+            <dt>
+              <span>셀프빨래방 대행</span>
+              <v-icon>mdi-arrow-right-circle</v-icon>
+            </dt>
+            <dd>간단한 물세탁 및 이불<br>세탁/건조</dd>
+          </dl>
+        </div>
+        <div class="btn" v-ripple @click="$router.push('shopSearch')">
+          <div class="image">
+            <img src="@/assets/img/main_btn02.png">
+          </div>
+          <dl>
+            <dt>
+              <span>세탁소 대행</span>
+              <v-icon>mdi-arrow-right-circle</v-icon>
+            </dt>
+            <dd>명품세탁 및 고급세탁<br>드라이클리닝</dd>
+          </dl>
+        </div>
+      </div>
+
+      <div class="inner">
+
+        <div class="info_btn" v-ripple>
+          <dl>
+            <dt>이용방법 안내</dt>
+            <dd>데일리세탁 서비스 이용방법을 확인해주세요</dd>
+          </dl>
+          <v-icon>
+            mdi-arrow-right-circle
+          </v-icon>
+        </div>
+ 
+        <div class="divider" />
+
+        <div class="promotion">
+          <h3>프로모션</h3>
+          <ul>
+            <li>
+              <img src="/img/event-01.png" />
+            </li>
+            <li>
+              <img src="/img/event-02.png" />
+            </li>
+            <li>
+              <img src="/img/event-03.png" />
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider" />
+
+        <div class="notice">
+          <h3>공지사항</h3>
+          <ul>
+            <li v-for="item in 3" :key="item" v-ripple>
+              <span>09.14</span>
+              <strong>오픈 준비중 안내</strong>
+            </li>
+          </ul>
+        </div>
+
+        <div class="divider" />
+      </div> <!-- inner -->
+
+      <div class="terms">
+        <div class="btn" v-ripple @click="$router.push('terms')">
+          <span>서비스<br>이용약관</span>
+          <v-icon>mdi-arrow-right-circle</v-icon>
+        </div>
+        <div class="btn" v-ripple @click="$router.push('terms')">
+          <span>운영 및<br>보상정책</span>
+          <v-icon>mdi-arrow-right-circle</v-icon>
+        </div>
+        <div class="btn" v-ripple @click="$router.push('terms')">
+          <span>개인정보<br>취급방침</span>
+          <v-icon>mdi-arrow-right-circle</v-icon>
+        </div>
+      </div>
+
+      <div class="company">
+        <div class="inner">
+          <ul>
+            <li>(주)페이오티</li>
+            <li>사업자등록번호: 599-81-00659</li>
+            <li>부산광역시 강서구 대저1동 2304-3</li>
+            <li>070-4709-1003</li>
+          </ul>
+        </div>
+      </div>
 
   </div>
 </template>
 
 <script>
-import BookingNotice from '@/components/booking-notice'
-import AddPayment from '@/components/add-payment'
+
 import HomeHeader from '@/components/homeHeader'
-import PlaceSelect from '@/components/modal/placeSelect'
 
 
 export default {
   name: "Home",
   components: {
-    BookingNotice, AddPayment, HomeHeader, PlaceSelect
+    HomeHeader, 
   },
   data(){
     return{
@@ -168,194 +145,283 @@ export default {
 <style lang="scss" scoped>
 
 .home{
+  position: relative;
+  padding-bottom:40px;
+
+  ul{
+    padding:0;
+    margin:0;
+  }
+
   .inner{
-    padding:0 26px;
-  }
-}
-
-.mainTitle{
-  h1{
-    font-weight:500;
-    span{
-      color:#0CA0E2
-    }
+    padding:0 20px;
   }
 
-  p{
-    margin-top:10px;
-    color:#888;
-  }
-}
+  .alert_message{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom:30px;
+    background: #FBEFF4;
+    padding:20px;
 
-.orderBtn{
-  display:flex;
-  margin:30px 0;
-  justify-content: space-between;
-  align-items: center;
-  border-radius:100px;
-  min-height:50px;
-  padding:0 20px;
-  width:100%;
-  border:1px solid #e2e2e2;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
-
-  label{
-    font-size:14px;
-    color:#292929;
-    font-weight:bold;
-  }
-}
-
-.divider{
-  height:1px;
-  background: #e2e2e2;
-  margin:40px 0;
-}
-
-.quick-menu{
-  .row{
-    margin-top:0;
-    margin-bottom:0;
-  }
-  .col{
-    padding:0px;
-    border-right:1px solid #e2e2e2;
-  }
-  .col:last-child{
-    border-right:0px;
-  }
-
-  dl{
-    dt{
-      display:flex;
-      justify-content: center;
-      align-items: center;
-      height:50px;
-
-      img{
-        transform: scale(0.3);
-      }
-
-    }
-    dd{
-      text-align:center;
-      font-size:12px;
-    }
-  }
-  dl:last-child{
-    border-right:0px;
-  }
-}
-
-.quick-order{
-  .title{
-    span{
-      color:#F11064;
-      display:block;
-      margin-bottom:10px;
-    }
-    h2{
-      font-size:20px;
-      line-height:20px;
-    }
-    p{
-      color:#888;
-      margin-top:10px;
-      font-size:14px;
-    }
-  }
-
-  .quick-order-btns{
-    margin-top:30px;
-
-    dl{
-      dt{
-        position: relative;
-        width:100%;
-        height:60px;
-        background: #fff;
-        border:1px solid #e2e2e2;
-        border-radius:10px;
-        padding:10px;
-        box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
-
-        span{
-          position: absolute;
-          bottom:-5px;
-          right:-5px;
-          width:30px;
-          height:30px;
-          border-radius:15px;
-          background:#e2e2e2;
-          display:flex;
-          justify-content: center;
-          align-items: center;
-          z-index:3;
-
-          .v-icon{
-            color:#fff;
-          }
-        }
-      }
-      dd{
-        margin-top:20px;
-        label{
-          display:block;
-          text-align: center;
-          font-size:12px;
-          color:#888;
-        }
-        span{
-          margin-top:4px;
-          text-align: center;
-          display:block;
-          font-size:14px;
-        }
-      }
-    }
-
-    dl.enable{
-      dt{
-        span{
-          background:#0CA0E2
-        }
-      }
-    }
-    dl.disable{
-      dt{
-        color:#888;
-      }
-      dd{
-        span{
+    .left{
+      strong{
+        display:block;
+        font-size:18px;
+        font-weight:bold;
+        .v-icon{
+          font-size:18px;
           color:#d22828;
         }
       }
+      span{
+        display:block;
+        font-size:12px;
+        line-height:1.4;
+        color:#898989;
+        margin-top:5px;
+      }
+    }
+
+    .v-icon{
+      color:#292929;
+      font-size:18px;
+      color:#aaa;
     }
   }
-}
 
-.promotion{
-  h3{
-    margin-bottom:15px;
+  .mainTitle{
+    margin-top:20px;
+    h1{
+      font-weight:500;
+      line-height:1.2;
+      span{
+        color:#0CA0E2
+      }
+    }
+    p{
+      font-size:16px;
+      margin:0px;
+      margin-top:5px;
+      color:#888;
+    }
   }
-  ul{
-    padding:0px;
-  }
-  li{
+
+  .res_btns{
     display:flex;
     align-items: center;
-    justify-content: center;
-    height:140px;
-    border-radius:5px;
-    background:#e2e2e2;
-    margin-bottom:20px;
-    overflow:hidden;
+    padding:30px 20px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    
+    
+    .btn{
+      min-width:60%;
+      border:1px solid #e2e2e2;
+      border-radius:15px;
+      padding-top:15px;
+      margin-right:20px;
+      box-shadow: 3px 3px 12px rgba(0,0,0,0.05);
+   
+      .image{
+        height:100px;
+        background:#f2f2f2;
+        margin-bottom:30px;
+        img{
+          display:block;
+          width:100%;
+        }
+      }
 
-    img{
-      display:block;
-      height:100%;
+      dl{
+        padding:30px 15px;
+        dt{
+          display:Flex;
+          align-items: center;
+          span{
+            font-size:18px;
+          }
+          .v-icon{
+            font-size:18px;
+            margin-left:10px;
+            color:#0CA0E2;
+          }
+        }
+        dd{
+          font-size:13px;
+          line-height:1.3;
+          color:#797979;
+          margin-top:5px;
+        }
+      }
     }
   }
-}
 
+  .res_btns::-webkit-scrollbar{
+    display:none;
+  }
+  .res_btns::after{
+    content:' ';
+    display:block;
+    min-width:20px;
+    width:20px;
+    height:20px;
+    background:#fff;
+
+  }
+
+  .info_btn{
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+    background:#F1F3F5;
+    border-radius:10px;
+    padding:15px;
+    margin-top:10px;
+    height:80px;
+
+    dl{
+      dt{
+        font-size:18px;
+      }
+      dd{
+        font-size:12px;
+        line-height:1.3;
+        color:#797979;
+      }
+    }
+
+    .v-icon{
+      font-size:18px;
+    }
+  }
+
+
+  .divider{
+    height:1px;
+    background: #e2e2e2;
+    margin:40px 0;
+  }
+
+ 
+  .promotion{
+    h3{
+      font-size:18px;
+      margin-bottom:15px;
+    }
+    ul{
+      padding:0px;
+    }
+    li{
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      height:140px;
+      border-radius:5px;
+      background:#e2e2e2;
+      margin-bottom:20px;
+      overflow:hidden;
+
+      img{
+        display:block;
+        height:100%;
+      }
+    }
+  }
+
+  .notice{
+
+
+    h3{
+      font-size:18px;
+      margin-bottom:15px;
+    }
+
+    ul{
+      padding:0px;
+      li{
+        display:Flex;
+        align-items: center;
+        padding:0 15px;
+        background:#F1F3F5;
+        border-radius:5px;
+        height:40px;
+        margin-bottom:8px;
+
+        span{
+          width:50px;
+          color:#888;
+        }
+        strong{
+          flex:1;
+        }
+      }
+    }
+  }
+
+  .terms{
+    display:flex;
+    align-items: center;
+    overflow-x:scroll;
+    scroll-behavior: smooth;
+    padding-left:20px;
+
+    .btn{
+      display:Flex;
+      flex-direction: column;
+      align-items: flex-end;
+      justify-content: space-between;
+      min-width:130px;
+      height:70px;
+      border:1px solid #e2e2e2;
+      border-radius:5px;
+      margin-right:10px;
+      padding:10px;
+
+      span{
+        width:100%;
+        font-size:12px;
+        line-height:1.2;
+        text-align:left;
+      }
+      .v-icon{
+        font-size:18px;
+      }
+    }
+  }
+
+  .terms::-webkit-scrollbar{
+    display:none;
+  }
+
+  .terms::after{
+    content:' ';
+    display:block;
+    min-width:20px;
+    height:20px;
+  }
+
+  .company{
+    margin-top:30px;
+    
+    ul{
+      padding:15px;
+      background:#f8f8f8;
+      border-radius:5px;
+
+      li:first-child{
+        font-size:14px;
+        margin-bottom:10px;
+        color:#292929;
+      }
+      li{
+        font-size:12px;
+        margin-bottom:5px;
+        color:#888;
+      }
+    }
+
+  }
+}
 </style>

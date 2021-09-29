@@ -27,10 +27,10 @@
     display:flex;
     justify-content: space-between;
     border:1px solid #e2e2e2;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+    box-shadow: 3px 3px 12px rgba(0,0,0,0.05);
     position:relative;
-    border-radius:4px;
-    margin-bottom:10px;
+    border-radius:10px;
+    margin-bottom:15px;
     background:#fff;
 
     .left{

@@ -13,6 +13,7 @@
         <ul class="check-list">
           <li v-for="(item, index) in message" :key="index" 
             @click="selectMessage(index)"
+            v-ripple
           >
             <v-icon :class="{active:item.active}">mdi-check-circle-outline</v-icon>
             <label>{{item.text}}</label>
@@ -25,7 +26,7 @@
           clearable
           placeholder="상세한 요청사항을 입력해주세요"
           class="text-field"
-          height="70"
+          height="90"
         />
       </dd>
     </dl>
@@ -42,14 +43,14 @@
           clearable
           placeholder="수거/배달시 요청사항을 입력해주세요"
           class="text-field"
-          height="70"
+          height="90"
         />
       </dd>
     </dl>
 
     <div class="btns">
-      <v-btn text @click="$router.push('orderDetail')">
-        <label>결제하기</label>
+      <v-btn text @click="$router.push('termsView')">
+        <label>다음으로</label>
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
     </div>
@@ -101,6 +102,7 @@ export default {
 <style lang="scss" scoped>
 .userMessage {
   padding-bottom:70px;
+  
   .page-title {
     p {
       margin-top: 5px;
@@ -129,6 +131,10 @@ export default {
     li{
       display:Flex;
       align-items: center;
+      background:#f8f8f8;
+      height:40px;
+      border-radius:20px;
+      padding:0 10px;
       margin-bottom:10px;
       label{
         flex:1;
@@ -152,18 +158,18 @@ export default {
     left:0px;
     bottom:0px;
     width:100%;
-    border-top:1px solid #c2c2c2;
+    background:#0CA0E2;
     
     .v-btn{
       width:100%;
       height:50px;
-      background:#fff;
       font-size:14px;
+      color:#fff;
 
       .v-icon{
         font-size:18px;
         margin-left:10px;
-        color:#0CA0E2
+        color:#fff
       }
     }
     

@@ -1,16 +1,15 @@
 <template>
   <div class="myOrder contents">
-    <div class="page-title">
-      <h2><span>어흥</span>님의<br>주문/배송내역</h2>
-    </div>
-
-    <div class="no-order">
+  
+    <h2><span>어흥</span>님의<br>주문/배송내역</h2>
+ 
+    <!-- <div class="no-order">
       <p>주문한 내역이 없습니다</p>
       <v-btn text>
         <label>주문하로 가기</label>
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
-    </div>
+    </div> -->
 
     <MyOrderCard v-for="item in 10" :key="item"/>
   </div>
@@ -28,7 +27,7 @@ export default {
 
 <style lang="scss" scoped>
 .myOrder{
-  padding:40px 26px;
+  padding:40px 20px;
 
   .no-order{
     border-top:1px solid #e2e2e2;
@@ -53,15 +52,17 @@ export default {
     }
   }
 
-  .page-title{
-    h2{
-      font-size:24px;
-      line-height:30px;
-    } 
-    span{color:#0CA0E2;
-    font-weight:bold;
+
+  h2{
+    font-size:24px;
+    line-height:30px;
+    margin-bottom:30px;
+
+    span{
+      color:#0CA0E2;
     }
-  }
+  } 
+
 
   ul{
     li{margin-bottom:20px;}

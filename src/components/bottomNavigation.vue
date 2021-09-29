@@ -1,7 +1,7 @@
 <template>
   <v-bottom-navigation
     fixed
-    value="value"
+    v-model="value"
     color="#0CA0E2"
     app
   >

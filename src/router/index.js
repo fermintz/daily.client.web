@@ -4,7 +4,7 @@ import Home from "../views/Home.vue";
 import DailyPrice from "../views/DailyPrice"
 import MyOrderDetail from "../views/MyOrderDetail"
 import DeliveryInfo from '../views/DeliveryInfo'
-import OrderDetail from '../views/orderDetail'
+import OrderDetail from '../views/order/orderDetail'
 import WorkHistory from '../views/workHistory'
 import DateSelect from '../views/order/dateSelect'
 import TimeSelect from '../views/order/timeSelect'
@@ -21,10 +21,15 @@ import CardAdd from '../views/mypage/cardAdd'
 import MyAddress from '../views/mypage/myAddress'
 import MyInfo from '../views/mypage/myInfo'
 import Phone from '../views/first/phone'
-import Address from '../views/first/address'
 import Gate from '../views/first/gate'
 import OrderFinish from '../views/order/orderFinish'
 import Login from '../views/login'
+import ShopSearch from '../views/shop_search'
+import TermsView from '../views/order/terms_view'
+import AddDetail from '../views/add_detail'
+import AddressForm from '../views/mypage/address_form'
+import Terms from '../views/Terms'
+import GateInput from '../views/mypage/gateInput'
 
 Vue.use(VueRouter);
 
@@ -56,6 +61,11 @@ const routes = [
     name:"login",
     component: Login,
   },
+  {
+    path:"/shopSearch",
+    name:"shopSearch",
+    component: ShopSearch
+  },
 
   {
     path:"/sub",
@@ -85,11 +95,6 @@ const routes = [
         path:"/phone",
         name:"phone",
         component: Phone,
-      },
-      {
-        path:"/address",
-        name:"address",
-        component: Address,
       },
       {
         path:"/gate",
@@ -152,6 +157,31 @@ const routes = [
         path:"/myCouponList",
         name:"myCouponList",
         component: MyCouponList,
+      },
+      {
+        path:"/termsView",
+        name:"termsView",
+        component: TermsView
+      },
+      {
+        path:"/addDetail",
+        name:"addDetail",
+        component: AddDetail
+      },
+      {
+        path:"/addressForm",
+        name:"addressForm",
+        component: AddressForm
+      },
+      {
+        path:"/terms",
+        name:"terms",
+        component: Terms
+      },
+      {
+        path:"/gateInput",
+        name:"gateInput",
+        component: GateInput
       },
     ],
   },

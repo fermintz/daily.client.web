@@ -66,6 +66,7 @@ export default {
     padding:20px;
 
     ul{
+      padding:0;
       li{
         display:flex;
         align-items: flex-end;

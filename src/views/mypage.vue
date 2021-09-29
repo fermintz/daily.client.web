@@ -20,10 +20,10 @@
     <div class="divier" />
     
     <ul>
-      <li @click="$router.push('wallet')">
+      <!-- <li @click="$router.push('wallet')">
         <v-icon>mdi-wallet-outline</v-icon>
         <label>결제수단 관리</label>
-      </li>
+      </li> -->
       <li @click="$router.push('myAddress')">
         <v-icon>mdi-map-marker-outline</v-icon>
         <label>수거/배달 장소관리</label>
@@ -59,7 +59,7 @@
 <style lang="scss" scoped>
 
 .mypage{
-  padding:0 26px;
+  padding:0 20px;
   padding-top:40px;
 
   .divier{
@@ -73,7 +73,8 @@
     .left{
       flex:1;
       h2{
-        font-size:26px;
+        font-size:24px;
+        line-height:1.2;
         font-weight:normal;
         strong{
           font-weight:bold;
@@ -84,6 +85,7 @@
       p{
         font-size:16px;
         color:#888;
+        margin:0px;
         margin-top:15px;
       }
     }

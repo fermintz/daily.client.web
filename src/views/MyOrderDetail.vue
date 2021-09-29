@@ -1,244 +1,435 @@
 <template>
-  <div class="myOrderDetail contents">
-    <div class="order-state">
+  <div class="myOrderDetail">
+    <div class="order_state">
       <h2>
-        고객님의 세탁물 배달이<br />
-        완료되었습니다
+        고객님의 세탁물을 픽업하기 위해 <br/>기사님이 출발하였습니다
       </h2>
-      <a @click="$router.push">작업 히스토리 보기</a>
 
+      <div class="state_timeline">
+        <dl class="timeline_item active">
+          <dt>
+            <v-icon>mdi-truck</v-icon>
+          </dt>
+          <dd>픽업중</dd>
+        </dl>
+        <div class="bar">
+          <span v-for="item in 3" :key="item"></span>
+        </div>
+        <dl>
+          <dt>
+            <v-icon>mdi-tshirt-crew</v-icon>
+          </dt>
+          <dd>검수중</dd>
+        </dl>
+        <div class="bar">
+          <span v-for="item in 3" :key="item"></span>
+        </div>
+        <dl>
+          <dt>
+            <v-icon>mdi-washing-machine</v-icon>
+          </dt>
+          <dd>세탁중</dd>
+        </dl>
+        <div class="bar">
+          <span v-for="item in 3" :key="item"></span>
+        </div>
+        <dl>
+          <dt>
+            <v-icon>mdi-home</v-icon>
+          </dt>
+          <dd>배송중</dd>
+        </dl>
+      </div>
+ 
       <div class="btns">
-        <v-btn text plain @click="requst('message', true)">주문취소</v-btn>
+        <v-btn text @click="$router.push('workHistory')">작업히스토리</v-btn>
+        <v-btn text @click="$refs.orderCancle.handle(true)">주문취소</v-btn>
       </div>
     </div>
 
-    <div class="divider" />
+    <div class="line" />
 
-    <div class="order-info">
-      <h3>예약정보</h3>
-      <div class="order-date">
-        <v-row>
-          <v-col cols="6">
-            <dl>
-              <dt>수거일</dt>
-              <dd>12일(토)</dd>
-            </dl>
-          </v-col>
-          <v-col cols="6">
-            <dl>
-              <dt>수거시간</dt>
-              <dd>오전(08:00~12:00)</dd>
-            </dl>
-          </v-col>
-        </v-row>
+    <div class="order_info_tabs">
+      <div class="tabs">
+        <div 
+          class="btn" 
+          v-ripple 
+          v-for="(item, index) in ['예약정보','상품정보','결제정보','추가결제']" 
+          :key="index"
+          @click="tabActive = index"
+          :class="{active:tabActive === index}"
+        >
+          {{item}}
+        </div>
       </div>
 
-      <div class="user-info">
-        <dl>
-          <dt>이름</dt>
-          <dd>박수민</dd>
-        </dl>
-        <dl>
-          <dt>전화</dt>
-          <dd>010-8525-4561</dd>
-        </dl>
-        <dl>
-          <dt>주소</dt>
-          <dd>
-            부산광역시 금정구 부산대학로 63번길 2 과학기술연구동 201호 페이오티
-          </dd>
-        </dl>
-        <dl>
-          <dt>출입문</dt>
-          <dd>
-            종 누루고 #1245
-          </dd>
-        </dl>
+      <div class="tab_contents" v-show="tabActive === 0">
+        <div class="inner">
+          <div class="order-date">
+            <span>수거예약일</span>
+            <strong>9월 12일(토)</strong>
+          </div>
+
+          <div class="divider" />
+
+          <div class="order-info">
+            <h3>예약자</h3>
+            
+            <div class="info_box">
+              <span class="name">박수민</span>
+              <span class="phone">
+                <v-icon>mdi-phone</v-icon> 
+                <label>010-1234-1234</label>
+              </span>
+              <span class="address">
+                <v-icon>mdi-map-marker</v-icon> 
+                <label>부산시 북구 구남언덕로 15 3층</label>
+              </span>
+              <span class="gate">
+                <v-icon>mdi-lock</v-icon> 
+                <label>#0456 +  경비버튼</label>
+              </span>
+            </div>
+          </div>
+
+          <div class="divider" />
+
+          <div class="order-info">
+            <h3>세탁소</h3>
+            <div class="info_box">
+              <span class="name">세탁프리워시 금정점</span>
+              <span class="phone">
+                <v-icon>mdi-phone</v-icon> 
+                <label>010-8525-4561</label>
+              </span>
+              <span class="address">
+                <v-icon>mdi-map-marker</v-icon> 
+                <label>부산시 금정구 부산대학로 63번길 2 과학기술연구동 201호</label>
+              </span>
+            </div>
+          </div>
+
+          <div class="divider" />
+
+          <div class="user-message">
+            <h3>요청메세지</h3>
+            <dl class="washing">
+              <dt><v-icon>mdi-message-text-outline</v-icon>세탁소에게</dt>
+              <dd>
+                <ul>
+                  <li>
+                    오염 제거요청(혈액/음식물/토사물/기타 등) 오염 제거요청(혈액/음식물/토사물/기타 등)
+                  </li>
+                  <li>
+                    수선 요청
+                  </li>
+                  <li>
+                    바지 기장 접은 만큼 줄여주세요!
+                  </li>
+                </ul>
+              </dd>
+            </dl>
+            <dl class="delivery">
+              <dt><v-icon>mdi-message-text-outline</v-icon>기사님에게</dt>
+              <dd>현관문앞에 나둘게요</dd>
+            </dl>
+          </div>
+        </div>
+      </div> <!-- inner -->
+    </div> <!-- tab_contents -->
+
+    <div class="tab_contents" v-show="tabActive === 1">
+      <div class="inner">
+        <div class="user_product">
+          <h3>주문내역</h3>
+          <div class="item">
+            <div class="left">
+              <label>와이셔츠</label>
+              <div class="price">
+                <span>4,000원</span>
+                <strong>3,000원</strong>
+              </div>
+            </div>
+            <div class="amount">
+              3
+            </div>
+            <div class="total">
+              12,000 원
+            </div>
+          </div>
+          <div class="item">
+            <div class="left">
+              <label>와이셔츠</label>
+              <div class="price">
+                <span>4,000원</span>
+                <strong>3,000원</strong>
+              </div>
+            </div>
+            <div class="amount">
+              3
+            </div>
+            <div class="total">
+              12,000 원
+            </div>
+          </div>
+        </div>
+
+        <div class="user_product check">
+          <h3>변동내역</h3>
+          <div class="item">
+            <div class="left">
+              <label>와이셔츠</label>
+              <div class="price">
+                <span>4,000원</span>
+                <strong>3,000원</strong>
+              </div>
+            </div>
+            <div class="amount">
+              2
+            </div>
+            <div class="total">
+              8,000 원
+            </div>
+          </div> <!-- item -->
+        </div>
       </div>
-    </div>
+    </div> <!-- tab_contents -->
 
-    <div class="divider" />
+    <div class="tab_contents" v-show="tabActive === 2">
+      <div class="inner">
+        <div class="payment-list">
+          <div class="breakdown">
+            <h3>선결제정보</h3>
 
-    <div class="user-message">
-      <h3>요청메세지</h3>
-      <dl class="washing">
-        <dt><v-icon>mdi-message-text-outline</v-icon>세탁소에게</dt>
-        <dd>
-          <ul class="user-check">
+            <div class="list">
+              <dl>
+                <dt>상품합계</dt>
+                <dd>18,600</dd>
+              </dl>
+              <dl>
+                <dt>상품할인</dt>
+                <dd>-2,000</dd>
+              </dl>
+              <dl>
+                <dt>쿠폰할인</dt>
+                <dd>-3,000</dd>
+              </dl>
+              <dl>
+                <dt>수거배송비</dt>
+                <dd>0</dd>
+              </dl>
+            </div>
+          </div>
+
+          <div class="total">
+            <label>총 결제금액</label>
+            <span>13,600</span>
+          </div>
+
+          <div class="divider" />
+
+          <h3>결제내역</h3>
+
+          <ul>
             <li>
-              <v-icon>mdi-check-circle-outline</v-icon>
-              <span>오염 제거요청(혈액/음식물/토사물/기타 등) 오염 제거요청(혈액/음식물/토사물/기타 등)</span>
+              <div class="top">
+                <label>선결제처리</label>
+                <span>신한카드(0384)</span>
+              </div>
+              <div class="bottom">
+                <span class="price">13,600</span>
+                <span class="date">2021.05.03 12:34</span>
+              </div>
             </li>
             <li>
-              <v-icon>mdi-check-circle-outline</v-icon>
-              <span>수선 요청</span>
+              <div class="top">
+                <label>추가결제금액</label>
+                <span>신한카드(0384)</span>
+              </div>
+              <div class="bottom">
+                <span class="price">3,400</span>
+                <span class="date">2021.05.03 12:34</span>
+              </div>
             </li>
           </ul>
-          <div class="user-text">바지 기장 접은 만큼 줄여주세요!</div>
-        </dd>
-      </dl>
-      <dl class="delivery">
-        <dt><v-icon>mdi-message-text-outline</v-icon>기사님에게</dt>
-        <dd>현관문앞에 나둘게요</dd>
-      </dl>
-    </div>
-
-    <div class="divider" />
-
-    <div class="product-info">
-      <h3>선택한 상품</h3>
-      <ul>
-        <li>
-          <span class="name">티셔츠</span>
-          <span class="amount">3</span>
-          <span class="price">4,000</span>
-        </li>
-        <li>
-          <span class="name">와이셔츠</span>
-          <span class="amount">2</span>
-          <span class="price">3,000</span>
-        </li>
-      </ul>
-    </div>
-
-    <div class="divider" />
-
-    <div class="check-product product-info">
-      <h3>검수된 상품</h3>
-
-      <ul>
-        <li>
-          <span class="name">티셔츠</span>
-          <span class="amount">3</span>
-          <span class="price">4,000</span>
-        </li>
-        <li class="checked">
-          <span class="name">와이셔츠</span>
-          <span class="amount">3</span>
-          <span class="price">4,500</span>
-        </li>
-        <li class="checked">
-          <span class="name">정장바지<label>추가</label></span>
-          <span class="amount">1</span>
-          <span class="price">2,500</span>
-        </li>
-      </ul>
-    </div>
-
-    <div class="divider" />
-
-    <div class="add-payment-list">
-      <h3>추가결제 요청내역</h3>
-
-      <ul>
-        <li>
-          <div class="top">
-            <div class="state">
-              <span class="date">2021.04.15 12:34</span>
-              <span class="text">결제완료</span>
-            </div>
-            <div class="message">
-              맡기신 코트에 오염정도가 심해 추가 세탁이 필요합니다
-            </div>
-            <div class="price">
-              <label>요청금액</label>
-              <span>3,000</span>
-            </div>
-          </div>
-          <div class="bottom">
-            <v-btn text plain @click="requst('addPay',true)">
-              <label>추가결제진행</label>
-              <v-icon>mdi-arrow-right</v-icon>
-            </v-btn>
-          </div>
-        </li>
-      </ul>
-    </div>
-
-    <div class="divider" />
-
-    <div class="payment-list">
-      <h3>결제내역</h3>
-
-      <ul>
-        <li>
-          <div class="top">
-            <label>선결제처리</label>
-            <span>신한카드(0384)</span>
-          </div>
-          <div class="bottom">
-            <span class="price">13,600</span>
-            <span class="date">2021.05.03 12:34</span>
-          </div>
-        </li>
-        <li>
-          <div class="top">
-            <label>추가결제금액</label>
-            <span>신한카드(0384)</span>
-          </div>
-          <div class="bottom">
-            <span class="price">3,400</span>
-            <span class="date">2021.05.03 12:34</span>
-          </div>
-        </li>
-      </ul>
-
-      <div class="breakdown">
-        <h4>선결제처리 내역</h4>
-        <dl>
-          <dt>상품합계</dt>
-          <dd>18,600</dd>
-        </dl>
-        <dl>
-          <dt>쿠폰할인</dt>
-          <dd>-5,000</dd>
-        </dl>
-        <dl>
-          <dt>수거배송비</dt>
-          <dd>0</dd>
-        </dl>
+        </div>
       </div>
+    </div> <!-- tab_contents -->
 
-      <div class="total">
-        <label>총 결제금액</label>
-        <span>20,800</span>
+    <div class="tab_contents" v-show="tabActive === 3">
+      <div class="inner">
+        <div class="add-payment-list">
+          <h3>추가결제 요청내역</h3>
+          <ul>
+            <li>
+              <div class="top">
+                <div class="state">
+                  <span class="text">결제완료</span>
+                  <span class="date">2021.04.15 12:34</span>
+                </div>
+                <div class="message">
+                  맡기신 코트에 오염정도가 심해 추가 세탁이 필요합니다
+                </div>
+                <div class="price">
+                  <label>요청금액</label>
+                  <span>3,000</span>
+                </div>
+              </div>
+              <div class="bottom">
+                <v-btn text @click="$router.push('addDetail')">
+                  <label>추가결제 상세보기</label>
+                  <v-icon>mdi-arrow-right</v-icon>
+                </v-btn>
+              </div>
+            </li>
+          </ul>
+        </div>
       </div>
     </div>
-  </div>
+
+    <OrderCancle ref="orderCancle"/>
+  </div> <!-- myOrderDetail -->
 </template>
 
 <script>
+import OrderCancle from '@/components/modal/orderCancle'
+
 export default {
+  components:{
+    OrderCancle,
+  },
+  data(){
+    return{
+      tabActive:0,
+      timelineActive:0,
+    }
+  },
   methods: {
-    requst(type, value) {
-      const data = JSON.stringify({type:type, value:value})
-      window.ReactNativeWebView.postMessage(data);
-    },
+    
   },
 };
 </script>
 
 <style lang="scss" scoped>
 .myOrderDetail {
-  padding: 26px;
-  padding-top:0px;
+  padding-bottom:70px;
 
-  .order-state {
-    a {
-      display: block;
-      margin-top: 15px;
-      text-decoration: underline;
-      color: #0ca0e2;
+  ul{
+    padding:0px;
+  }
+
+  .inner{
+    padding:20px;
+  }
+
+  .order_info_tabs{
+    .tabs{
+      display:flex;
+      align-items: center;
+
+      .btn{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex:1;
+        height:50px;
+        border-bottom:2px solid #e2e2e2;
+      }
+      .btn.active{
+        color:#0CA0E2;
+        border-bottom:2px solid #0CA0E2
+      }
+    }
+  }
+
+  .line{
+    height:10px;
+    background:#f2f2f2;
+  }
+
+  .order_state {
+    padding:20px;
+
+    h2{
+      font-size:20px;
+    }
+    
+    .state_timeline{
+      display:flex;
+      align-items: flex-start;
+      margin-top:30px;
+      border-radius:10px;
+
+      .bar{
+        display:flex;
+        margin-top:23px;
+        span{
+          width:4px;
+          height:4px;
+          background:#e2e2e2;
+          margin-right:4px;
+        }
+        span:last-child{
+          margin-right:0px;
+        }
+      }
+
+      dl{
+        flex:1;
+        display:flex;
+        flex-direction: column;
+        align-items: center;
+        text-align:center;
+        
+        dt{
+          display:flex;
+          justify-content: center;
+          align-items: center;
+          width:50px;
+          height:50px;
+          border-radius:20px;
+          background:#F1F3F5;
+
+          .v-icon{
+            font-size:22px;
+            color:#c2c2c2;
+          }
+        }
+        dd{
+          margin-top:8px;
+          color:#aaa
+        }
+      }
+
+      dl.active{
+        dt{
+          background:#0CA0E2;
+          .v-icon{
+            color:#fff;
+          }
+        }
+        dd{
+          color:#292929;
+          font-weight:bold;
+        }
+      }
     }
 
     .btns {
       text-align: right;
-      margin-top: 10px;
+      margin-top: 30px;
 
       .v-btn {
         height: 30px;
         min-height: 30px;
-        border: 1px solid #c2c2c2;
+        margin-left:10px;
+        border-radius:15px;
+        background:#f2f2f2;
+      }
+
+      .v-btn:last-child{
+        background:#FBEFF4;
+        color:#f11064;
       }
     }
   }
@@ -253,56 +444,63 @@ export default {
     margin-bottom: 20px;
   }
 
-  .order-info {
-    .order-date {
-      margin-bottom: 20px;
-      .col-6:last-child {
-        dl {
-          border-right: 0px;
-        }
-      }
-      dl {
-        border-right: 1px solid #e2e2e2;
-        dt {
-          font-size: 12px;
-          color: #888;
-          margin-bottom: 5px;
-        }
+  .order-date{
+    display:flex;
+    align-items: center;
+    border-radius:5px;
 
-      }
+    span{
+      color:#292929;
+      margin-right:15px;
     }
 
-    .user-info {
-      border-radius: 5px;
+    strong{
+      color:#0CA0E2;
+      font-size:14px;
+      background:#f8f8f8;
+      padding:5px 15px;
+      border-radius:100px;
+    }
+  }
 
-      dl {
-        display: flex;
-        align-items: center;
-        margin-bottom: 5px;
+  .order-info {
+    .info_box{
+      span{
+        display:block;
+        margin-bottom:5px;
+        background:#f8f8f8;
+        padding:10px;
+        border-radius:5px;
 
-        dt {
-          width: 60px;
-          font-size: 12px;
-          color: #888;
+        .v-icon{
+          font-size:14px;
+          margin-right:10px;
+          margin-top:2px;
+          color:#aaa
         }
-        dd {
-          flex: 1;
-          background: #f8f8f8;
-          border-radius: 5px;
-          padding: 10px;
-          font-size: 14px;
-        }
+      }
+      span:last-child{
+        margin-bottom:0px;
+      }
+
+
+      span.address, span.phone{
+        display:flex;
+        align-items: flex-start;
+        line-height:1.4;
+
+        
       }
     }
   }
 
   .user-message {
     dl {
-      margin-bottom: 20px;
+      margin-bottom: 40px;
 
       dt {
         font-size: 12px;
-        margin-bottom: 5px;
+        margin-bottom:10px;
         color: #888;
 
         .v-icon {
@@ -310,38 +508,28 @@ export default {
           font-size: 16px;
         }
       }
-
-      dd {
-        padding: 10px;
-        margin-top: 5px;
-        border-radius: 5px;
-        font-size: 14px;
-      }
     }
+
     dl.washing {
       dd {
-        .user-check {
+        ul {
           li {
-            display:flex;
-            font-size:12px;
-            margin-bottom:5px;
-            align-items: flex-start;
-            .v-icon{font-size:14px;color:#0CA0E2}
-            span{flex:1;margin-left:5px;}
+            background:#F1F5F9;
+            margin-bottom:10px;
+            padding:10px;
+            border-radius:5px;
+          }
+          li:last-child{
+            margin-bottom:0px;
           }
         }
-        .user-text {
-          margin-top: 10px;
-          padding-top: 10px;
-          border-top: 1px solid #e2e2e2;
-        }
-
-        background: #f1f5f9;
       }
     }
     dl.delivery {
       dd {
         background: #f6f3ea;
+        padding:10px;
+        border-radius:5px;
       }
     }
 
@@ -350,74 +538,100 @@ export default {
     }
   }
 
-  .product-info {
-    ul {
-      li {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        border: 1px solid #e2e2e2;
-        border-radius: 5px;
-        margin-bottom: 6px;
+  .user_product{
+    h3{
+      margin-bottom:10px;
+    }
+    .item{
+      display:flex;
+      align-items: center;
+      border:1px solid #e2e2e2;
+      padding:15px;
+      border-radius:5px;
+      margin-bottom:10px;
 
-        span.name {
-          flex: 1;
+      .left{
+        flex:1;
+        label{
+          display:block;
         }
-        span.price {
-          margin-left: 30px;
-        }
-        span.price::after {
-          content: "원";
-          margin-left: 5px;
+        .price{
+          display:flex;
+          align-items: center;
+          font-size:12px;
+          span{
+            text-decoration: line-through;
+            color:#999;
+          }
+          strong{
+            margin-left:5px;
+          }
         }
       }
-      li:last-child {
-        margin-bottom: 0;
+
+      .amount{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        border-radius:18px;
+        width:30px;
+        height:30px;
+        font-size:12px;
+        background:#f2f2f2;
       }
+      .total{
+        width:90px;
+        text-align:right;
+      }
+    }
+
+    .price_total{
+      background:#f2f2f2;
+      border-radius:5px;
+      padding:15px;
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+      span{font-size:12px;}
+      strong{font-weight:bold;}
     }
   }
 
-  .check-product {
-    ul {
-      li.checked {
-        background: #fbeff4;
-        border: 0px;
+  .user_product.check{
+    margin-top:30px;
 
-        span {
-          label {
-            color: #f11064;
-            font-size: 12px;
-            margin-left: 5px;
-          }
-        }
-
-        span.amount {
-          color: #f11064;
-        }
-        span.price {
-          color: #f11064;
-        }
+    .item{
+      background:#FBEFF4;
+      border:0px;
+      .amount{
+        color:#f11064;
+        background:#fff;
+      }
+      .total{
+        color:#f11064;
       }
     }
   }
 
   .add-payment-list {
     ul {
+      padding:0px;
       li {
         border: 1px solid #e2e2e2;
         border-radius: 5px;
+        overflow:hidden;
 
         .top {
           padding: 15px;
 
           .state {
             display: flex;
-            justify-content: space-between;
             align-items: center;
 
             .date {
               color: #888;
               font-size: 12px;
+              margin-left:10px;
             }
             .text {
               font-size: 12px;
@@ -427,15 +641,25 @@ export default {
 
           .price {
             display: flex;
-            justify-content: space-between;
+            justify-content: flex-end;
             align-items: center;
+            margin-top:20px;
 
             label {
               color: #888;
               font-size: 12px;
+              margin-right:30px;
+            }
+            span{
+              display:flex;
+              align-items: center;
+              font-weight:bold;
+              line-height:1;
+              font-size:16px
             }
             span:after {
               content: "원";
+              font-size:12px;
               margin-left: 5px;
             }
           }
@@ -451,7 +675,7 @@ export default {
           align-items: center;
           overflow: hidden;
           border-top: 1px solid #e2e2e2;
-
+     
           .v-btn {
             justify-content: flex-end;
             align-items: center;
@@ -477,7 +701,7 @@ export default {
     ul {
       li {
         padding: 15px;
-        background: #f8f8f8;
+        background: #FBEFF4;
         border-radius: 5px;
         margin-bottom: 10px;
 
@@ -491,6 +715,9 @@ export default {
           align-items: center;
           justify-content: space-between;
           margin-top: 10px;
+          .price{
+            color:#f11064;
+          }
 
           .price:after {
             content: "원";
@@ -506,49 +733,54 @@ export default {
     }
 
     .breakdown {
-      border: 1px solid #e2e2e2;
-      padding: 15px;
-      border-radius: 5px;
-      h4{
-        margin-bottom:10px;
-      }
+      .list{
+        padding: 15px;
+        border-radius: 5px;
+        background:#f8f8f8;
 
-      dl {
-        align-items: center;
-        justify-content: space-between;
-        display: flex;
-        margin-bottom: 5px;
+        dl {
+          align-items: center;
+          justify-content: space-between;
+          display: flex;
+          margin-bottom: 5px;
 
-        dt {
-          font-size: 12px;
-          color:#888;
+          dt {
+            font-size: 12px;
+            color:#888;
+          }
+
+          dd:after {
+            content: "원";
+            margin-left: 5px;
+          }
         }
-
-        dd:after {
-          content: "원";
-          margin-left: 5px;
+        dl:last-child {
+          margin-bottom: 0px;
         }
       }
-      dl:last-child {
-        margin-bottom: 0px;
-      }
+      
     }
 
     .total {
       display: flex;
-      justify-content: flex-end;
+      justify-content: space-between;
       align-items: center;
-      margin-top: 30px;
+      margin-top: 20px;
+
       label {
         margin-right: 20px;
       }
       span {
-        font-size: 24px;
+        display:flex;
+        align-items: center;
+        font-size: 18px;
+        font-weight:bold;
       }
       span:after {
         content: "원";
-        font-size: 16px;
+        font-size: 14px;
         margin-left: 5px;
+        font-weight:normal
       }
     }
   }
