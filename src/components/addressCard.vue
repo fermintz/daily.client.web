@@ -1,7 +1,7 @@
 <template>
   <div class="addressCard" v-ripple @click.stop="()=>{}">
+    <label>현재 선택된 주소</label>
     <div class="top">
-      
       <dl>
         <dt>부산광역시 금정구 부산대학로 63번길 2</dt>
         <dd>
@@ -24,6 +24,13 @@
 .addressCard{
   border-bottom:1px solid #e2e2e2;
   padding:20px;
+
+  label{
+    display:block;
+    font-size:11px;
+    margin-bottom:3px;
+    color:#0CA0E2
+  }
 
   .top{
     display:flex;
