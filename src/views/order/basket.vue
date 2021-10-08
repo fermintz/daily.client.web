@@ -1,7 +1,7 @@
 <template>
   <div class="basket">
     <ul class="list"> 
-      <li class="goods-item" v-for="item in 10" :key="item">
+      <li class="goods-item" v-for="item in 1" :key="item">
         <div class="item-top">
           <label>미용실 수건류 80L</label>
           <v-btn icon>

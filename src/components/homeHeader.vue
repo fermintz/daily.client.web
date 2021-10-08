@@ -44,6 +44,7 @@ export default {
   top:0px;
   width:100%;
   display:flex;
+  flex-direction: column;
   justify-content: center;
   align-items: center;
   height:80px;
@@ -60,7 +61,6 @@ export default {
     padding:0 15px;
     background:#f2f2f2;
     border-radius:18px;
-
 
     .map_marker{
       margin-right:5px;
@@ -81,6 +81,7 @@ export default {
     height:50px;
     transition:height 0.8s;
     border-bottom:1px solid #e2e2e2;
+    
   .address_select{
     background:#fff;
   }

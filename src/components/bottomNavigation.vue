@@ -4,6 +4,7 @@
     v-model="value"
     color="#0CA0E2"
     app
+    class="bottom_navigation"
   >
     <v-btn @click="$router.push('myOrder')">
       <v-icon>mdi-text-box-outline</v-icon>
@@ -26,3 +27,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+.bottom_navigation{
+  padding-bottom: env(safe-area-inset-bottom, 15px);
+  padding-bottom: constant(safe-area-inset-bottom, 15px)
+}
+</style>

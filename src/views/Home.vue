@@ -1,6 +1,9 @@
 <template>
   <div class="home">
     <PlaceSelect ref="placeSelect"/>
+
+    <div class="safe_area_top" />
+
     <HomeHeader />
 
     <div class="alert_message" v-ripple @click="$router.push('AddDetail')">
@@ -143,10 +146,10 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
 .home{
   position: relative;
   padding-bottom:40px;
+  
 
   ul{
     padding:0;

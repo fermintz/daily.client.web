@@ -4,7 +4,6 @@
     overlay-opacity="0"
     scrollable
    >
-
       <div class="basket">
         <div class="basket-head">
           <div class="basket-title">
@@ -19,7 +18,10 @@
         </div>
 
         <div class="basket-cont">
-          <div class="goods-item" v-for="item in 12" :key="item">
+          <div class="no-item">
+            장바구니에 담긴 상품이 없습니다
+          </div>
+          <div class="goods-item" v-for="item in 5" :key="item">
             <div class="item-top">
               <label>미용실 수건류 80L</label>
               <v-btn icon>
@@ -79,14 +81,17 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-
+.v-bottom-sheet.v-dialog{
+  min-height:500px
+}
 .basket{
   padding:15px;
   padding-top:0px;
-  padding-bottom:80px;
+  padding-bottom:100px;
   background:#fff;
   overflow-y:scroll;
-  border-top:1px solid #292929;
+  min-height:500px
+
 }
 
 .basket-head{
@@ -153,6 +158,13 @@ export default {
   background:#fff;
   overflow-y:auto;
 
+    .no-item{
+      background:#f2f2f2;
+      padding:10px;
+      border-radius:5px;
+      margin:15px 0;
+      text-align:center;
+    }
     .goods-item{
       padding:15px;
       margin-bottom:10px;
@@ -224,7 +236,7 @@ export default {
     bottom:0px;
     width:100%;
     height:60px;
-    padding:0 20px;
+    padding:0 15px;
     display:flex;
     align-items: center;;
 
@@ -240,13 +252,14 @@ export default {
       height:30px;
       width:1px;
       background:#e2e2e2;
-      margin:0 20px;
+      margin:0 15px;
     }
     .v-btn{
       flex:1;
       height:40px;
       border-radius:5px;
-      font-size:14px;
+      font-size:13px;
+      border:1px solid #c2c2c2;
     }
   }
 </style>
