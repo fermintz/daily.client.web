@@ -23,7 +23,11 @@
           </div>
           <div class="goods-item" v-for="item in 5" :key="item">
             <div class="item-top">
-              <label>미용실 수건류 80L</label>
+              <div class="name">
+                <strong>미용실 수건류 80L</strong>
+                <span>15,000 원</span>
+              </div>
+
               <v-btn icon>
                 <v-icon>mdi-close</v-icon>
               </v-btn>
@@ -182,6 +186,12 @@ export default {
         display:flex;
         justify-content: space-between;
         align-items: center;
+
+        .name{
+          strong{display:block;}
+          span{display:block; font-size:11px;
+          color:#898989;}
+        }
 
         .v-btn{
           width:24px;
