@@ -192,6 +192,10 @@
             <strong>599-81-00659</strong>
           </li>
           <li>
+            <span>통신판매업</span>
+            <strong>2021-부산강서구-0877</strong>
+          </li>
+          <li>
             <span>사업자주소</span>
             <strong>부산광역시 강서구 대저1동 2304-3</strong>
           </li>
@@ -550,7 +554,7 @@ export default {
         display:flex;
         align-items: center;
         font-size:11px;
-        margin-bottom:6px;
+        margin-bottom:5px;
         span{
           width:110px;
           color:#898989;
