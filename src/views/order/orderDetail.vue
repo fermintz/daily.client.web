@@ -178,7 +178,28 @@
             제품은 전문가가 소재와 상태를 확인 후 세탁을 진행합니다. 다만
             세탁결과에 대해서는 책임을 지지않으니 유의해 주십시오
           </li>
-        </ul>
+        </ul>       
+      </div>
+
+      <div class="company">
+        <ul>
+          <li>
+            <span>회사명</span>
+            <strong>페이오티</strong>
+          </li>
+          <li>
+            <span>사업자등록번호</span>
+            <strong>599-81-00659</strong>
+          </li>
+          <li>
+            <span>사업자주소</span>
+            <strong>부산광역시 강서구 대저1동 2304-3</strong>
+          </li>
+          <li>
+            <span>연락처</span>
+            <strong>070-7807-6857</strong>
+          </li>
+        </ul>   
       </div>
 
       <v-btn
@@ -515,6 +536,31 @@ export default {
         font-size: 12px;
         line-height:18px;
         margin-bottom: 15px;
+      }
+    }
+  }
+
+  .company{
+    background:#f8f8f8;
+    padding:15px;
+    border-radius:5px;
+    margin:30px 0;
+    ul{
+      li{
+        display:flex;
+        align-items: center;
+        font-size:11px;
+        margin-bottom:6px;
+        span{
+          width:110px;
+          color:#898989;
+        }
+        strong{
+
+        }
+      }
+      li:last-child{
+        margin-bottom:0px;
       }
     }
   }
