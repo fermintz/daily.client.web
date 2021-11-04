@@ -12,7 +12,7 @@
             class="day_item"
             @click="requst('route','TimeSelect')"
           >
-            <div class="day_in_item" :class="{holiday: item.holiday}" @click="$router.push('userMessage')">
+            <div class="day_in_item" :class="{holiday: item.holiday}" @click="$router.push('timeSelect')">
               <strong>{{item.day}}</strong>
               <span>{{item.dayText}}</span>
             </div>

@@ -382,6 +382,7 @@ export default {
           flex:1;
           margin-right:15px;
 
+
           .price{
             span{
               font-size:11px;

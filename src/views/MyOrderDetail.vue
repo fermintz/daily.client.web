@@ -67,7 +67,7 @@
         <div class="inner">
           <div class="order-date">
             <span>수거예약일</span>
-            <strong>9월 12일(토)</strong>
+            <strong>9월 12일(토) 오전</strong>
           </div>
 
           <div class="divider" />

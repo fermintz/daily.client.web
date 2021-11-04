@@ -223,7 +223,7 @@ export default {
       min-width:60%;
       border:1px solid #e2e2e2;
       border-radius:15px;
-      padding-top:15px;
+      padding:15px;
       margin-right:20px;
       box-shadow: 3px 3px 12px rgba(0,0,0,0.05);
    
@@ -238,7 +238,7 @@ export default {
       }
 
       dl{
-        padding:30px 15px;
+        
         dt{
           display:Flex;
           align-items: center;

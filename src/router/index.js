@@ -30,6 +30,8 @@ import AddDetail from '../views/add_detail'
 import AddressForm from '../views/mypage/address_form'
 import Terms from '../views/Terms'
 import GateInput from '../views/mypage/gateInput'
+import PayFaild from '../views/payFaild'
+import PayLoading from '../views/payLoading'
 
 Vue.use(VueRouter);
 
@@ -183,12 +185,24 @@ const routes = [
         name:"gateInput",
         component: GateInput
       },
+      
+      
     ],
   },
   {
     path:"/orderFinish",
     name:"orderFinish",
     component: OrderFinish,
+  },
+  {
+    path:"/payFaild",
+    name:"payFaild",
+    component: PayFaild
+  },
+  {
+    path:"/payLoading",
+    name:"payLoading",
+    component: PayLoading
   },
 ];
 
