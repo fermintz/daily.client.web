@@ -32,6 +32,7 @@ import Terms from '../views/Terms'
 import GateInput from '../views/mypage/gateInput'
 import PayFaild from '../views/payFaild'
 import PayLoading from '../views/payLoading'
+import Splash from '../views/splash'
 
 Vue.use(VueRouter);
 
@@ -57,6 +58,11 @@ const routes = [
       },
       
     ],
+  },
+  {
+    path:"/splash",
+    name:"splash",
+    component: Splash,
   },
   {
     path:"/login",
