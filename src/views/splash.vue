@@ -24,6 +24,7 @@ export default {
   img{
     height:100px;
     opacity: 0;
+    margin-top:-200px;
     animation: up 1s forwards ease;
   }
   span{
