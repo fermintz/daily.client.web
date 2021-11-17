@@ -33,6 +33,8 @@ import GateInput from '../views/mypage/gateInput'
 import PayFaild from '../views/payFaild'
 import PayLoading from '../views/payLoading'
 import Splash from '../views/splash'
+import LoginLoading from '../views/login_loading'
+
 
 Vue.use(VueRouter);
 
@@ -68,6 +70,11 @@ const routes = [
     path:"/login",
     name:"login",
     component: Login,
+  },
+  {
+    path:"/loginLoading",
+    name:"loginLoading",
+    component: LoginLoading,
   },
   {
     path:"/shopSearch",

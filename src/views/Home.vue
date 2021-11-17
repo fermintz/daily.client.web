@@ -317,25 +317,33 @@ export default {
       padding:0px;
     }
     li{
+      position: relative;
       display:flex;
       align-items: center;
       justify-content: center;
-      height:140px;
+      height:100%;
       border-radius:5px;
       background:#e2e2e2;
       margin-bottom:20px;
       overflow:hidden;
 
       img{
+        position: absolute;
+        top:0px;
+        width:100%;
         display:block;
-        height:100%;
+
       }
+    }
+
+    li:after{
+      content:'';
+      display:block;
+      padding-bottom:37.5% /* 320*120 */
     }
   }
 
   .notice{
-
-
     h3{
       font-size:18px;
       margin-bottom:15px;

@@ -7,7 +7,9 @@
 
     <div class="terms_list">
       <dl>
-        <dt></dt>
+        <dt>
+          <img src="https://source.unsplash.com/random">
+        </dt>
         <dd>
           <strong>수거일에 물품을 내놓지 않으면 패널티가 있습니다</strong>
           <span>수거물품을 희망하는 시간에 내놓지 않은 경우 수거불가 패널티(3,500원)이 발생할 수 있습니다</span>
@@ -15,7 +17,9 @@
       </dl>
 
       <dl>
-        <dt></dt>
+        <dt>
+          <img src="https://source.unsplash.com/random">
+        </dt>
         <dd>
           <strong>추가비용이 발생될수 있습니다!</strong>
           <span>세탁물의 심한 오염 및 명품의류의 경우 추가결제요청이 있을 수 있습니다</span>
@@ -57,10 +61,25 @@ export default {
     dl{
       margin-bottom:30px;
       dt{
-        height:150px;
-        background:#e2e2e2;
+        position: relative;
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        height:100%;
+        background:#918c8c;
         border-radius:5px;
         overflow:hidden;
+
+        img{
+          position: absolute;
+          width:100%;
+          display:block;
+        }
+      }
+      dt:after{
+        content:'';
+        display:block;
+        padding-bottom:56.25% /* 320*180 */
       }
       dd{
         margin-top:15px;
