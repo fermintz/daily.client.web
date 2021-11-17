@@ -6,6 +6,7 @@
           <strong>박수민</strong> 님<br> 만나서 반가워요
         </h2>
         <p>010-8525-4561</p>
+        <v-btn text>로그아웃</v-btn>
       </div>
       <div class="right">
         <v-btn text @click="$router.push('myCouponList')">
@@ -83,10 +84,17 @@
       }
 
       p{
-        font-size:16px;
+        font-size:14px;
         color:#888;
         margin:0px;
+        margin-top:5px;
+      }
+
+      .v-btn{
         margin-top:15px;
+        height:24px;
+        border-radius:12px;
+        background:#f2f2f2;
       }
     }
     .right{

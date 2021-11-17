@@ -118,18 +118,20 @@
         </div>
       </div>
 
+      <MainPopup />
+
   </div>
 </template>
 
 <script>
 
 import HomeHeader from '@/components/homeHeader'
-
+import MainPopup from '@/components/modal/mainPopup'
 
 export default {
   name: "Home",
   components: {
-    HomeHeader, 
+    HomeHeader, MainPopup
   },
   data(){
     return{
