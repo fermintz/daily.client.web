@@ -56,6 +56,7 @@ export default {
     }
     .v-btn.todayClose{
       flex:2;
+      background:#FBEFF4;
     }
     .v-btn:last-child{
       margin-right:0px;

@@ -23,10 +23,8 @@ export default {
     stickyHeader(){
       addEventListener('scroll',()=>{
         const headerEl = document.getElementsByClassName('homeHeader')
-        const selectorEl = document.getElementsByClassName('address_select')
         const headOffset = headerEl[0].offsetTop
-        console.log(headerEl[0].classList)
-        console.log(selectorEl[0].classList)
+
         if(headOffset > 10){
           headerEl[0].classList.add('active')
         }else{
