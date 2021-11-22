@@ -40,7 +40,7 @@
       >
         <div class="tab-item">
           <strong>
-            <img :src="'/img/product-icon' + (index + 2) + '.png'" />
+            <img :src="'/img/product-icon' + (index+1) + '.png'" />
           </strong>
           <label>{{ tab.category }}</label>
         </div>
@@ -56,9 +56,9 @@
         class="goods-list"
         reverse-transition
       >
-        <div class="tip">
-        물빠짐/줄어듬이 있는 세탁물은 별도의 상품을 이용해주세요
-        </div>
+        <div class="cate_name">
+          <label>패딩</label>
+        </div>      
         <div class="goods" v-for="item in tab.product" :key="item">
           <div class="goods-info">
             <span class="goods-name">
@@ -67,7 +67,7 @@
                 <v-icon >mdi-help-circle-outline</v-icon>
               </v-btn>
             </span>
-            <span class="sub">일반적인 티티티티티셔츠</span>
+            <span class="sub">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, </span>
           </div>
           <div class="goods-price">
             <span>{{item.userAmount}}원</span>
@@ -156,6 +156,12 @@ export default {
     flex-direction: column;
     align-items: center;
     justify-content: center;
+
+    h2{
+      font-size:22px;
+      font-weight:bold;
+    }
+  
     .cate{
       span{
         color:#0CA0E2;
@@ -266,6 +272,19 @@ export default {
       color:#898989;
     }
 
+    .cate_name{
+      display:flex;
+      height:40px;
+      padding:0 15px;
+      background:#F2F3F8;
+      align-items: center;
+
+      label{
+        font-size:14px;
+        font-weight:bold;
+      }
+    }
+
     .goods{
       display:flex;
       align-items: center;
@@ -274,10 +293,12 @@ export default {
 
       .goods-info{
         flex:1;
+        margin-right:10px;
         span{display:block;line-height:1.2;}
         span.goods-name{
           display:flex;
           align-items: center;
+          
           .v-btn{
             width:20px;
             height:20px;
