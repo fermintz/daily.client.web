@@ -6,7 +6,8 @@
     </div>
 
     <div class="times">
-      <div class="time_item" v-ripple v-for="item in timeData" :key="item"
+      <div class="time_item" v-ripple v-for="(item, index) in timeData" :key="index"
+      :class="{close:index === 0}"
         @click="$router.push('userMessage')"
       >
         <div class="left">
@@ -70,11 +71,12 @@ export default {
         flex: 1;
         strong {
           font-size: 18px;
+          line-height:1.4;
           display: block;
         }
         span {
           display: block;
-          margin-top: 5px;
+          margin-top: 2px;
           color: #888;
         }
       }
@@ -82,6 +84,20 @@ export default {
       .v-icon {
         font-size: 26px;
         color: #0ca0e2;
+      }
+    }
+
+    .time_item.close{
+      background:#e2e2e2;
+      box-shadow: none;
+
+      .left{
+        strong{
+          color:#898989;
+        }
+      }
+      .v-icon{
+        color:#aaa;
       }
     }
   }
