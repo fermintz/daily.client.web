@@ -26,7 +26,7 @@ export default {
     return {
       timeData: [
         {
-          text: "오전",
+          text: "오전(예약마감)",
           time: "08:00 ~ 12:00",
           state: true,
         },

@@ -27,7 +27,7 @@
           <div class="date">오늘 12:34</div>
         </li>
         <li class="system">
-          <div class="image">
+          <div class="image" @click="$refs.imageView.handle(true)">
             <img src="https://source.unsplash.com/random">
           </div>
           <div class="date">오늘 12:34</div>
@@ -44,11 +44,18 @@
         </li>
       </ul>
     </div>
+
+    <ImageView ref="imageView" />
   </div>
 </template>
 
 <script>
+import ImageView from '@/components/modal/imageView'
+
 export default {
+  components:{
+    ImageView
+  },
   data(){
     return{
 
