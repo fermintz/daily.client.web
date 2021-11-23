@@ -71,9 +71,6 @@
             <li>
               <img src="/img/event02_banner.png" />
             </li>
-            <li>
-              <img src="/img/event-03.png" />
-            </li>
           </ul>
         </div>
 
