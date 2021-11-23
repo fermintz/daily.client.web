@@ -1,90 +1,92 @@
 <template>
-  <div class="coupon-item" v-ripple>
-    <div class="left">
-      <div class="coupon-info">
-        <div class="price">
-          <strong>3,000</strong>
-          <span>원</span>
-        </div>
-        <div class="name">새해 명절 세탁쿠폰</div>
-      </div>
-      <dl class="minPrice">
-        <dt>최소주문금액</dt>
-        <dd>15,000 원</dd>
-      </dl>
+  <div class="coupon_item">
+    <div class="coupon_info">
+      <label>배송비 무료쿠폰</label>
+      <strong>3,500</strong>
+      <span>5만원 이상 구매 시 할인</span>
+      <span>다운로드 후 30일동안 사용가능</span>
     </div>
-    <div class="right">
-      <img src="/img/coupon_base.png">
+    <div class="coupon_bg">
+      <label>COUPON</label>
+      <span></span>
     </div>
-    <dl class="d-day">
-      D-23
-    </dl>
   </div>
 </template>
 
 <style lang="scss" scoped>
- .coupon-item{
+ .coupon_item{
+    position: relative;
     display:flex;
-    justify-content: space-between;
-    border:1px solid #e2e2e2;
-    box-shadow: 3px 3px 12px rgba(0,0,0,0.05);
-    position:relative;
-    border-radius:10px;
-    margin-bottom:15px;
+    width:100%;
     background:#fff;
+    overflow:hidden;
+    z-index:3;
+    border-radius:10px;
+    border:1px solid #e2e2e2;
+    box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
 
-    .left{
-      padding:20px;
-      display:flex;
-      flex-direction: column;
-      justify-content: space-between;
+    .coupon_info{
       flex:1;
-      height:120px;
-
-      .coupon-info{
-        .price{
-          strong{
-            font-size:24px;
-            font-family:'Roboto';
-            font-weight:600;
-            color:#0CA0E2;
-          }
-          span{
-            margin-left:5px;
-          }
-        }
-        .name{
-          margin-top:4px;
-        }
-      }
-
-      .minPrice{
-        justify-self: flex-end;
-        display:flex;
-        align-items: center;;
-        dt{color:#888;font-size:10px;}
-        dd{font-size:10px;margin-left:5px;}
-      }
-    }
-    .right{
-      width:120px;
-      height:120px;
-      img{
+      position: relative;
+      z-index:2;
+      text-align:left;
+      padding:18px;
+      label{
         display:block;
-        width:100%;
+        color:#292929;
+        font-size:13px;
+        font-weight:bold;
+      }
+      strong{
+        display:block;
+        font-size:40px;
+        font-family:'Roboto';
+        font-weight:600;
+        line-height:1;
+        color:#0CA0E2;
+        margin:5px 0;
+      }
+      strong:after{
+        content:'원';
+        font-family:'Noto Sans KR';
+        font-size:16px;
+        margin-left:5px;
+        color:#292929;
+      }
+      span{
+        display:block;
+        font-size:11px;
+        margin:0px;
+        border-radius:10px;
+        color:#898989;
       }
     }
-    .d-day{
-      position: absolute;
-      top:15px;
-      right:15px;
-      font-size:11px;
-      background:#292929;
-      color:#fff;
-      height:18px;
-      line-height:19px;
-      padding:0 10px;
-      border-radius:15px;
+
+    .coupon_bg{
+      position: relative;
+      display:flex;
+      align-items: center;
+      justify-content: center;
+      overflow:hidden;
+      width:75px;
+      background:#0CA0E2;
+      
+      label{
+        font-family:'Roboto';
+        font-weight:600;
+        letter-spacing: 6px;
+        color:#0E7AAB;
+        writing-mode: tb-rl;
+      }
+
+      span{
+        position: absolute;
+        width:20px;
+        height:20px;
+        border-radius:100%;
+        background:#fff;
+        left:-10px;
+      }
     }
   }
 </style>

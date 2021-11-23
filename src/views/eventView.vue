@@ -4,7 +4,7 @@
       <img src="/img/event01.png" />
     </div>
     <div class="coupon">
-      <div class="coupon_img">
+      <div class="coupon_item">
         <div class="coupon_info">
           <label>배송비 무료쿠폰</label>
           <strong>3,500</strong>
@@ -52,7 +52,7 @@ export default {};
     flex-direction: column;
     align-items: center;
 
-    .coupon_img{
+    .coupon_item{
       position: relative;
       display:flex;
       width:100%;

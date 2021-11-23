@@ -6,15 +6,12 @@
 
     <div class="divider" />
 
-    <div class="list">
-      <div class="no-data">
-        현재 발급 받은 쿠폰이 없습니다.
-      </div>
-
-      <CouponItem v-for="item in 3" :key="item"/>
-
-    </div>
-
+    <ul>
+      <li class="no-data">현재 발급 받은 쿠폰이 없습니다.</li>
+      <li v-for="item in 3" :key="item">
+        <CouponItem />
+      </li>
+    </ul>
  
     <dl class="coupon-guide">
       <dt>
@@ -57,9 +54,13 @@ export default {
     margin:30px 0;
   }
 
-  .list{
+  ul{
     margin:30px 0 ;
     padding:0px;
+
+    li{
+      margin-bottom:15px;
+    }
 
     .no-data{
       display:flex;

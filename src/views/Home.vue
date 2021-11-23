@@ -322,7 +322,7 @@ export default {
       justify-content: center;
 
       height:100%;
-      border-radius:5px;
+      border-radius:10px;
       background:#e2e2e2;
       margin-bottom:20px;
       overflow:hidden;
