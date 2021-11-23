@@ -34,6 +34,7 @@ import PayFaild from '../views/payFaild'
 import PayLoading from '../views/payLoading'
 import Splash from '../views/splash'
 import LoginLoading from '../views/login_loading'
+import EventView from '../views/eventView'
 
 
 Vue.use(VueRouter);
@@ -197,6 +198,11 @@ const routes = [
         path:"/gateInput",
         name:"gateInput",
         component: GateInput
+      },
+      {
+        path:"/eventView",
+        name:"eventView",
+        component: EventView
       },
       
       

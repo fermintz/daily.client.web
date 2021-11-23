@@ -65,11 +65,11 @@
         <div class="promotion">
           <h3>프로모션</h3>
           <ul>
-            <li>
-              <img src="/img/event-01.png" />
+            <li @click="$router.push('eventView')">
+              <img src="/img/event01_banner.png" />
             </li>
             <li>
-              <img src="/img/event-02.png" />
+              <img src="/img/event02_banner.png" />
             </li>
             <li>
               <img src="/img/event-03.png" />
@@ -323,6 +323,7 @@ export default {
       display:flex;
       align-items: center;
       justify-content: center;
+
       height:100%;
       border-radius:5px;
       background:#e2e2e2;
@@ -341,7 +342,7 @@ export default {
     li:after{
       content:'';
       display:block;
-      padding-bottom:37.5% /* 320*120 */
+      padding-bottom:43.75% /* 320*140 */
     }
   }
 
