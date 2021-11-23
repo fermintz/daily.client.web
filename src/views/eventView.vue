@@ -16,10 +16,11 @@
           <span></span>
         </div>
       </div>
-      <v-btn text>
+      <v-btn text class="notActive" :ripple="false">
         <label>할인쿠폰 다운받기</label>
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
+      <p>이미 다운받으신 쿠폰입니다</p>
     </div>
 
     <div class="guide">
@@ -130,8 +131,9 @@ export default {};
     .v-btn{
       height:50px;
       background:#292929;
-      border-radius:10px;
+      border-radius:25px;
       margin-top:30px;
+      padding:0 25px;
       label{
         font-size:16px;
         color:#fff;
@@ -140,6 +142,20 @@ export default {};
       .v-icon{
         font-size:20px;
         color:#898989;
+      }
+    }
+
+    p{
+      margin:0px;
+      margin-top:10px;
+      color:#d22828;
+      font-size:12px;
+    }
+
+    .v-btn.notActive{
+      background:#c2c2c2;
+      .v-icon{
+        color:#fff;
       }
     }
   }
