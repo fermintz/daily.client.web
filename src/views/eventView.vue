@@ -26,7 +26,8 @@
     <div class="guide">
       <h4>쿠폰 주의사항</h4>
       <ul>
-        <li>주의사항 1번입니다</li>
+        <li>- 쿠폰은 중복사용이 불가능합니다</li>
+        <li>- 다운로드는 1회로 제한합니다</li>
       </ul>
     </div>
   </div>
@@ -166,7 +167,7 @@ export default {};
     border-top:1px solid #e2e2e2;
 
     h4{
-      font-size:18px;
+      font-size:16px;
       font-weight:bold;
     }
     ul{
@@ -174,7 +175,8 @@ export default {};
       margin-top:10px;
 
       li{ 
-        color:#898989
+        color:#898989;
+        margin-bottom:5px;
       }
     }
   }
