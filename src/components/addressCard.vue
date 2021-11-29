@@ -1,7 +1,9 @@
 <template>
   <div class="addressCard" v-ripple @click.stop="()=>{}">
-    <label>현재 선택된 주소</label>
     <div class="top">
+      <label>선택됨</label>
+    </div>
+    <div class="cont">
       <dl>
         <dt>부산광역시 금정구 부산대학로 63번길 2</dt>
         <dd>
@@ -25,26 +27,33 @@
   border-bottom:1px solid #e2e2e2;
   padding:20px;
 
-  label{
-    display:block;
-    font-size:11px;
-    margin-bottom:3px;
-    color:#0CA0E2
-  }
-
   .top{
     display:flex;
-
-  .del{
-      background:#d2d2d2;
-      border-radius:4px;
-      width:24px;
-      height:24px;
-      .v-icon{
-        font-size:18px;
-        color:#fff;
-      }
+    margin-bottom:5px;
+    label{
+      display:block;
+      font-size:10px;
+      color:#fff;
+      margin-bottom:3px;
+      background:#0CA0E2;
+      padding:2px 6px;
+      border-radius:10px;
     }
+  }
+
+  .cont{
+    display:flex;
+
+    .del{
+        background:#d2d2d2;
+        border-radius:4px;
+        width:24px;
+        height:24px;
+        .v-icon{
+          font-size:18px;
+          color:#fff;
+        }
+      }
     dl{
       flex:1;
       margin-right:20px;

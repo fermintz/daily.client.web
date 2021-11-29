@@ -1,7 +1,7 @@
 <template>
   <v-bottom-sheet
     v-model="visible"
-    overlay-opacity="0"
+    overlay-opacity="0.2"
     scrollable
    >
       <div class="basket">
