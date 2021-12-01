@@ -111,7 +111,7 @@
     </dl>
     <!-- list -->
     <div class="btns">
-      <v-btn text @click="$router.push('orderDetail')">
+      <v-btn text @click="$router.push('product')">
         <label>다음으로</label>
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>

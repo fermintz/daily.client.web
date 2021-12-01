@@ -18,7 +18,7 @@
           <v-col cols="4" v-for="(item,index) in primeumLabel" :key="index">
             <dl>
               <dt>
-                <img :src="'/img/brand/' + (index+1) +'.png'">
+                <img :src="'/img/brand/' + (index + 1) +'.png'">
               </dt>
               <dd>
                 {{item}}
@@ -132,12 +132,23 @@ export default {
     padding:15px;
 
     .v-btn{
-      width:50%;
+      margin-right:10px;
       height:44px;
       font-size:14px;
       background:#292929;
       color:#fff;
       border-radius:22px;
+    }
+
+    .v-btn.todayClose{
+      border:1px solid #d2d2d2;
+      background:#fff;
+      color:#292929;
+      box-shadow: none;
+    }
+
+    .v-btn:last-child{
+      margin-right:0px;
     }
   }
 }

@@ -49,7 +49,7 @@
     </dl>
 
     <div class="btns">
-      <v-btn text @click="$router.push('termsView')">
+      <v-btn text @click="$router.push('orderDetail')">
         <label>다음으로</label>
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>

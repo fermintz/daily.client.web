@@ -16,11 +16,15 @@
       <div class="shop_btns">
         <v-btn text>
           <label>이용불가품목 안내</label>
-          <v-icon>mdi-arrow-right</v-icon>
+          <v-icon>mdi-chevron-right</v-icon>
         </v-btn>
         <v-btn text>
-          <label>주문시 주의사항</label>
-          <v-icon>mdi-arrow-right</v-icon>
+          <label>명품 브랜드 확인</label>
+          <v-icon>mdi-chevron-right</v-icon>
+        </v-btn>
+        <v-btn text>
+          <label>명품 브랜드 확인</label>
+          <v-icon>mdi-chevron-right</v-icon>
         </v-btn>
       </div>
       
@@ -32,7 +36,6 @@
     <v-tabs
       v-model="tabActive"
       :show-arrows="false"
-
       slider-color="#0CA0E2"
       append
     >
@@ -59,29 +62,60 @@
         class="goods-list"
         reverse-transition
       >
-        <div class="cate_name">
-          <label>패딩</label>
-        </div>      
-        <div class="goods" v-for="item in tab.product" :key="item">
-          <div class="goods-info">
-            <span class="goods-name">
-              <label>{{ item.name }}</label>
-              <!-- <v-btn icon>
-                <v-icon >mdi-help-circle-outline</v-icon>
-              </v-btn> -->
-            </span>
-            <!-- <span class="sub">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, </span> -->
-          </div>
-          <div class="goods-price">
-            <!-- <span>{{item.userAmount}}원</span> -->
-            <strong>{{ item.userAmount }}원</strong>
-          </div>
-          <div class="goods-btns">
-            <v-btn icon class="add" @click="$refs.snackbar.handle(true)">
-              <v-icon>mdi-plus</v-icon>
-            </v-btn>
-          </div>
-        </div>
+        <dl class="goods_cate">
+          <dt>
+            <label>상품카테</label>
+          </dt>
+          <dd>
+            <div class="goods" v-for="item in tab.product" :key="item">
+              <div class="goods-info">
+                <span class="goods-name">
+                  <label>{{ item.name }}</label>
+                  <!-- <v-btn icon>
+                    <v-icon >mdi-help-circle-outline</v-icon>
+                  </v-btn> -->
+                </span>
+                <!-- <span class="sub">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, </span> -->
+              </div>
+              <div class="goods-price">
+                <!-- <span>{{item.userAmount}}원</span> -->
+                <strong>{{ item.userAmount }}원</strong>
+              </div>
+              <div class="goods-btns">
+                <v-btn icon class="add" @click="$refs.snackbar.handle(true)">
+                  <v-icon>mdi-plus</v-icon>
+                </v-btn>
+              </div>
+            </div>
+          </dd>
+        </dl>
+        <dl class="goods_cate">
+          <dt>
+            <label>상품카테</label>
+          </dt>
+          <dd>
+            <div class="goods" v-for="item in tab.product" :key="item">
+              <div class="goods-info">
+                <span class="goods-name">
+                  <label>{{ item.name }}</label>
+                  <!-- <v-btn icon>
+                    <v-icon >mdi-help-circle-outline</v-icon>
+                  </v-btn> -->
+                </span>
+                <!-- <span class="sub">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, </span> -->
+              </div>
+              <div class="goods-price">
+                <!-- <span>{{item.userAmount}}원</span> -->
+                <strong>{{ item.userAmount }}원</strong>
+              </div>
+              <div class="goods-btns">
+                <v-btn icon class="add" @click="$refs.snackbar.handle(true)">
+                  <v-icon>mdi-plus</v-icon>
+                </v-btn>
+              </div>
+            </div>
+          </dd>
+        </dl>
       </v-tab-item>
     </v-tabs-items>
 
@@ -169,7 +203,7 @@ export default {
       display:flex;
       align-items: center;
       justify-content: space-between;
-      padding:30px 20px;
+      padding:30px 20px 15px 20px;
 
       dl{
         dt{
@@ -198,19 +232,20 @@ export default {
     .shop_btns{
       display:flex;
       align-items: center;
-      border-top:1px solid #e2e2e2;
+      overflow-x:auto;
+      padding:20px;
 
       .v-btn{
         display:flex;
         align-items: center;
-        justify-content: space-between;
-        flex:1;
         background:#fff;
-        height:45px;
-        font-size:12px;
+        height:32px;
+        font-size:11px;
         border-radius:0px;
-        padding:0 20px;
-        border-right:1px solid #e2e2e2;
+        padding:0 10px;
+        border:1px solid #e2e2e2;
+        margin-right:10px;
+        border-radius:18px;
 
         .v-icon{
           font-size:14px;
@@ -220,8 +255,12 @@ export default {
       }
 
       .v-btn:last-child{
-        border-right:0px;
+        margin-right:0px;
       }
+    }
+
+    .shop_btns::-webkit-scrollbar{
+      display:none;
     }
     
   } 
@@ -238,48 +277,28 @@ export default {
     z-index:99;
     border-bottom:1px solid #e2e2e2;
     background:#fff;
-    height:50px;
 
 
     .v-tab{
       min-width:58px;
-      height:50px;
       padding:0px 15px;
+
+      label {
+        display: block;
+        font-size: 14px;
+        font-weight:bold;
+        letter-spacing: 0;
+        color:#292929;
+      }
     }
-  }
 
-  .v-tabs-items{
-    height:100%;
-  }
-
-
-  .tab-item {
-    display:inline-block;
-    position: relative;
-    text-align: center;
-
-    label {
-      display: block;
-      font-size: 14px;
-      font-weight:bold;
-      letter-spacing: 0;
-      color:#292929;
+    .v-tab.v-tab--active{
+      label{
+        color:#0CA0E2
+      }
     }
-  }
 
-  .tab-item:after{
-    content:'';
-    width:60px;
-  }
-
-  .tab-item.active:after{
-    content:'';
-    position:absolute;
-    left:0px;
-    width:100%;
-    bottom:0;
-    height:2px;
-    background:#D20A61;
+    
   }
 
   .goods-list{
@@ -293,94 +312,89 @@ export default {
       color:#898989;
     }
 
-    .cate_name{
-      display:flex;
-      height:40px;
-      padding:0 15px;
-      background:#F2F3F8;
-      align-items: center;
-
-      label{
+    dl.goods_cate{
+      dt{
         font-size:14px;
         font-weight:bold;
+        background:#F4F7F9;
+        padding:10px 15px;
+        border-bottom:1px solid #e2e2e2;
       }
-    }
 
-    .goods{
-      display:flex;
-      align-items: center;
-      border-bottom:1px solid #e2e2e2;
-      padding:15px 15px;
+      .goods{
+        display:flex;
+        align-items: center;
+        border-bottom:1px solid #e2e2e2;
+        padding:15px 15px;
 
-      .goods-info{
-        flex:1;
-        margin-right:10px;
-        span{display:block;line-height:1.2;}
-        span.goods-name{
-          display:flex;
-          align-items: center;
+        .goods-info{
+          flex:1;
+          margin-right:10px;
+          span{display:block;line-height:1.2;}
+          span.goods-name{
+            display:flex;
+            align-items: center;
+            
+            .v-btn{
+              width:20px;
+              height:20px;
+              padding:0px;
+              .v-icon{
+                font-size:16px;
+                color:#D20A61;
+              }
+            }
+          }
+
+          span.sub{
+            font-size:11px;
+            color:#888;
+            margin-top:3px;
+          }
+        }
+        .goods-price{
+          margin-right:15px;
+          text-align:right;
+          span{
+            font-size:11px;
+            color:#999;
+            line-height:1.2;
+            text-decoration:line-through;
+            display:block;
+          }
+          strong{
+            display:block;
+            font-weight:500;
+            line-height:1.2;
+          }
           
+        }
+        .goods-btns{
           .v-btn{
-            width:20px;
-            height:20px;
-            padding:0px;
+            width:34px;
+            height:34px;
+            border:1px solid #e2e2e2;
+            margin-left:10px;
             .v-icon{
-              font-size:16px;
-              color:#D20A61;
+              font-size:18px;
+            }
+          }
+          .v-btn:first-child{
+            margin-left:0px;
+          }
+
+          .add{
+            background:#c2c2c2;
+            border:0px;
+            .v-icon{
+              color:#fff;
             }
           }
         }
-
-        span.sub{
-          font-size:11px;
-          color:#888;
-          margin-top:3px;
-        }
-      }
-      .goods-price{
-        margin-right:15px;
-        text-align:right;
-        span{
-          font-size:11px;
-          color:#999;
-          line-height:1.2;
-          text-decoration:line-through;
-          display:block;
-        }
-        strong{
-          display:block;
-          font-weight:500;
-          line-height:1.2;
-        }
-        
-      }
-      .goods-btns{
-        .v-btn{
-          width:34px;
-          height:34px;
-          border:1px solid #e2e2e2;
-          margin-left:10px;
-          .v-icon{
-            font-size:18px;
-          }
-        }
-        .v-btn:first-child{
-          margin-left:0px;
-        }
-
-        .add{
-          background:#c2c2c2;
-          border:0px;
-          .v-icon{
-            color:#fff;
-          }
-        }
       }
     }
 
-    .goods:last-child{
-      border-bottom:0px;
-    }
+    
   }
 
   .btns{

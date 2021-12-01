@@ -2,12 +2,7 @@
   <div class="shop_search">
     <div class="inner">
       <div class="video_wrap">
-        <video 
-          src="@/assets/video/car.mp4" 
-          autoplay 
-          @click="$router.push('product')"
-          loop
-        /> 
+        <img src="@/assets/video/car.gif">
       </div>
       <span>부산시 북구</span>
       <h2>고객님의 주소와 가까운<br>협력세탁소를 찾고 있습니다</h2>
@@ -19,9 +14,9 @@
 <script>
 export default {
   mounted(){
-    // setTimeout(() => {
-    //   this.$router.push('product')
-    // }, 2500);
+    setTimeout(() => {
+      this.$router.push('termsView')
+    }, 1000);
   }
 }
 </script>
@@ -49,8 +44,8 @@ export default {
       border:1px solid #e2e2e2;
       overflow:hidden;
 
-      video{       
-        height:180px;      
+      img{
+        width:100%;
       }
     }
     span{

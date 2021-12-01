@@ -7,7 +7,7 @@
         </video>
       </div>
       <strong>예약이 완료되었습니다</strong>
-      <p>기사님이 방문하는 날에 맞춰 세탁물을 문앞에 내놓아주세요</p>
+      <p>기사님이 방문하는 날에 맞춰 세탁물을<br>문앞에 내놓아주세요</p>
     </div>
 
     <div class="finish-btns">
@@ -33,6 +33,10 @@
 
 <style lang="scss" scoped>
 .orderFinish{
+  display:flex;
+  flex-direction: column;
+  justify-content: center;
+  height:100vh;
   padding:0 26px;
 
   .finish-title{
@@ -84,6 +88,7 @@
       margin-bottom:10px;
       height:45px;
       border-radius:4px;
+      font-size:14px;
     }
 
     .v-btn:nth-child(1){

@@ -1,5 +1,5 @@
 <template>
-  <div class="coupon_item">
+  <div class="coupon_item" v-ripple>
     <div class="coupon_info">
       <label>배송비 무료쿠폰</label>
       <strong>3,500</strong>

@@ -1,8 +1,8 @@
 <template>
-  <v-dialog
+  <v-bottom-sheet
     v-model="visible"
     fullscreen
-    transition="dialog-bottom-transition"
+    scrollable
   >
     <div class="couponUse">
       <div class="modal-head">
@@ -11,14 +11,18 @@
           <v-icon>mdi-close</v-icon>
         </v-btn>
       </div>
-      <div class="coupon-list">
-        <div class="no-data">
+
+      <ul class="coupon-list">
+        <li class="no-data">
           등록된 쿠폰이 없습니다.
-        </div>
-        <CouponItem  v-for="item in 5" :key="item"/>
-      </div>
+        </li>
+        <li v-for="item in 10" :key="item">
+          <CouponItem />
+        </li>
+      </ul>
+
     </div>
-  </v-dialog>
+  </v-bottom-sheet>
 </template>
 
 <script>
@@ -43,9 +47,14 @@ export default {
 
 <style lang="scss" scoped>
 .couponUse{
+  position: relative;
   background:#fff;
+  overflow-y:auto;
+  height:100%;
 
   .modal-head{
+    position: sticky;
+    top:0px;
     width:100%;
     background:#fff;
     display:flex;
@@ -55,8 +64,6 @@ export default {
     height:60px;
     z-index:10;
     border-bottom:1px solid #e2e2e2;
-    position: sticky;
-    top:0px;
 
     h2{
       font-size:18px;
@@ -76,7 +83,6 @@ export default {
   }
 
   .coupon-list{
-    overflow-y:scroll;
     padding:20px;
 
     .no-data{
@@ -88,6 +94,10 @@ export default {
       background:#f2f2f2;
       text-align:center;
       margin-bottom:15px;
+    }
+
+    li{
+      margin-bottom:10px;
     }
 
   }
