@@ -3,13 +3,18 @@
     v-model="visible"
   >
     <div class="modal confirm">
-      <div class="modal-cont">
-        <div class="left">
-          <p>모든 항목에 동의하기를 체크해주세요</p>
+      <div class="cont">
+        <v-icon>
+          mdi-alert-circle
+        </v-icon>
+        <div class="text">
+          <strong>상품선택</strong>
+          <span>상품을 담지 않았습니다.</span>
         </div>
-        <div class="right">
-          <v-btn text @click="visible = false">확인</v-btn>
-        </div>
+      </div>
+      <div class="bottom">
+        <v-btn text>닫기</v-btn>
+        <v-btn text class="finish">확인</v-btn>
       </div>
       
     </div>
@@ -34,36 +39,49 @@ export default {
 <style lang="scss" scoped>
 .modal{
   background:#fff;
-
-  .modal-cont{
+  padding:10px;
+  .cont{
     display:flex;
     align-items: center;
+    padding:10px;
 
-    .left{
-      flex:1;
-      padding:20px;
-      p{
-        font-size:16px;
-        line-height:1.4;
+      .text{
+        flex:1;
+        border-left:1px solid #e2e2e2;
+        margin-left:10px;
+        padding-left:10px;
+        strong{
+          display:block;
+          color:#898989;
+          font-size:12px;
+          margin-bottom:3px;
+        }
+        span{
+          flex:1;
+          font-size:16px;
+          line-height:1.3;
+          margin:0;
+        }
       }
-    }
-    .right{
-      padding:20px;
-      background:#f2f2f2;
-      .v-btn{
-        padding:0;
-        min-width:50px;
-        height:50px;
-        border-radius:25px;
-        background:#0CA0E2;
-        color:#fff;
+
+      .v-icon{
+        font-size:32px;
+        color:#292929;
       }
+  }
+  .bottom{
+    text-align:right;
+    margin-top:10px;
+    .v-btn{
+      height:36px;
+      background:#e2e2e2;
+      border-radius:100px;
+      margin-left:10px;
     }
-    p{
-      font-size:14px;
-      color:#292929;
-      margin:0px;
-      margin-top:5px;
+
+    .v-btn.finish{
+      background:#0CA0E2;
+      color:#fff;
     }
   }
 }
