@@ -367,25 +367,12 @@ export default {
     .state_timeline{
       display:flex;
       align-items: flex-start;
+      justify-content: center;
       margin-top:30px;
       border-radius:10px;
 
-      .bar{
-        display:flex;
-        margin-top:23px;
-        span{
-          width:4px;
-          height:4px;
-          background:#e2e2e2;
-          margin-right:4px;
-        }
-        span:last-child{
-          margin-right:0px;
-        }
-      }
-
       dl{
-        flex:1;
+        margin:0 10px;
         display:flex;
         flex-direction: column;
         align-items: center;
@@ -398,7 +385,7 @@ export default {
           width:50px;
           height:50px;
           border-radius:20px;
-          background:#F1F3F5;
+          background:#f2f2f2;
 
           .v-icon{
             font-size:22px;
@@ -413,9 +400,10 @@ export default {
 
       dl.active{
         dt{
-          background:#0CA0E2;
+          background:#fff;
+          border:2px solid #0CA0E2;
           .v-icon{
-            color:#fff;
+            color:#0CA0E2;
           }
         }
         dd{
