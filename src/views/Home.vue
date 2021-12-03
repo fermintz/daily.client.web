@@ -50,7 +50,7 @@
 
       <div class="inner">
 
-        <div class="info_btn" v-ripple>
+        <div class="info_btn" v-ripple @click="$refs.alert.handle(true)">
           <dl>
             <dt>이용방법 안내</dt>
             <dd>데일리세탁 서비스 이용방법을 확인해주세요</dd>
@@ -116,6 +116,7 @@
       </div>
 
       <MainPopup />
+      <AlertMessage ref="alert" />
 
   </div>
 </template>
@@ -124,11 +125,12 @@
 
 import HomeHeader from '@/components/homeHeader'
 import MainPopup from '@/components/modal/mainPopup'
+import AlertMessage from '@/components/modal/alertMessage'
 
 export default {
   name: "Home",
   components: {
-    HomeHeader, MainPopup
+    HomeHeader, MainPopup,AlertMessage
   },
   data(){
     return{
