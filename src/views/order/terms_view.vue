@@ -5,17 +5,6 @@
       <p>데일리세탁 예약서비스의 이용을 위하여<br>서비스 약관 동의가 필요합니다 </p>
     </div>
 
-    <div 
-      class="totalCheck" 
-      :class="{active:total}"
-      @click="totalCheck(total)"
-    >
-      <v-icon>{{
-        total ? "mdi-check-circle" : "mdi-check-circle-outline"
-      }}</v-icon>
-      <span>모두 동의합니다</span>
-    </div>
-
     <dl class="terms self">
       <dt @click="state.check2 = !state.check2" :class="{active:state.check2}">
         <v-icon>{{state.check2 ? 'mdi-check-circle' : 'mdi-check-circle-outline'}}</v-icon>
@@ -131,6 +120,17 @@
         <p>데일리세탁에서 진행하는 모든 세탁물은 위 사전공지 안내를 진행하며, 이후 동의하여 세탁을 요청한 경우에 대해서는 손해배상에 대해 면책됩니다.</p>
       </dd>
     </dl>
+
+    <div 
+      class="totalCheck" 
+      :class="{active:total}"
+      @click="totalCheck(total)"
+    >
+      <v-icon>{{
+        total ? "mdi-check-circle" : "mdi-check-circle-outline"
+      }}</v-icon>
+      <span>모두 동의합니다</span>
+    </div>
     <!-- list -->
     <div class="btns">
       <v-btn text @click="$router.push('product')">
@@ -191,7 +191,7 @@ export default {
     border-top:1px solid #d2d2d2;
     border-bottom:1px solid #d2d2d2;
     height:70px;
-    margin-bottom:20px;
+    margin-top:30px;
 
     .v-icon{
       font-size:24px;
