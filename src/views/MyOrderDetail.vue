@@ -1,9 +1,10 @@
 <template>
   <div class="myOrderDetail">
     <div class="order_state">
-      <h2>
-        고객님의 세탁물을 픽업하기 위해 <br/>기사님이 출발하였습니다
-      </h2>
+      <div class="state_title">
+        <span>주문상태</span>
+        <h2>주문완료</h2>
+      </div>
 
       <div class="state_timeline">
         <dl class="timeline_item active">
@@ -12,27 +13,21 @@
           </dt>
           <dd>픽업중</dd>
         </dl>
-        <div class="bar">
-          <span v-for="item in 3" :key="item"></span>
-        </div>
+
         <dl>
           <dt>
             <v-icon>mdi-tshirt-crew</v-icon>
           </dt>
           <dd>검수중</dd>
         </dl>
-        <div class="bar">
-          <span v-for="item in 3" :key="item"></span>
-        </div>
+
         <dl>
           <dt>
             <v-icon>mdi-washing-machine</v-icon>
           </dt>
           <dd>세탁중</dd>
         </dl>
-        <div class="bar">
-          <span v-for="item in 3" :key="item"></span>
-        </div>
+
         <dl>
           <dt>
             <v-icon>mdi-home</v-icon>
@@ -45,6 +40,8 @@
         <v-btn text @click="$router.push('workHistory')">작업히스토리</v-btn>
         <v-btn text @click="$refs.orderCancle.handle(true)">주문취소</v-btn>
       </div>
+
+      
     </div>
 
     <div class="line" />
@@ -65,6 +62,11 @@
 
       <div class="tab_contents" v-show="tabActive === 0">
         <div class="inner">
+          <div class="order_number">
+            <span>주문번호</span>
+            <strong>CDG305D0341</strong>
+            <v-btn text>복사</v-btn>
+          </div>
           <div class="order-date">
             <span>수거예약일</span>
             <strong>9월 12일(토) 오전</strong>
@@ -350,8 +352,16 @@ export default {
   .order_state {
     padding:20px;
 
-    h2{
-      font-size:20px;
+    .state_title{
+      width:100%;
+      text-align:center;
+      span{
+
+      }
+      h2{
+        font-size:24px;
+        font-weight:bold;
+      }
     }
     
     .state_timeline{
@@ -416,7 +426,7 @@ export default {
     }
 
     .btns {
-      text-align: right;
+      text-align: center;
       margin-top: 30px;
 
       .v-btn {
@@ -432,6 +442,8 @@ export default {
         color:#f11064;
       }
     }
+
+    
   }
 
   .divider {
@@ -444,21 +456,43 @@ export default {
     margin-bottom: 20px;
   }
 
+  .order_number{
+    display:flex;
+    align-items: center;
+    border-radius:5px;
+    margin-bottom:10px;
+    span{
+      width:80px;
+    }
+    strong{
+      flex:1;
+      font-weight:bold;
+      font-size:14px;
+    }
+    .v-btn{
+      min-width:auto;
+      height:24px;
+      background:#e2e2e2;
+      padding:0 10px;
+      color:#292929;
+      font-size:11px;
+    }
+  }
+
   .order-date{
     display:flex;
     align-items: center;
     border-radius:5px;
 
     span{
+      width:80px;
       color:#292929;
-      margin-right:15px;
     }
 
     strong{
       color:#0CA0E2;
       font-size:14px;
-      background:#f8f8f8;
-      padding:5px 15px;
+      font-weight:bold;
       border-radius:100px;
     }
   }
