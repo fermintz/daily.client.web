@@ -19,31 +19,24 @@
             <label>{{item.text}}</label>
           </li>
         </ul>
-        <v-textarea
-          outlined
-          dense
-          counter
-          clearable
+        <textarea
           placeholder="상세한 요청사항을 입력해주세요"
-          class="text-field"
-          height="90"
-        />
+         />
+         <div class="guide">
+          <v-icon>mdi-alert-circle</v-icon>
+          <p>파손이 염려되는 세탁물의 경우 세탁 전 미리 사진을 찍어주셔서 세탁담당자 요청에 따라 제공해주시면 더욱 세세한 관리가 이루어집니다.</p>
+        </div>
       </dd>
     </dl>
+    
 
     <div class="divider" />
 
     <dl class="rider">
       <dt>수거/배송 기사님께</dt>
       <dd>
-        <v-textarea
-          outlined
-          dense
-          counter
-          clearable
+        <textarea
           placeholder="수거/배달시 요청사항을 입력해주세요"
-          class="text-field"
-          height="90"
         />
       </dd>
     </dl>
@@ -54,11 +47,16 @@
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
     </div>
+
+    <UserRequestGuide ref="userRequestGuide"/>
   </div>
 </template>
 
 <script>
+import UserRequestGuide from '@/components/modal/userRequestGuide'
+
 export default {
+  components:{UserRequestGuide},
   data(){
     return{
       message:[
@@ -72,16 +70,12 @@ export default {
         },
         {
           active:false,
-          text:'이염방지를 위한 별도세탁 요청'
-        },
-        {
-          active:false,
-          text:'가죽/스웨이드 등 특수세탁 요청'
-        },
-        {
-          active:false,
           text:'명품 주의요청'
-        }
+        },
+        {
+          active:false,
+          text:'기타 요청사항'
+        },
       ],
     }
   },
@@ -89,11 +83,10 @@ export default {
     selectMessage(index){
       const messageBase = this.message
       messageBase[index].active = !this.message[index].active;
+      if(messageBase[index].active){
+        this.$refs.userRequestGuide.handle(true)
+      }
       return messageBase 
-    },
-    request(type, value){
-      const data = JSON.stringify({type:type, value:value})
-      window.ReactNativeWebView.postMessage(data)
     },
   },
 }
@@ -101,12 +94,37 @@ export default {
 
 <style lang="scss" scoped>
 .userMessage {
-  padding-bottom:70px;
+  padding-bottom:120px;
   
   .page-title {
     p {
       margin-top: 5px;
       color: #888;
+    }
+  }
+  textarea{
+    resize: none;
+    height:90px;
+    border:1px solid #d2d2d2;
+    padding:5px;
+    width:100%;
+    border-radius:4px;
+  }
+
+  .guide{
+    display:flex;
+    margin-top:5px;
+    
+    .v-icon{
+      align-self: flex-start;
+      color:#d22828;
+      font-size:18px;
+      margin-right:8px;
+    }
+    p{
+      flex:1;
+      margin:0;
+      font-size:12px;
     }
   }
 
@@ -133,7 +151,7 @@ export default {
       align-items: center;
       background:#f8f8f8;
       height:40px;
-      border-radius:20px;
+      border-radius:4px;
       padding:0 10px;
       margin-bottom:10px;
       label{
@@ -155,16 +173,19 @@ export default {
 
   .btns{
     position: fixed;
+    padding:10px;
     left:0px;
     bottom:0px;
     width:100%;
-    background:#0CA0E2;
+   
     
     .v-btn{
       width:100%;
       height:50px;
       font-size:14px;
       color:#fff;
+      border-radius:5px;
+      background:#0CA0E2;
 
       .v-icon{
         font-size:18px;
