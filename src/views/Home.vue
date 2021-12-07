@@ -117,6 +117,7 @@
 
       <MainPopup />
       <AlertMessage ref="alert" />
+      <DragBottomSheet/>
 
   </div>
 </template>
@@ -126,11 +127,12 @@
 import HomeHeader from '@/components/homeHeader'
 import MainPopup from '@/components/modal/mainPopup'
 import AlertMessage from '@/components/modal/alertMessage'
+import DragBottomSheet from '@/components/modal/dragBottomSheet'
 
 export default {
   name: "Home",
   components: {
-    HomeHeader, MainPopup,AlertMessage
+    HomeHeader, MainPopup,AlertMessage,DragBottomSheet
   },
   data(){
     return{
