@@ -16,7 +16,7 @@
 export default {
   data(){
     return{
-      visible:true,
+      visible:false,
       touchStartY: 0,
       topStopPos: 50,
       midStopPos: 430,

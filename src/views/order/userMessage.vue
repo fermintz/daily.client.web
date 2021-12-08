@@ -23,8 +23,12 @@
           placeholder="상세한 요청사항을 입력해주세요"
          />
          <div class="guide">
-          <v-icon>mdi-alert-circle</v-icon>
-          <p>파손이 염려되는 세탁물의 경우 세탁 전 미리 사진을 찍어주셔서 세탁담당자 요청에 따라 제공해주시면 더욱 세세한 관리가 이루어집니다.</p>
+          <ul>
+            <li><b>※</b> <span>토사물이 묻은 세탁물은 세탁거절 항목에 해당됩니다.</span></li>
+            <li><b>※</b> <span>파손이 염려되는 세탁물의 경우 세탁 전 미리 사진을 찍어주셔서 세탁담당자 요청에 따라 제공해주시면 더욱 세세한 관리가 이루어집니다.</span></li>
+            <li><b>※</b> <span>보풀제거요청은 추가비용이 발생 할 수 있습니다.</span></li>
+            <li><b>※</b> <span>모든 추가요청사항은 추가비용이 동반 될 수 있습니다.</span></li>
+          </ul>
         </div>
       </dd>
     </dl>
@@ -113,19 +117,25 @@ export default {
 
   .guide{
     display:flex;
-    margin-top:5px;
+    border-radius:4px;
     
-    .v-icon{
-      align-self: flex-start;
-      color:#d22828;
-      font-size:18px;
-      margin-right:8px;
+    ul{
+      padding:0;
+      li{
+        display:flex;
+        font-size:12px;
+        line-height:1.3;
+        margin-bottom:5px;
+        span{
+          flex:1;
+        }
+        b{
+          margin-right:5px;
+          color:#d22828;
+        }
+      }
     }
-    p{
-      flex:1;
-      margin:0;
-      font-size:12px;
-    }
+    
   }
 
   .divider{

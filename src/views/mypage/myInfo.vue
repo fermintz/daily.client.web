@@ -42,16 +42,18 @@
     </div>
 
     <Confirm ref="confirm"/>
+    <MemberOut ref="memberOut"/>
     
   </div>
 </template>
 
 <script>
 import Confirm from '@/components/modal/confirm'
+import MemberOut from '@/components/modal/memberOut'
 
 export default {
   components:{
-    Confirm,
+    Confirm,MemberOut,
   },
 }
 </script>
