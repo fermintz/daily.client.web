@@ -8,7 +8,7 @@
     <dl class="terms self">
       <dt @click="state.check2 = !state.check2" :class="{active:state.check2}">
         <v-icon>{{state.check2 ? 'mdi-check-circle' : 'mdi-check-circle-outline'}}</v-icon>
-        <label>(필수) 수거/배송에 관한 서비스 이용동의</label>
+        <label>(필수) 이불빨래 주문접수 시 주의사항</label>
       </dt>
 
       <dd class="image_area">
@@ -88,7 +88,7 @@
       </dd>
       <dd>
         <strong>
-          <label>신발류</label>
+          <label>신발류(구두포함)</label>
         </strong>
        
         <span>맡겨주신 신발류는 물세탁이 진행되며, 물세탁 진행 시 파손이 발생할 수 있는 운동화류는 아래 항목들에 대해 동의 후 주문접수를 요청드리며, 물세탁 시 파손 가능성이 있는 신발류는 주문접수를 취소해주시기 바랍니다.</span>
@@ -107,7 +107,7 @@
     <dl class="terms delivery">
       <dt @click="state.check2 = !state.check2" :class="{active:state.check2}">
         <v-icon>{{state.check2 ? 'mdi-check-circle' : 'mdi-check-circle-outline'}}</v-icon>
-        <label>(필수) 수거/배송에 관한 서비스 이용동의</label>
+        <label>(필수) 수거/배송 관련 주의사항</label>
       </dt>
       <dd class="image_area">
         <img src="@/assets/img/terms04.png" />
