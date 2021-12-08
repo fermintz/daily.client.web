@@ -26,7 +26,7 @@
     <div class="guide">
       <h4>
         <v-icon>mdi-information-outline</v-icon>
-        <label>쿠폰 주의사항</label>
+        <label>쿠폰 이용안내 및 주의사항</label>
       </h4>
       <ul>
         <li>할인쿠폰은 발행대상, 발행경로, 사용대상 등에 따라 구분될 수 있으며, 할인쿠폰의 세부구분, 할인금액(할인율), 사용방법, 사용기한 및 제한에 대한 사항은 할인쿠폰 또는 서비스화면에 표시됩니다. 할인쿠폰의 종류 및 내용과 발급여부에 관하여는 데일리세탁의 정책에 따라 달라질 수 있습니다.</li>
@@ -175,7 +175,7 @@ export default {};
     h4{
       display:flex;
       align-items: center;
-      
+
       .v-icon{
         font-size:20px;
         margin-right:5px;
