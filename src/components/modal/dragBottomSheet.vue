@@ -37,7 +37,6 @@ export default {
         this.touchStartY = e.changedTouches[0].clientY;
       })
       topHandle.addEventListener('touchmove',(e)=>{
-
         sheet.style.transition = 'all 0s';
         sheet.style.top = e.targetTouches[0].clientY + 'px'
       })

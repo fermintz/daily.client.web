@@ -27,14 +27,17 @@ import Login from '../views/login'
 import ShopSearch from '../views/order/shop_search'
 import TermsView from '../views/order/terms_view'
 import AddDetail from '../views/add_detail'
-import AddressForm from '../views/mypage/address_form'
 import Terms from '../views/Terms'
-import GateInput from '../views/mypage/gateInput'
+
 import PayFaild from '../views/payFaild'
 import PayLoading from '../views/payLoading'
 import Splash from '../views/splash'
 import LoginLoading from '../views/login_loading'
 import EventView from '../views/eventView'
+
+import AddressSearch from '../views/address/search'
+import GateInput from '../views/address/gate'
+import NotGate from '../views/address/notGate'
 
 
 Vue.use(VueRouter);
@@ -185,24 +188,30 @@ const routes = [
         component: AddDetail
       },
       {
-        path:"/addressForm",
-        name:"addressForm",
-        component: AddressForm
-      },
-      {
         path:"/terms",
         name:"terms",
         component: Terms
       },
+      
+      {
+        path:"/eventView",
+        name:"eventView",
+        component: EventView
+      },
+      {
+        path:"/addressSearch",
+        name:"addressSearch",
+        component: AddressSearch
+      }, 
       {
         path:"/gateInput",
         name:"gateInput",
         component: GateInput
       },
       {
-        path:"/eventView",
-        name:"eventView",
-        component: EventView
+        path:"/notGate",
+        name:"notGate",
+        component: NotGate
       },
       
       

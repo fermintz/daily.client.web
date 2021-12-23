@@ -2,20 +2,31 @@
   <div class="orderFinish">
     <div class="finish-title">
       <div class="title-video">
-        <video autoplay loop>
-          <source src="@/assets/video/partner.mp4" type="video/mp4">
-        </video>
+        <div class="image">
+          <img src="@/assets/video/finish.gif">
+        </div>
+        <v-icon>
+          mdi-check-circle
+        </v-icon>
       </div>
-      <strong>예약이 완료되었습니다</strong>
-      <p>기사님이 방문하는 날에 맞춰 세탁물을<br>문앞에 내놓아주세요</p>
+      <strong>세탁 예약이 완료되었습니다</strong>
+      <p>예약하신 <b>5월 17일(수요일) 오전</b>에 세탁물을<br/>문앞에 내놓아주세요</p>
     </div>
 
     <div class="finish-btns">
-      <v-btn text @click="$router.push('/')">
-        메인으로 돌아가기
+      <v-btn text class="how">
+        <label>세탁물 내놓는 방법안내</label>
+        <v-icon>mdi-chevron-right</v-icon>
+        
       </v-btn>
-      <v-btn text>
-        이용내역 확인하기
+      <v-btn text @click="$router.push('/')" class="main">
+        <label>메인으로 돌아가기</label>
+        <v-icon>mdi-chevron-right</v-icon>
+        
+      </v-btn>
+      <v-btn text class="mypage">
+        <label>이용내역 확인하기</label>
+        <v-icon>mdi-chevron-right</v-icon>
       </v-btn>
     </div>
 
@@ -37,7 +48,7 @@
   flex-direction: column;
   justify-content: center;
   height:100vh;
-  padding:0 26px;
+  padding:0 30px;
 
   .finish-title{
     display:flex;
@@ -45,20 +56,33 @@
     justify-content: center;
     align-items: center;
     text-align:center;
-    padding:40px 0;
-
+    margin-bottom:30px;
 
     .title-video{
-      width:200px;
-      height:200px;
-      border-radius:120px;
-      overflow:hidden;
-      border:1px solid #e2e2e2;
-      background:#f2f2f2;
+      position: relative;
       margin-bottom:30px;
-      video{
-        width:200px;
-        height:200px;
+
+      .image{
+        width:250px;
+        height:250px;
+        border:1px solid #d2d2d2;
+        border-radius:100%;
+        overflow:hidden;
+        img{
+          display:block;
+          width:100%;
+        }
+      }
+      
+      .v-icon{
+        position: absolute;
+        right:10px;
+        bottom:10px;
+        font-size:46px;
+        color:#0CA0E2;
+        background:#fff;
+        border-radius:100%;
+        z-index:2
       }
     }
     
@@ -70,42 +94,54 @@
     }
     p{
       display:block;
+      font-size:14px;
       margin-top:10px;
       line-height:1.4;
+
+      b{
+        color:#F11064
+      }
     }
   }
 
   .divider{
     height:1px;
     background:#e2e2e2;
-    margin:30px 0;
+    margin:20px 0;
   }
 
   .finish-btns{
     .v-btn{
+      display:Flex;
+      justify-content: space-between;
+      padding:0 15px;
       width:100%;
       background:#f2f2f2;
       margin-bottom:10px;
       height:45px;
-      border-radius:4px;
+      border-radius:5px;
       font-size:14px;
     }
 
-    .v-btn:nth-child(1){
-      background:#F1F5F9;
+    .v-btn.how{
+      border:1px solid #0C85E2;
+      background:#fff;
+      color:#0C85E2;
+    }
+
+    .v-btn:last-child{
+      margin-bottom:0px;
     }
   }
 
   .finish-guide{
     font-size:12px;
-
-    li:first-child{
-      color:#F11064;
-    }
-
     li{
       margin-bottom:5px;
       color:#888;
+    }
+    li:last-child{
+      margin-bottom:0px;
     }
   }
 

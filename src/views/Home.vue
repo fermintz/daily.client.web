@@ -22,42 +22,45 @@
     </div>
 
       <div class="res_btns">
-        <div class="btn" v-ripple @click="$router.push('shopSearch')">
-          <div class="image">
-            <img src="@/assets/img/main_btn01.png">
-          </div>
-          <dl>
-            <dt>
-              <span>셀프빨래방 대행</span>
-              <v-icon>mdi-arrow-right-circle</v-icon>
-            </dt>
-            <dd>간단한 물세탁 및 이불<br>세탁/건조</dd>
-          </dl>
-        </div>
-        <div class="btn" v-ripple @click="$router.push('shopSearch')">
-          <div class="image">
-            <img src="@/assets/img/main_btn02.png">
-          </div>
-          <dl>
-            <dt>
-              <span>세탁소 대행</span>
-              <v-icon>mdi-arrow-right-circle</v-icon>
-            </dt>
-            <dd>명품세탁 및 고급세탁<br>드라이클리닝</dd>
-          </dl>
-        </div>
+        
+        <dl class="btn" v-ripple @click="$router.push('shopSearch')">
+          <dt class="image">
+            <img src="@/assets/img/dry.png">
+          </dt>
+          <dd>
+            <div class="text">
+              <strong>드라이&물세탁</strong>
+              <span>명품 및 일반의류 세탁소 수거배송대행 서비스</span>
+            </div>
+            <v-icon>
+              mdi-arrow-right-circle
+            </v-icon>
+          </dd>
+        </dl>
+
+        <dl class="btn" v-ripple @click="$router.push('shopSearch')">
+          <dt class="image">
+            <img src="@/assets/img/self.png">
+          </dt>
+          <dd>
+            <div class="text">
+              <strong>침구류 물세탁</strong>
+              <span>침구류 코인세탁소 수거배송대행 서비스</span>
+            </div>
+            <v-icon>
+              mdi-arrow-right-circle
+            </v-icon>
+          </dd>
+        </dl>
       </div>
 
       <div class="inner">
 
         <div class="info_btn" v-ripple @click="$refs.alert.handle(true)">
           <dl>
-            <dt>이용방법 안내</dt>
+            <dt>데일리세탁 이용방법</dt>
             <dd>데일리세탁 서비스 이용방법을 확인해주세요</dd>
           </dl>
-          <v-icon>
-            mdi-arrow-right-circle
-          </v-icon>
         </div>
  
         <div class="divider" />
@@ -164,7 +167,7 @@ export default {
   }
 
   .alert_message{
-    display:flex;
+    display:none;
     justify-content: space-between;
     align-items: center;
     margin-bottom:30px;
@@ -198,7 +201,7 @@ export default {
   }
 
   .mainTitle{
-    margin-top:20px;
+    margin-top:40px;
     h1{
       font-weight:500;
       line-height:1.2;
@@ -223,42 +226,59 @@ export default {
     
     
     .btn{
-      min-width:60%;
-      border:1px solid #e2e2e2;
+      display:flex;
+      flex-direction: column;
+      min-width:210px;
+      min-height:250px;
+      border:1px solid #292929;
+      overflow:hidden;
       border-radius:15px;
-      padding:15px;
       margin-right:20px;
-      box-shadow: 3px 3px 12px rgba(0,0,0,0.05);
+      box-shadow: 3px 3px 12px rgba(0,0,0,0.1);
    
-      .image{
-        height:100px;
+
+      dt.image{
+        position: relative;
+        overflow:hidden;
+        height:130px;
         background:#f2f2f2;
-        margin-bottom:30px;
+        border-bottom:1px solid #aaa;
         img{
+          position: absolute;
+          top:0px;
           display:block;
-          width:100%;
+          height:100%;
         }
       }
 
-      dl{
-        
-        dt{
-          display:Flex;
-          align-items: center;
-          span{
-            font-size:18px;
+      dt.image:after{
+        content:'';
+        display:block;
+        padding-bottom:65%;  
+      }
+
+      dd{
+        fleX:1;
+        display:flex;
+        padding:15px;
+        .text{
+          fleX:1;
+          strong{
+            display:block;
+            font-size:16px;
+            font-weight:bold;
           }
-          .v-icon{
-            font-size:18px;
-            margin-left:10px;
-            color:#0CA0E2;
+          span{
+            display:block;
+            font-size:13px;
+            color:#898989;
+            margin-top:3px;
           }
         }
-        dd{
-          font-size:13px;
-          line-height:1.3;
-          color:#797979;
-          margin-top:5px;
+
+        .v-icon{
+          align-self: flex-end;
+          color:#292929;
         }
       }
     }
@@ -279,7 +299,6 @@ export default {
 
   .info_btn{
     display:flex;
-    justify-content: space-between;
     align-items: center;
     background:#F1F3F5;
     border-radius:10px;
@@ -289,17 +308,14 @@ export default {
 
     dl{
       dt{
-        font-size:18px;
+        font-size:16px;
       }
       dd{
         font-size:12px;
         line-height:1.3;
+        margin-top:2px;
         color:#797979;
       }
-    }
-
-    .v-icon{
-      font-size:18px;
     }
   }
 

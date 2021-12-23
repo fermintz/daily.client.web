@@ -5,7 +5,7 @@
         <h2>수거/배달을 위한<br>주소를 선택/등록해주세요</h2>
       </div>
      
-      <v-btn text class="add_btn" @click="$router.push('addressForm')">
+      <v-btn text class="add_btn" @click="$router.push('addressSearch')">
         <v-icon>mdi-map-marker</v-icon>
         <span>주소등록하기</span>
       </v-btn>
@@ -49,12 +49,12 @@ export default {
 
 
     .add_btn{
-      border:1px solid #e2e2e2;
-      height:40px;
+      border:1px solid #292929;
+      height:50px;
       width:100%;
       margin-top:10px;
       font-size:14px;
-      border-radius:20px;
+      border-radius:5px;
 
       .v-icon{
         font-size:16px;
