@@ -40,6 +40,7 @@ import GateInput from '../views/address/gate'
 import NotGate from '../views/address/notGate'
 
 
+
 Vue.use(VueRouter);
 
 const routes = [
@@ -231,6 +232,11 @@ const routes = [
     path:"/payLoading",
     name:"payLoading",
     component: PayLoading
+  },
+  {
+    path:"/receipt",
+    name:"receipt",
+    component: ()=> import('../views/receipt.vue')
   },
 ];
 

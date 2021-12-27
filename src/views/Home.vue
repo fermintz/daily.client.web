@@ -20,7 +20,6 @@
         <p>집앞으로 픽업하고 배송까지!</p>
       </div>
     </div>
-
       <div class="res_btns">
         
         <dl class="btn" v-ripple @click="$router.push('shopSearch')">
@@ -121,6 +120,7 @@
       <MainPopup />
       <AlertMessage ref="alert" />
       <DragBottomSheet/>
+      <AddressSelector />
 
   </div>
 </template>
@@ -131,11 +131,12 @@ import HomeHeader from '@/components/homeHeader'
 import MainPopup from '@/components/modal/mainPopup'
 import AlertMessage from '@/components/modal/alertMessage'
 import DragBottomSheet from '@/components/modal/dragBottomSheet'
+import AddressSelector from '@/components/modal/addressSelector'
 
 export default {
   name: "Home",
   components: {
-    HomeHeader, MainPopup,AlertMessage,DragBottomSheet
+    HomeHeader, MainPopup,AlertMessage,DragBottomSheet, AddressSelector
   },
   data(){
     return{

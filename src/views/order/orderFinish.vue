@@ -17,12 +17,10 @@
       <v-btn text class="how">
         <label>세탁물 내놓는 방법안내</label>
         <v-icon>mdi-chevron-right</v-icon>
-        
       </v-btn>
       <v-btn text @click="$router.push('/')" class="main">
         <label>메인으로 돌아가기</label>
         <v-icon>mdi-chevron-right</v-icon>
-        
       </v-btn>
       <v-btn text class="mypage">
         <label>이용내역 확인하기</label>
