@@ -11,7 +11,7 @@
         </v-btn>
       </div>
       <ul class="cont">
-        <li class="on" v-ripple v-for="item in 30" :key="item">
+        <li class="on" v-ripple>
           <span></span>
           <label>경남 김해시 가락대로 929-1</label>
         </li>
