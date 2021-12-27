@@ -28,16 +28,47 @@
 
         <div class="divider" />
 
-        <ul>
+        <ul class="product">
           <li class="th">
             <span class="name">상품명</span>
-            <span class="num">검수전</span>
-            <span class="num">검수후</span>
+            <span class="num">수량</span>
           </li>
           <li v-for="item in 10" :key="item">
             <span class="name">흰색와이셔츠</span>
-            <span class="num">1개</span>
             <span class="num">2개</span>
+          </li>
+        </ul>
+
+        <div class="divider" />
+
+        <ul class="credit">
+          <li>
+            <dl>
+              <dt>결제상태</dt>
+              <dd>정상</dd>
+            </dl>
+            <dl>
+              <dt>거래일시</dt>
+              <dd>2021년 12월 17일 15:50</dd>
+            </dl>
+            <dl>
+              <dt>결제금액</dt>
+              <dd>24,500 원</dd>
+            </dl>
+          </li>
+          <li class="cancle">
+            <dl>
+              <dt>결제상태</dt>
+              <dd>취소</dd>
+            </dl>
+            <dl>
+              <dt>거래일시</dt>
+              <dd>2021년 12월 17일 15:50</dd>
+            </dl>
+            <dl>
+              <dt>결제금액</dt>
+              <dd>24,500 원</dd>
+            </dl>
           </li>
         </ul>
 
@@ -55,18 +86,6 @@
           <dt>주소</dt>
           <dd>부산광역시 사상구 덕상로 1 (덕포동) 월드크리닝 덕포지사</dd>
         </dl>
-
-        <div class="divider" />
-
-        <dl>
-          <dt>인수증 발급일시</dt>
-          <dd>2021년 12월 17일 16:40</dd>
-        </dl>
-
-
-        <div class="btns">
-          <v-btn text>확인완료</v-btn>
-        </div>
 
       </div>
     </div>
@@ -87,7 +106,8 @@ export default {
 
   .inner{
     background:#fff;
-    padding:25px;
+    padding:20px;
+    padding-bottom:60px;
     border-radius:5px;
     box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
   }
@@ -123,7 +143,7 @@ export default {
     justify-content: space-between;
     margin-bottom:10px;
     dt{
-      margin-right:30px;
+      width:100px;
       color:#898989;
     }
     dd{
@@ -136,7 +156,7 @@ export default {
     }
   }
 
-  ul{
+  ul.product{
     li.th{
       margin-bottom:15px;
       span{
@@ -158,6 +178,33 @@ export default {
         margin-bottom:0;
       }
     }
+  }
+
+  ul.credit{
+    li{
+      background:#f8f8f8;
+      margin-bottom:10px;
+      padding:15px;
+      border-radius:5px;
+
+      dl{
+        margin-bottom:6px;
+
+        &:last-child{
+          margin-bottom:0;
+        }
+      }
+
+      &:last-child{
+        margin-bottom:0px;
+      }
+
+      &.cancle{
+        background:#FBEFF4;
+      }
+    }
+
+    
   }
 
   .btns{
