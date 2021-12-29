@@ -15,6 +15,7 @@
             @click="selectMessage(index)"
             v-ripple
           >
+         
             <v-icon :class="{active:item.active}">mdi-check-circle-outline</v-icon>
             <label>{{item.text}}</label>
           </li>
@@ -66,19 +67,19 @@ export default {
       message:[
         {
           active:false,
-          text:'오염 제거요청(혈액/음식물/토사물/기타 등)'
+          text:'특수 오염 제거요청 (혈액/음식물/기타 등)'
         },
         {
           active:false,
-          text:'수선요청'
+          text:'수선 요청 (밑단줄임,튿어짐,지퍼,단추수선 등)'
         },
         {
           active:false,
-          text:'명품 주의요청'
+          text:'명품류 주의 요청 (단추/와펜/등)'
         },
         {
           active:false,
-          text:'기타 요청사항'
+          text:'흰색 의류 전처리 요청 (불림/표백작업, 추가금액발생)'
         },
       ],
     }
@@ -118,6 +119,7 @@ export default {
   .guide{
     display:flex;
     border-radius:4px;
+    margin-top:10px;
     
     ul{
       padding:0;
@@ -158,27 +160,30 @@ export default {
 
     li{
       display:Flex;
-      align-items: center;
+      align-items: flex-start;
       background:#f8f8f8;
-      height:40px;
       border-radius:4px;
-      padding:0 10px;
       margin-bottom:10px;
+      padding:10px;
+
+      &:last-child{
+        margin-bottom:0;
+      }
+      
       label{
         flex:1;
       }
+     
       .v-icon{
-        font-size:24px;
+        font-size:20px;
         margin-right:10px;
         color:#aaa;
-      }
-      .v-icon.active{
-        color:#0CA0E2;
+        &.active{
+          color:#0CA0E2;
+        }
       }
     }
-    li:last-child{
-      margin-bottom:0px;
-    }
+    
   }
 
   .btns{
