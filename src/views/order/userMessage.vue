@@ -15,7 +15,6 @@
             @click="selectMessage(index)"
             v-ripple
           >
-         
             <v-icon :class="{active:item.active}">mdi-check-circle-outline</v-icon>
             <label>{{item.text}}</label>
           </li>
@@ -23,14 +22,7 @@
         <textarea
           placeholder="상세한 요청사항을 입력해주세요"
          />
-         <div class="guide">
-          <ul>
-            <li><b>※</b> <span>토사물이 묻은 세탁물은 세탁거절 항목에 해당됩니다.</span></li>
-            <li><b>※</b> <span>파손이 염려되는 세탁물의 경우 세탁 전 미리 사진을 찍어주셔서 세탁담당자 요청에 따라 제공해주시면 더욱 세세한 관리가 이루어집니다.</span></li>
-            <li><b>※</b> <span>보풀제거요청은 추가비용이 발생 할 수 있습니다.</span></li>
-            <li><b>※</b> <span>모든 추가요청사항은 추가비용이 동반 될 수 있습니다.</span></li>
-          </ul>
-        </div>
+         
       </dd>
     </dl>
     
@@ -40,11 +32,32 @@
     <dl class="rider">
       <dt>수거/배송 기사님께</dt>
       <dd>
+        <ul class="check-list">
+          <li v-for="(item, index) in message2" :key="index" 
+            @click="selectMessage(index)"
+            v-ripple
+          >
+            <v-icon :class="{active:item.active}">mdi-check-circle-outline</v-icon>
+            <label>{{item.text}}</label>
+          </li>
+        </ul>
         <textarea
           placeholder="수거/배달시 요청사항을 입력해주세요"
         />
       </dd>
     </dl>
+
+    <div class="divider"></div>
+
+    <div class="guide">
+      <h4>유의사항</h4>
+      <ul>
+        <li><span><b>토사물이 묻은 세탁물은 세탁거절</b> 항목에 해당됩니다.</span></li>
+        <li><span>파손이 염려되는 세탁물의 경우 세탁 전 미리 사진을 찍어주셔서 세탁담당자 요청에 따라 제공해주시면 더욱 세세한 관리가 이루어집니다.</span></li>
+        <li><span>보풀제거요청은 추가비용이 발생 할 수 있습니다.</span></li>
+        <li><span>모든 추가요청사항은 추가비용이 동반 될 수 있습니다.</span></li>
+      </ul>
+    </div>
 
     <div class="btns">
       <v-btn text @click="$router.push('orderDetail')">
@@ -82,6 +95,13 @@ export default {
           text:'흰색 의류 전처리 요청 (불림/표백작업, 추가금액발생)'
         },
       ],
+
+      message2:[
+        {
+          active:false,
+          text:'수거시 사용한 가방은 돌려주세요'
+        },
+      ],
     }
   },
   methods:{
@@ -114,30 +134,6 @@ export default {
     padding:5px;
     width:100%;
     border-radius:4px;
-  }
-
-  .guide{
-    display:flex;
-    border-radius:4px;
-    margin-top:10px;
-    
-    ul{
-      padding:0;
-      li{
-        display:flex;
-        font-size:12px;
-        line-height:1.3;
-        margin-bottom:5px;
-        span{
-          flex:1;
-        }
-        b{
-          margin-right:5px;
-          color:#d22828;
-        }
-      }
-    }
-    
   }
 
   .divider{
@@ -208,7 +204,31 @@ export default {
         color:#fff
       }
     }
-    
+  }
+
+  .guide{
+    margin-top:20px;
+    h4{
+      font-size:16px;
+      font-weight:bold;
+      margin-bottom:10px;
+    }
+    ul{
+      padding:0px;
+      li{
+        margin-bottom:6px;
+        line-height: 1.3;
+
+        &:before{
+          content:'-';
+          margin-right:3px;
+        }
+
+        b{
+          color:#de0059;
+        }
+      }
+    }
   }
   
 

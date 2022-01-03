@@ -39,8 +39,6 @@ import AddressSearch from '../views/address/search'
 import GateInput from '../views/address/gate'
 import NotGate from '../views/address/notGate'
 
-
-
 Vue.use(VueRouter);
 
 const routes = [
@@ -214,6 +212,11 @@ const routes = [
         name:"notGate",
         component: NotGate
       },
+      {
+        path:"/myOrderDetailDummy",
+        name:"myOrderDetailDummy",
+        component: ()=> import('../views/MyOrderDetailDummy')
+      },
       
       
     ],
@@ -238,6 +241,8 @@ const routes = [
     name:"receipt",
     component: ()=> import('../views/receipt.vue')
   },
+
+  
 ];
 
 const router = new VueRouter({

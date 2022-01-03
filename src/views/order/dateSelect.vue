@@ -21,7 +21,16 @@
       </v-row>
     </div>
 
+    <div class="divider"></div>
 
+    <div class="guide">
+      <h4>유의사항</h4>
+      <ul>
+        <li><b>선택하신 날짜는 이 후에 변동이 불가능</b>하므로 해당 부분 확인 후에 고객님께서 가능한 날짜만 반드시 선택해주세요.</li>
+        <li>수거 예약을 선택하신 날짜에 맞춰 데일리세탁 기사님이 방문하시니 꼭 <b>잊지말고 세탁물을 내놓아주세요.</b></li>
+        <li>주말 및 공휴일에는 데일리세탁이 운영하지 않으므로 수거나 배송 업무가 진행되지 않습니다.</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -147,6 +156,36 @@ export default {
       content:'';
       display:block;
       padding-bottom:100%;
+    }
+  }
+
+  .divider{
+    height:1px;
+    background:#e2e2e2;
+    margin:40px 0;
+  }
+
+  .guide{
+    h4{
+      font-size:16px;
+      font-weight:bold;
+      margin-bottom:10px;
+    }
+    ul{
+      padding:0px;
+      li{
+        margin-bottom:6px;
+        line-height: 1.3;
+
+        &:before{
+          content:'-';
+          margin-right:3px;
+        }
+
+        b{
+          color:#de0059;
+        }
+      }
     }
   }
 }
