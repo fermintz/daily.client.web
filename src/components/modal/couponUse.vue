@@ -16,7 +16,7 @@
         <li class="no-data">
           등록된 쿠폰이 없습니다.
         </li>
-        <li v-for="item in 10" :key="item">
+        <li v-for="item in 3" :key="item">
           <CouponItem />
         </li>
       </ul>

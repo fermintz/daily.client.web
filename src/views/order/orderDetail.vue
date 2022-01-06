@@ -104,10 +104,78 @@
 
     <div class="divider" />
 
+    <div class="coupon_use">
+      <h3>쿠폰사용</h3>
+      <div class="no-data">
+        사용가능한 쿠폰이 없습니다.
+      </div>
+      <ul>
+        <li 
+          v-ripple
+          :class="{active:true}"
+        >
+          <div class="check-wr">
+            <v-btn text>
+              <v-icon v-if="true">mdi-check</v-icon>
+            </v-btn>
+          </div>
+          <div class="coupon-info">
+            <strong>새해 명절 세탁쿠폰</strong>
+            <span>최소주문금액 : 15,000원</span>
+            <span>2021.09.20 까지 사용가능</span>
+          </div>
+          <div class="price">
+            5,000원
+          </div>
+        </li>
+        <li 
+          v-ripple
+        >
+          <div class="check-wr">
+            <v-btn text>
+              <v-icon v-if="false">mdi-check</v-icon>
+            </v-btn>
+          </div>
+          <div class="coupon-info">
+            <strong>새해 명절 세탁쿠폰</strong>
+            <span>최소주문금액 : 15,000원</span>
+            <span>2021.09.20 까지 사용가능</span>
+          </div>
+          <div class="price">
+            5,000원
+          </div>
+        </li>
+        <li 
+          v-ripple
+          class="disable"
+        >
+          <div class="check-wr">
+            <v-btn text>
+              <v-icon v-if="false">mdi-check</v-icon>
+            </v-btn>
+          </div>
+          <div class="coupon-info">
+            <strong>새해 명절 세탁쿠폰</strong>
+            <span>최소주문금액 : 15,000원</span>
+            <span>2021.09.20 까지 사용가능</span>
+          </div>
+          <div class="price">
+            5,000원
+          </div>
+        </li>
+      </ul>
+      <div class="more-wr"> <!-- 3개 이상시 3개씩 -->
+        <v-btn text> 
+          더보기
+        </v-btn>
+      </div>
+    </div>
+
+    <div class="divider" />
+
     <div class="payment-info">
       <div class="payment-info-top">
-        <h3>결제정보</h3>
-        <v-btn text plain @click="$refs.couponUse.handle(true)">쿠폰사용</v-btn>
+        <h3>결제 예정금액</h3>
       </div>
 
       <div class="price-info">
@@ -139,6 +207,7 @@
     <div class="divider" />
 
     <div class="detail-bottom">
+      <h3>주문정보 및 서비스 약관동의</h3>
       <div 
         class="terms-btn" 
         v-ripple
@@ -225,23 +294,20 @@
 
     </div>
 
-    <CouponUse ref="couponUse"/>
 
   </div>
 </template>
 
 
 <script>
-import CouponUse from '@/components/modal/couponUse'
-
-
 
 export default {
   components:{
-    CouponUse
+
   },
   data() {
     return {
+      couponActive:true,
       creditSeleted: 0,
       termsBtn: false,
     };
@@ -279,6 +345,7 @@ export default {
 
   h3 {
     margin-bottom: 20px;
+    font-weight:bold;
   }
 
   .order-info {
@@ -364,6 +431,108 @@ export default {
 
     dl:last-child {
       margin-bottom: 0px;
+    }
+  }
+
+  .coupon_use{
+    .no-data{
+      display:flex;
+      background:#f2f2f2;
+      height:50px;
+      border-radius:5px;
+      justify-content: center;
+      align-items: center;
+      margin-bottom:10px;
+    }
+    ul{
+      padding:0px;
+      li{
+        display:flex;
+        align-items: flex-start;
+        border:1px solid #c2c2c2;
+        border-radius:5px;
+        padding:15px;
+        margin-bottom:10px;
+
+        &.active{
+          border-color:#f11064
+        }
+
+        &.disable{
+          border:0;
+          background:#f2f2f2;
+          .check-wr{
+            .v-btn{
+              border:0;
+              background:#d2d2d2;
+            }
+          }
+          strong{
+            color:#898989;
+          }
+          .price{
+            color:#898989;
+          }
+        }
+        
+        .check-wr{
+          margin-right:15px;
+          .v-btn{
+            min-width:20px;
+            max-height:20px;
+            padding:0px;
+            border:1px solid #292929;
+            border-radius:5px;
+
+            .v-icon{
+              font-size:18px;
+              color:#f11064;
+            }
+          }
+        }
+        .coupon-info{
+          flex:1;
+          strong{
+            display:block;
+            font-size:14px;
+            line-height:1;
+            font-weight:bold;
+            margin-bottom:6px;
+          }
+          span{
+            display:block;
+            font-size:12px;
+            color:#898989;
+          }
+        }
+
+        .price{
+          margin-left:15px;
+          justify-content: flex-end;
+          align-self: flex-end;
+          font-size:16px;
+          line-height:1;
+          font-weight:bold;
+        }
+
+        &:last-child{
+          margin-bottom:0px;
+        }
+      }
+
+    }
+    .more-wr{
+      display:flex;
+      justify-content: center;
+      align-items: center;
+      margin-top:30px;
+
+      .v-btn{
+        width:120px;
+        background: #f2f2f2;
+        height:34px;
+        border-radius:17px;
+      }
     }
   }
 

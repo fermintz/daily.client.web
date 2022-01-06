@@ -21,7 +21,7 @@
         </ul>
         <textarea
           placeholder="상세한 요청사항을 입력해주세요"
-         />
+        />
          
       </dd>
     </dl>
