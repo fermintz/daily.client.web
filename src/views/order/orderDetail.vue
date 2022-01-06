@@ -109,7 +109,7 @@
       <div class="no-data">
         사용가능한 쿠폰이 없습니다.
       </div>
-      <ul>
+      <ul class="coupon_list">
         <li 
           v-ripple
           :class="{active:true}"
@@ -168,6 +168,13 @@
         <v-btn text> 
           더보기
         </v-btn>
+      </div>
+
+      <div class="guide">
+        <h4>쿠폰사용시 주의사항</h4>
+        <ul>
+          <li>회 결제 시 중복으로 쿠폰사용은 불가능합니다.</li>
+        </ul>
       </div>
     </div>
 
@@ -444,7 +451,7 @@ export default {
       align-items: center;
       margin-bottom:10px;
     }
-    ul{
+    ul.coupon_list{
       padding:0px;
       li{
         display:flex;
@@ -532,6 +539,28 @@ export default {
         background: #f2f2f2;
         height:34px;
         border-radius:17px;
+      }
+    }
+
+    .guide{
+      h4{
+        font-size:14px;
+        font-weight:bold;
+        margin-bottom:10px;
+      }
+
+      ul{
+        padding:0px;
+        li{
+          margin-bottom:5px;
+          &:last-child{
+            margin-bottom:0px;
+          }
+          &:before{
+            content:'-';
+            margin-right:5px;
+          }
+        }
       }
     }
   }
