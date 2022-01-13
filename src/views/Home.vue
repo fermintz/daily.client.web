@@ -57,8 +57,15 @@
 
         <div class="info_btn" v-ripple @click="$refs.alert.handle(true)">
           <dl>
-            <dt>데일리세탁 이용방법</dt>
-            <dd>데일리세탁 서비스 이용방법을 확인해주세요</dd>
+            <dt>데일리세탁 이용안내</dt>
+            <dd>데일리세탁 서비스의 작업흐름을 확인해보세요</dd>
+          </dl>
+        </div>
+
+        <div class="info_btn" v-ripple @click="$refs.alert.handle(true)">
+          <dl>
+            <dt>세탁물을 내놓는 방법</dt>
+            <dd>주문 후 세탁물을 내놓는 방법을 안내해드립니다.</dd>
           </dl>
         </div>
  
@@ -306,6 +313,10 @@ export default {
     padding:15px;
     margin-top:10px;
     height:80px;
+
+    &:nth-child(even){
+      background:#F6F1F1;
+    }
 
     dl{
       dt{
