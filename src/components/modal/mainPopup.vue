@@ -16,7 +16,7 @@
 export default {
   data() {
     return {
-      visible: false,
+      visible: true,
     }
   },
 };
@@ -25,14 +25,14 @@ export default {
 <style lang="scss" scoped>
 .main_popup {
   background:#fff;
-  border-radius:15px 15px 0 0;
+  border-radius:20px 20px 0 0;
   overflow:hidden;
   padding:5px;
   padding-bottom:10px;
   .event_img{
     position: relative;
     background:#f8f8f8;
-    border-radius:12px;
+    border-radius:17px;
     overflow:hidden;
 
     img{
@@ -43,11 +43,11 @@ export default {
   .bottom_btns{
     display:flex;
     align-items: center;
+    justify-content: center;
     margin:15px 0;
     padding:0 10px;
 
     .v-btn{
-      flex:1;
       background:#f2f2f2;
       margin-right:10px;
       border-radius:20px;
@@ -55,7 +55,7 @@ export default {
       font-size:13px;
     }
     .v-btn.todayClose{
-      flex:2;
+      
       background:#FBEFF4;
     }
     .v-btn:last-child{
