@@ -2,7 +2,7 @@
   <v-bottom-sheet v-model="visible">
     <div class="main_popup">
       <div class="event_img">
-        <img src="https://source.unsplash.com/random" />
+        <img src="/img/main_notice.jpg" />
       </div>
       <div class="bottom_btns">
         <v-btn text class="todayClose" @click="visible = false">오늘 하루 열지 않기</v-btn>

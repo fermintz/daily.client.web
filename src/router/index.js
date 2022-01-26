@@ -241,6 +241,11 @@ const routes = [
     name:"receipt",
     component: ()=> import('../views/receipt.vue')
   },
+  {
+    path:"/receipt-message",
+    name:"receipt-message",
+    component: ()=> import('../views/receipt-message.vue')
+  },
 
   
 ];
