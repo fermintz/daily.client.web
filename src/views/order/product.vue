@@ -1,50 +1,26 @@
 <template>
   <div class="product contents">
-    <div class="shop_info">
-      <div class="top">
-        <dl>
-          <dt>셀프빨래방</dt>
-          <dd>워시프렌즈 광안점</dd>
-        </dl>
-        <v-btn icon>
-          <v-icon>
-            mdi-phone
-          </v-icon>
-        </v-btn>
+    <div class="inner">
+      <div class="page-title">
+        <h2>어떤 품목을 맡기실건가요?</h2>
+        <p>맡기실 세탁품목을 선택해주세요</p>
       </div>
-
-      <div class="shop_btns">
-        <v-btn text>
-          <label>이용불가품목 안내</label>
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-btn>
-        <v-btn text>
-          <label>명품 브랜드 확인</label>
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-btn>
-        <v-btn text>
-          <label>명품 브랜드 확인</label>
-          <v-icon>mdi-chevron-right</v-icon>
-        </v-btn>
-      </div>
-      
     </div>
-
-
-    <div class="line" />
 
     <v-tabs
       v-model="tabActive"
       :show-arrows="false"
-      slider-color="#0CA0E2"
+      hide-slider
       append
+      height="40px"
     >
       <v-tab
         v-for="(tab, index) in priceTable" 
         :key="index"
         :ripple="false"
+
       >
-        <div class="tab-item" @click="popupHandle(index)">
+        <div class="tab-item">
           <!-- <strong>
             <img :src="'/img/product-icon' + (index+1) + '.png'" />
           </strong> -->
@@ -52,6 +28,7 @@
         </div>
       </v-tab>
     </v-tabs>
+
 
     <v-tabs-items 
       v-model="tabActive"
@@ -64,16 +41,20 @@
       >
         <dl class="goods_cate">
           <dt>
-            <label>상품카테</label>
+            <label>남성</label>
           </dt>
           <dd>
             <div class="goods" v-for="item in tab.product" :key="item">
               <div class="goods-info">
                 <span class="goods-name">
                   <label>{{ item.name }}</label>
+                  
                   <!-- <v-btn icon>
                     <v-icon >mdi-help-circle-outline</v-icon>
                   </v-btn> -->
+                </span>
+                <span class="goods-sub">
+                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
                 </span>
                 <!-- <span class="sub">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, </span> -->
               </div>
@@ -91,7 +72,7 @@
         </dl>
         <dl class="goods_cate">
           <dt>
-            <label>상품카테</label>
+            <label>여성</label>
           </dt>
           <dd>
             <div class="goods" v-for="item in tab.product" :key="item">
@@ -120,12 +101,13 @@
     </v-tabs-items>
 
 
+
     <div class="btns">
       <v-btn text class="basket" @click="$refs.basket.handle(true)">
         <label>장바구니</label>
         <div class="badge">6</div>
       </v-btn>
-      <v-btn text class="next" @click="$router.push('dateSelect')">
+      <v-btn text class="next" @click="$router.push('userMessage')">
         <label>14,900원 예약하기</label>
         <v-icon>mdi-arrow-right</v-icon>
       </v-btn>
@@ -195,106 +177,52 @@ export default {
 </script>
 
 <style lang="scss" scoped>
-.product {
+.product.contents {
   padding:0px;
 
-  .shop_info{
-    .top{
-      display:flex;
-      align-items: center;
-      justify-content: space-between;
-      padding:30px 20px 15px 20px;
+  .inner{
+    padding:0 20px;
+  }
 
-      dl{
-        dt{
-          font-size:12px;
-          color:#0CA0E2;
-          margin-bottom:5px;
-        }
-        dd{
-          font-size:22px;
-          line-height:1;
-          font-weight:bold;
-        }
-      }
-
-      .v-btn{
-        background:#f2f2f2;
-        width:45px;
-        height:45px;
-        border-radius:10px;
-        .v-icon{
-          color:#3EC266;
-        }
-      }
+  .page-title {
+    p {
+      margin-top: 5px;
+      color: #888;
     }
-
-    .shop_btns{
-      display:flex;
-      align-items: center;
-      overflow-x:auto;
-      padding:20px;
-
-      .v-btn{
-        display:flex;
-        align-items: center;
-        background:#fff;
-        height:32px;
-        font-size:11px;
-        border-radius:0px;
-        padding:0 10px;
-        border:1px solid #e2e2e2;
-        margin-right:10px;
-        border-radius:18px;
-
-        .v-icon{
-          font-size:14px;
-          margin-left:10px;
-          color:#aaa;
-        }
-      }
-
-      .v-btn:last-child{
-        margin-right:0px;
-      }
-    }
-
-    .shop_btns::-webkit-scrollbar{
-      display:none;
-    }
-    
-  } 
-
-  .line{
-    height:10px;
-    background:#e2e2e2;
-
   }
 
   .v-tabs{
     position:sticky;
+    padding-bottom:20px;
     top:60px;
     z-index:99;
-    border-bottom:1px solid #e2e2e2;
     background:#fff;
 
-
     .v-tab{
-      min-width:58px;
-      padding:0px 15px;
+      min-width:auto;
+      background:#f2f2f2;
+      margin-right:6px;
+      border-radius:12px;
+      padding:0px 12px;
 
       label {
         display: block;
-        font-size: 14px;
-        font-weight:bold;
+        font-size: 12px;
         letter-spacing: 0;
-        color:#292929;
+        color:#898989;
+      }
+
+      &:first-child{
+        margin-left:20px;
       }
     }
 
     .v-tab.v-tab--active{
+      background:#292929;
       label{
-        color:#0CA0E2
+        font-size:14px;
+        font-weight:bold;
+        color:#fff
       }
     }
 
@@ -302,7 +230,9 @@ export default {
   }
 
   .goods-list{
+    padding:0 20px;
     padding-bottom:80px;
+    
     
     .tip{
       text-align:center;
@@ -313,25 +243,37 @@ export default {
     }
 
     dl.goods_cate{
+      margin-bottom:20px;
+      
       dt{
+        display:flex;
+        align-items: center;
+        justify-content: center;
         font-size:14px;
-        font-weight:bold;
         background:#F4F7F9;
-        padding:10px 15px;
-        border-bottom:1px solid #e2e2e2;
+        height:40px;
+        padding:0 15px;
+        border-radius:12px;
+        margin-bottom:10px;
       }
 
       .goods{
         display:flex;
         align-items: center;
+        padding:20px 0px;
         border-bottom:1px solid #e2e2e2;
-        padding:15px 15px;
+
+        &:last-child{
+          border-bottom:0
+        }
+
 
         .goods-info{
           flex:1;
           margin-right:10px;
           span{display:block;line-height:1.2;}
           span.goods-name{
+            font-size:14px;
             display:flex;
             align-items: center;
             
@@ -344,6 +286,12 @@ export default {
                 color:#D20A61;
               }
             }
+          }
+
+          span.goods-sub{
+            font-size:11px;
+            margin-top:5px;
+            color:#898989;
           }
 
           span.sub{
@@ -366,6 +314,7 @@ export default {
             display:block;
             font-weight:500;
             line-height:1.2;
+            font-size:14px;
           }
           
         }

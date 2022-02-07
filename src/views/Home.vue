@@ -32,7 +32,6 @@
                 <div class="visual-img">
                   <img :src="item.src">
                 </div>
-                
               </v-carousel-item>
             </v-carousel>
 

@@ -86,16 +86,17 @@ export default {
 
 <style lang="scss" scoped>
 .v-bottom-sheet.v-dialog{
-  min-height:500px
+    min-height:500px;
 }
+
 .basket{
-  padding:15px;
+  padding:20px;
   padding-top:0px;
   padding-bottom:100px;
   background:#fff;
   overflow-y:scroll;
-  min-height:500px
-
+  min-height:500px;
+  border-radius:24px 24px 0 0;
 }
 
 .basket-head{
@@ -167,6 +168,8 @@ export default {
       padding:10px;
       border-radius:5px;
       margin:15px 0;
+      font-size:14px;
+      color:#898989;
       text-align:center;
     }
     .goods-item{

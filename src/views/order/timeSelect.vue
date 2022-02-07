@@ -1,5 +1,6 @@
 <template>
   <div class="timeSelect contents">
+    
     <div class="page-title">
       <h2>선택하신 시간때에 방문할게요</h2>
       <p>희망하시는 수거시간때를 선택해주세요</p>
