@@ -15,61 +15,63 @@
     </div>
 
     <div class="inner">
-      <div class="mainTitle">
-        <h1>쉽고 간편하게<br><span>세탁을 시작해보세요</span></h1>
-        <p>집앞으로 픽업하고 배송까지!</p>
-      </div>
-    </div>
-      <div class="res_btns">
-        
-        <dl class="btn" v-ripple @click="$router.push('shopSearch')">
-          <dt class="image">
-            <img src="@/assets/img/dry.png">
-          </dt>
-          <dd>
-            <div class="text">
-              <strong>드라이&물세탁</strong>
-              <span>명품 및 일반의류 세탁소 수거배송대행 서비스</span>
+        <div class="mainVisual">
+          <div class="visual">
+            <v-carousel
+              height="auto"
+              hide-delimiters
+              :show-arrows="false"
+              style="z-index:1;"
+              @change="e => visualChange(e)"
+            >
+              <v-carousel-item v-for="item in mainVisual" :key="item">
+                <div class="visual-title">
+                  <h1>{{item.title}}</h1>
+                  <p>{{item.subText}}</p>
+                </div>
+                <div class="visual-img">
+                  <img :src="item.src">
+                </div>
+                
+              </v-carousel-item>
+            </v-carousel>
+
+            
+            <div class="visual-bg" />
+            
+          </div>
+
+          <div class="delimiter">
+              <span 
+                v-for="(delimiter, index) in mainVisual" :key="index"
+                :class="{active:index === visualIndex}"
+              >
+              </span>
             </div>
-            <v-icon>
-              mdi-arrow-right-circle
-            </v-icon>
-          </dd>
-        </dl>
 
-        <dl class="btn" v-ripple @click="$router.push('shopSearch')">
-          <dt class="image">
-            <img src="@/assets/img/self.png">
-          </dt>
-          <dd>
-            <div class="text">
-              <strong>침구류 물세탁</strong>
-              <span>침구류 코인세탁소 수거배송대행 서비스</span>
-            </div>
-            <v-icon>
-              mdi-arrow-right-circle
-            </v-icon>
-          </dd>
-        </dl>
-      </div>
+          <v-btn 
+            text
+            rounded
+            @click="$router.push('dateSelect')" 
+          >세탁 예약하기
+          </v-btn>
+        </div>
 
-      <div class="inner">
+        <div class="res_btn">
+          
+        </div>
 
-        <div class="info_btn" v-ripple @click="$refs.alert.handle(true)">
-          <dl>
+        <div class="infomation">
+          <dl @click="$refs.alert.handle(true)">
             <dt>데일리세탁 이용안내</dt>
             <dd>데일리세탁 서비스의 작업흐름을 확인해보세요</dd>
           </dl>
-        </div>
-
-        <div class="info_btn" v-ripple @click="$refs.alert.handle(true)">
-          <dl>
+          <dl @click="$refs.alert.handle(true)">
             <dt>세탁물을 내놓는 방법</dt>
             <dd>주문 후 세탁물을 내놓는 방법을 안내해드립니다.</dd>
           </dl>
         </div>
- 
-        <div class="divider" />
+
 
         <div class="promotion">
           <h3>프로모션</h3>
@@ -82,7 +84,7 @@
             </li>
           </ul>
         </div>
-
+ 
         <div class="divider" />
 
         <div class="notice">
@@ -147,7 +149,20 @@ export default {
   },
   data(){
     return{
-      posts:null
+      posts:null,
+      visualIndex:0,
+      mainVisual:[
+        {
+          title:'쉽고 간편하게 세탁을 시작해보세요',
+          subText:'집에서 픽업하고 배송까지',
+          src:'img/main_visual01.png'
+        },
+        {
+          title:'쉽고 간편하게 세탁을 시작해보세요',
+          subText:'집에서 픽업하고 배송까지',
+          src:'img/main_visual01.png'
+        }
+      ],
     }
   },
   methods:{
@@ -155,6 +170,9 @@ export default {
       const data = JSON.stringify({type:type, value:value})
       window.ReactNativeWebView.postMessage(data)
     },
+    visualChange(e){
+      this.visualIndex = e
+    }
  },
 }
 </script>
@@ -208,129 +226,128 @@ export default {
     }
   }
 
-  .mainTitle{
-    margin-top:40px;
-    h1{
-      font-weight:500;
-      line-height:1.2;
-      span{
-        color:#0CA0E2
-      }
-    }
-    p{
-      font-size:16px;
-      margin:0px;
-      margin-top:5px;
-      color:#888;
-    }
-  }
-
-  .res_btns{
-    display:flex;
-    align-items: center;
-    padding:30px 20px;
-    overflow-x: auto;
-    scroll-behavior: smooth;
-    
-    
-    .btn{
-      display:flex;
-      flex-direction: column;
-      min-width:210px;
-      min-height:250px;
-      border:1px solid #292929;
-      overflow:hidden;
-      border-radius:15px;
-      margin-right:20px;
-      box-shadow: 3px 3px 12px rgba(0,0,0,0.1);
-   
-
-      dt.image{
-        position: relative;
-        overflow:hidden;
-        height:130px;
-        background:#f2f2f2;
-        border-bottom:1px solid #aaa;
-        img{
-          position: absolute;
-          top:0px;
-          display:block;
-          height:100%;
-        }
-      }
-
-      dt.image:after{
-        content:'';
-        display:block;
-        padding-bottom:65%;  
-      }
-
-      dd{
-        fleX:1;
-        display:flex;
-        padding:15px;
-        .text{
-          fleX:1;
-          strong{
-            display:block;
-            font-size:16px;
-            font-weight:bold;
-          }
-          span{
-            display:block;
-            font-size:13px;
-            color:#898989;
-            margin-top:3px;
-          }
-        }
-
-        .v-icon{
-          align-self: flex-end;
-          color:#292929;
-        }
-      }
-    }
-  }
-
-  .res_btns::-webkit-scrollbar{
-    display:none;
-  }
-  .res_btns::after{
-    content:' ';
-    display:block;
-    min-width:20px;
-    width:20px;
-    height:20px;
-    background:#fff;
-
-  }
-
-  .info_btn{
-    display:flex;
-    align-items: center;
-    background:#F1F3F5;
-    border-radius:10px;
-    padding:15px;
+  .mainVisual{
+    position: relative;
     margin-top:10px;
-    height:80px;
 
-    &:nth-child(even){
-      background:#F6F1F1;
+    .visual{
+      position: relative;
+      margin-bottom:30px;
+
+        .visual-title{
+          position: relative;
+          z-index:2;
+          width:70%;
+
+          h1{
+          font-weight:normal;
+          font-size:24px;
+          line-height:1.3;
+
+          }
+          p{
+            font-size:15px;
+            margin:0px;
+            margin-top:5px;
+            color:#888;
+          }
+        }
+    
+
+        .visual-img{
+          display:flex;
+          align-items: center;
+          justify-content: center;
+          position: relative;
+          overflow: hidden;
+
+          z-index:10;
+
+          img{
+            display:block;
+            width:100%;
+          }
+
+          &:after{
+            content:'';
+            display:block;
+            padding-bottom:56.625%;
+          }
+        }
+
+        .visual-bg{
+          position: absolute;
+          z-index:0;
+          width:100%;
+          bottom:0px;
+          display:flex;
+          align-content: center;
+          justify-content: center;
+          background:#F2F3F8;
+          border-radius:15px;
+          &:after{
+            content:'';
+            display:block;
+            padding-bottom:46.875%;
+          }
+        }
     }
 
+    .delimiter{
+      position: absolute;
+      top:0px;                                                                                                                                                                                                                                                                
+      right:0px;
+      z-index:2;
+      span{
+        display:block;
+        margin-bottom:5px;
+        width:6px;
+        height:6px;
+        border-radius:3px;
+        background:#d2d2d2;
+
+        transition: height 0.3s;
+
+        &.active{
+          height:12px;
+          background:#0CA0E2
+        }
+      }
+    }
+
+    .v-btn{
+      width:100%;
+      height:50px;
+      font-size:16px;
+      font-weight:bold;
+      border:2px solid #292929;
+    }
+  }
+
+  .infomation{
+    display:flex;
+    margin-top:25px;
     dl{
+      flex:1;
+      border-right:1px solid #e2e2e2;
+      margin-right:20px;
+      &:last-child{
+        border-right:0;
+        margin-right:0;
+      }
       dt{
-        font-size:16px;
+        font-size:15px;
       }
       dd{
         font-size:12px;
-        line-height:1.3;
-        margin-top:2px;
-        color:#797979;
+        margin-top:5px;
+        color:#898989;
+        line-height: 1.4;
       }
     }
-  }
 
+    
+  }
 
   .divider{
     height:1px;
@@ -340,6 +357,7 @@ export default {
 
  
   .promotion{
+    margin-top:40px;
     h3{
       font-size:18px;
       margin-bottom:15px;
@@ -371,7 +389,7 @@ export default {
     li:after{
       content:'';
       display:block;
-      padding-bottom:43.75% /* 320*140 */
+      padding-bottom:40.625% /* 320*130 */
     }
   }
 

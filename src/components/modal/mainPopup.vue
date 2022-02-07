@@ -16,7 +16,7 @@
 export default {
   data() {
     return {
-      visible: true,
+      visible: false,
     }
   },
 };
@@ -27,12 +27,13 @@ export default {
   background:#fff;
   border-radius:20px 20px 0 0;
   overflow:hidden;
-  padding:5px;
+  padding:15px;
   padding-bottom:10px;
+
   .event_img{
     position: relative;
     background:#f8f8f8;
-    border-radius:17px;
+    border-radius:20px;
     overflow:hidden;
 
     img{
