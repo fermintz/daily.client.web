@@ -101,17 +101,26 @@
     </v-tabs-items>
 
 
-
-    <div class="btns">
-      <v-btn text class="basket" @click="$refs.basket.handle(true)">
-        <label>장바구니</label>
-        <div class="badge">6</div>
-      </v-btn>
-      <v-btn text class="next" @click="$router.push('userMessage')">
-        <label>14,900원 예약하기</label>
-        <v-icon>mdi-arrow-right</v-icon>
-      </v-btn>
-    </div>
+    <div class="bottom">
+      <div class="guide">
+        <div class="guide_in">
+          <span v-ripple>명품브랜드 확인</span>
+          <span v-ripple>이용불가품목 안내</span>
+          <span v-ripple>주문시 주의사항</span>
+        </div>
+      </div>
+      <div class="btns">
+        <v-btn text class="basket" @click="$refs.basket.handle(true)">
+          <label>장바구니</label>
+          <div class="badge">6</div>
+        </v-btn>
+        <v-btn text class="next" @click="$router.push('userMessage')">
+          <label>14,900원 예약하기</label>
+          <v-icon>mdi-arrow-right</v-icon>
+        </v-btn>
+      </div>
+    </div>  
+    
 
     <Basket ref="basket"/>
     <Snackbar ref="snackbar" text="장바구니에 담았습니다"/>
@@ -231,7 +240,7 @@ export default {
 
   .goods-list{
     padding:0 20px;
-    padding-bottom:80px;
+    padding-bottom:100px;
     
     
     .tip{
@@ -346,67 +355,103 @@ export default {
     
   }
 
-  .btns{
-    display:Flex;
-    align-items: center;
+  .bottom{
     position: fixed;
     width:100%;
+    padding:10px;
+    padding-top:0px;
     bottom:0px;
     z-index:2;
-    padding:6px 6px 5px 6px;
-    border-top:1px solid #e2e2e2;
     background:#fff;
 
-    .v-btn{
-      height:50px;
-      background:#fff;
-      border-radius:0;
-    }
+    .guide{
+      display:flex;
+      justify-content: center;
 
-    .v-btn.basket{
-      border:1px solid #c2c2c2;
-      border-radius:5px;
-      margin-right:6px;
-      .badge{
+      .guide_in{
+        width:100%;
+        background:#f2f2f2;
         display:flex;
-        justify-content: center;
+        
+        border-radius:5px;
+        
         align-items: center;
-        width:18px;
-        height:18px;
-        border-radius:100px;
-        background:#D20A61;
-        color:#fff;
-        font-size:10px;
-        margin-left:5px;
+        span{
+          display:flex;
+          align-items: center;
+          justify-content: center;
+          height:34px;
+          flex:1;
+          font-size:11px;
+          border-right:1px solid #e2e2e2;
+
+          &:last-child{
+            border-right:0
+          }
+        }
+      }
+    }
+  
+
+    .btns{
+      display:Flex;
+      align-items: center;
+      background:#fff;
+      margin-top:6px;
+
+      .v-btn{
+        height:50px;
+        background:#fff;
+        border-radius:0;
+      }
+
+      .v-btn.basket{
+        border:1px solid #c2c2c2;
+        border-radius:5px;
+        margin-right:6px;
+        .badge{
+          display:flex;
+          justify-content: center;
+          align-items: center;
+          width:18px;
+          height:18px;
+          border-radius:100px;
+          background:#D20A61;
+          color:#fff;
+          font-size:10px;
+          margin-left:5px;
+        }
+      }
+
+      .v-btn.next{
+        background:#0CA0E2;
+        border-radius:5px;
+        label{
+          font-size:14px;
+          color:#fff
+        }
+
+        .v-icon{
+          color:#fff;
+          font-size:18px;
+          margin-left:5px;
+        }
+      }
+      
+      .v-btn:last-child{
+        border-right:0;
+      }
+
+      .basket{
+        flex:1;
+      }
+
+      .next{
+        flex:2;
       }
     }
 
-    .v-btn.next{
-      background:#0CA0E2;
-      border-radius:5px;
-      label{
-        font-size:14px;
-        color:#fff
-      }
-
-      .v-icon{
-        color:#fff;
-        font-size:18px;
-        margin-left:5px;
-      }
-    }
     
-    .v-btn:last-child{
-      border-right:0;
-    }
-
-    .basket{
-      flex:1;
-    }
-
-    .next{
-      flex:2;
-    }
   }
 }
 
