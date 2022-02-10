@@ -5,7 +5,7 @@
         <img src="@/assets/video/car.gif">
       </div>
       <span>부산시 북구</span>
-      <h2>고객님의 주소와 가까운<br>협력세탁소를 찾고 있습니다</h2>
+      <h2>세탁예약을 위해<br>준비중에 있습니다</h2>
       <p>잠시만 기다려주세요</p>
     </div>
   </div>
@@ -14,9 +14,9 @@
 <script>
 export default {
   mounted(){
-    setTimeout(() => {
-      this.$router.push('termsView')
-    }, 1000);
+    // setTimeout(() => {
+    //   this.$router.push('termsView')
+    // }, 1000);
   }
 }
 </script>

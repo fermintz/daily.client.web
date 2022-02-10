@@ -5,6 +5,9 @@
       <span>북구 구남언덕로 15</span>
       <v-icon class="arrow">mdi-chevron-down</v-icon>
     </div>
+    <v-btn icon class="kakao">
+      <v-icon>mdi-chat</v-icon>
+    </v-btn>
   </div>
 </template>
 
@@ -42,7 +45,6 @@ export default {
   top:0px;
   width:100%;
   display:flex;
-  flex-direction: column;
   justify-content: center;
   align-items: center;
   height:80px;
@@ -52,6 +54,7 @@ export default {
   transition:height 0.8s;
 
   .address_select{
+    flex:1;
     width:100%;
     display:flex;
     align-items: center;
@@ -73,15 +76,18 @@ export default {
       margin-left:30px;
     }
   }
-}
 
-.homeHeader.active{
-    height:50px;
-    transition:height 0.8s;
-    border-bottom:1px solid #e2e2e2;
+  .kakao{
+    width:36px;
+    height:36px;
+    background:#FFC400;
+    margin-left:15px;
+    .v-icon{
+      font-size:22px;
+    }
     
-  .address_select{
-    background:#fff;
   }
 }
+
+
 </style>

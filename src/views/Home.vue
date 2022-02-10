@@ -51,7 +51,7 @@
           <v-btn 
             text
             rounded
-            @click="$router.push('dateSelect')" 
+            @click="$router.push('shopSearch')" 
           >세탁 예약하기
           </v-btn>
         </div>
@@ -83,8 +83,23 @@
             </li>
           </ul>
         </div>
- 
+
         <div class="divider" />
+
+        <div class="customer" v-ripple>
+          <div class="text">
+            <strong>궁금한점이<br>있으신가요?</strong>
+            <span>
+              <v-icon>mdi-chat</v-icon>
+              카카오톡 문의하기
+            </span>
+          </div>
+          <div class="image">
+            <img src="/img/customer.png">
+          </div>
+          
+        </div>
+
 
         <div class="notice">
           <h3>공지사항</h3>
@@ -389,6 +404,48 @@ export default {
       content:'';
       display:block;
       padding-bottom:40.625% /* 320*130 */
+    }
+  }
+
+  .customer{
+    display:flex;
+    align-items: center;
+    background:#F6F3E7;
+    border-radius:10px;
+    margin-bottom:50px;
+    
+    .text{
+      flex:1;
+      padding:20px;
+      strong{
+        display:block;
+        font-size:18px;
+        margin-bottom:20px;
+        font-weight:bold;
+        line-height:1.4;
+      }
+      span{
+        display:flex;
+        align-items: center;
+        .v-icon{
+          width:24px;
+          height:24px;
+          background:#FFC400;
+          border-radius:12px;
+          font-size:16px;
+          margin-right:5px;
+        }
+      }
+    }
+
+    .image{
+      width:150px;
+      text-align:right;
+
+      img{
+        display:block;
+        width:100%;
+      }
     }
   }
 
