@@ -240,7 +240,7 @@ export default {
 
   .mainVisual{
     position: relative;
-    margin-top:10px;
+    margin-top:5px;
 
     .visual{
       position: relative;
@@ -248,8 +248,8 @@ export default {
 
         .visual-title{
           position: relative;
+          margin-bottom:10px;
           z-index:2;
-          width:70%;
 
           h1{
           font-weight:normal;
@@ -260,7 +260,6 @@ export default {
           p{
             font-size:14px;
             margin:0px;
-            margin-top:5px;
             color:#888;
           }
         }
@@ -290,7 +289,7 @@ export default {
 
     .delimiter{
       position: absolute;
-      top:0px;                                                                                                                                                                                                                                                                
+      top:5px;                                                                                                                                                                                                                                                                
       right:0px;
       z-index:2;
       span{
@@ -326,9 +325,11 @@ export default {
       flex:1;
       border-right:1px solid #e2e2e2;
       margin-right:20px;
+      padding-right:15px;
       &:last-child{
         border-right:0;
         margin-right:0;
+        padding-right:0px;
       }
       dt{
         font-size:15px;
@@ -352,7 +353,7 @@ export default {
 
  
   .promotion{
-    margin-top:40px;
+    margin-top:30px;
     h3{
       font-size:18px;
       margin-bottom:15px;
