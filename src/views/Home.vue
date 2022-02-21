@@ -195,8 +195,6 @@ export default {
 .home{
   position: relative;
   padding-bottom:40px;
-  
-
   ul{
     padding:0;
     margin:0;
@@ -246,7 +244,7 @@ export default {
 
     .visual{
       position: relative;
-      margin-bottom:30px;
+      margin-bottom:20px;
 
         .visual-title{
           position: relative;
@@ -255,12 +253,12 @@ export default {
 
           h1{
           font-weight:normal;
-          font-size:24px;
+          font-size:20px;
           line-height:1.3;
 
           }
           p{
-            font-size:15px;
+            font-size:14px;
             margin:0px;
             margin-top:5px;
             color:#888;
@@ -285,24 +283,7 @@ export default {
           &:after{
             content:'';
             display:block;
-            padding-bottom:56.625%;
-          }
-        }
-
-        .visual-bg{
-          position: absolute;
-          z-index:0;
-          width:100%;
-          bottom:0px;
-          display:flex;
-          align-content: center;
-          justify-content: center;
-          background:#F2F3F8;
-          border-radius:15px;
-          &:after{
-            content:'';
-            display:block;
-            padding-bottom:46.875%;
+            padding-bottom:46.875%; //640x300
           }
         }
     }
@@ -340,7 +321,7 @@ export default {
 
   .infomation{
     display:flex;
-    margin-top:25px;
+    margin-top:20px;
     dl{
       flex:1;
       border-right:1px solid #e2e2e2;
