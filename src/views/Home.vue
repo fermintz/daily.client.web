@@ -62,11 +62,11 @@
 
         <div class="infomation">
           <dl @click="$refs.alert.handle(true)">
-            <dt>데일리세탁 이용안내</dt>
+            <dt>데일리세탁 이용안내 <v-icon>mdi-chevron-right-circle</v-icon></dt>
             <dd>데일리세탁 서비스의 작업흐름을 확인해보세요</dd>
           </dl>
           <dl @click="$refs.alert.handle(true)">
-            <dt>세탁물을 내놓는 방법</dt>
+            <dt>세탁물을 내놓는 방법 <v-icon>mdi-chevron-right-circle</v-icon></dt>
             <dd>주문 후 세탁물을 내놓는 방법을 안내해드립니다.</dd>
           </dl>
         </div>
@@ -332,7 +332,13 @@ export default {
         padding-right:0px;
       }
       dt{
-        font-size:15px;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        font-size:14px;
+        .v-icon{
+          font-size:16px;
+        }
       }
       dd{
         font-size:12px;
