@@ -40,7 +40,7 @@ export default {
 <style lang="scss" scoped>
 .orderCancle{
   background:#fff;
-
+  border-radius:5px;
   .cont{
     padding:20px;
     h3{margin-bottom:5px;font-weight:bold;}

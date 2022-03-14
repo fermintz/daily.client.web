@@ -27,7 +27,7 @@
   overflow: hidden;
   border-radius:10px;
   border:1px solid #e2e2e2;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.05);
+
   margin-bottom:20px;
   padding:20px;
 

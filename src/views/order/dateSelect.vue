@@ -46,7 +46,7 @@ export default {
       days:[
         {
           holiday:false,
-          day:1,
+          day:'오늘',
           dayText:'화요일'
         },
         {

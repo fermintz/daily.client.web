@@ -75,6 +75,9 @@
         <div class="promotion">
           <h3>프로모션</h3>
           <ul>
+            <li>
+              <img src="/img/event03_banner.png" />
+            </li>
             <li @click="$router.push('eventView')">
               <img src="/img/event01_banner.png" />
             </li>
@@ -88,7 +91,7 @@
 
         <div class="customer" v-ripple>
           <div class="text">
-            <strong>궁금한점이<br>있으신가요?</strong>
+            <strong>궁금한점이<br>있으신가요??</strong>
             <span>
               <v-icon>mdi-chat</v-icon>
               카카오톡 문의하기
@@ -97,9 +100,7 @@
           <div class="image">
             <img src="/img/customer.png">
           </div>
-          
         </div>
-
 
         <div class="notice">
           <h3>공지사항</h3>

@@ -1,6 +1,6 @@
 <template>
   <div class="shop_search">
-    <div class="inner">
+    <div class="inner" @click="$router.push('dateSelect')">
       <div class="video_wrap">
         <img src="@/assets/video/car.gif">
       </div>

@@ -9,7 +9,7 @@
             </v-icon>
           </v-btn>
           <span>
-            제목입니다
+            {{$route.meta.name}}
           </span>
         </div>
         <div class="btns">
@@ -19,7 +19,6 @@
           <v-btn icon class="home" @click="$router.push('/')">
             <v-icon>mdi-home</v-icon>
           </v-btn>
-          
         </div>
       </div>
       
@@ -65,6 +64,8 @@ export default {
         height:40px;
       }
       span{
+        font-size:18px;
+        font-weight:bold;
         margin:0 10px;
         flex:1;
       }

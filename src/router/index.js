@@ -128,6 +128,25 @@ const routes = [
         path:"/myOrderDetail",
         name:"MyOrderDetail",
         component: MyOrderDetail,
+        meta:{
+          name:'주문상세'
+        }
+      },
+      {
+        path:"/addCreditDetail",
+        name:"addCreditDetail",
+        component: ()=> import('../views/AddCreditDetail.vue'),
+        meta:{
+          name:'추가결제요청'
+        }
+      },
+      {
+        path:"/myOrderNotify",
+        name:"myOrderNotify",
+        component: ()=> import('../views/MyOrderNotify.vue'),
+        meta:{
+          name:'작업알림내역'
+        }
       },
       {
         path:"/delivery-info",

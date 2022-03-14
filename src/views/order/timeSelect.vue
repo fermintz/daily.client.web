@@ -3,10 +3,14 @@
     
     <div class="page-title">
       <h2>선택하신 시간때에 방문할게요</h2>
-      <p>희망하시는 수거시간때를 선택해주세요</p>
+      <span>희망하시는 수거시간때를 선택해주세요</span>
     </div>
 
     <div class="times">
+      <p>
+        <v-icon>mdi-alert-circle</v-icon>
+        <span>오늘의 모든 주문이 마감되었습니다.</span>
+      </p>
       <div class="time_item" v-ripple v-for="(item, index) in timeData" :key="index"
       :class="{close:index === 0}"
         @click="$router.push('product')"
@@ -71,6 +75,24 @@ export default {
 
   .times {
     margin-top: 40px;
+    p{
+      display:flex;
+      align-items: center;
+      background:#FBF2F6;
+      color:#de0059;
+      padding:10px;
+      border-radius:5px;
+
+      .v-icon{
+        font-size:18px;
+        margin-right:5px;
+        color:#de0059
+      }
+      span{
+        font-size:14px;
+      }
+    }
+
     .time_item {
       display: flex;
       justify-content: space-between;
