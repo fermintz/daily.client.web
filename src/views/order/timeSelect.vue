@@ -11,15 +11,33 @@
         <v-icon>mdi-alert-circle</v-icon>
         <span>오늘의 모든 주문이 마감되었습니다.</span>
       </p>
-      <div class="time_item" v-ripple v-for="(item, index) in timeData" :key="index"
-      :class="{close:index === 0}"
+      <div 
+        class="time_item am close"
+        v-ripple
         @click="$router.push('product')"
       >
-        <div class="left">
-          <strong>{{ item.text }}</strong>
-          <span>{{item.state ? '수거마감' : '수거시작'}}</span>
-        </div>
-        <v-icon> mdi-arrow-right-circle-outline </v-icon>
+        <span>
+          마감
+        </span>
+        <dl>
+          <dt>08:00 ~ 14:00</dt>
+          <dd>오전 8시부터 예약된 주문순부터 순차적으로 
+수거를 진행합니다</dd>
+        </dl>
+  
+      </div>
+      <div
+        class="time_item pm"
+        v-ripple
+        @click="$router.push('product')"
+      >
+        <span>
+          오후
+        </span>
+        <dl>
+          <dt>20:00 ~ 02:00</dt>
+          <dd>오후 8시부터 예약된 주문순부터 순차적으로 수거를 진행합니다</dd>
+        </dl>
       </div>
     </div>
 
@@ -102,52 +120,73 @@ export default {
 
     .time_item {
       display: flex;
+      align-items: center;
       justify-content: space-between;
-      border-radius: 5px;
+      border-radius: 10px;
       margin-bottom: 15px;
       border: 1px solid #c2c2c2;
       padding: 15px;
 
-
-      .left {
-        flex: 1;
-        strong {
-          font-size: 16px;
-          font-weight:bold;
-          line-height:1.4;
-          display: block;
-
-        }
-        span {
-          display: block;
-          margin-top: 2px;
-          color: #0ca0e2;
-        }
-      }
-
-      .v-icon {
-        font-size: 26px;
-        color: #0ca0e2;
-      }
-    }
-
-    .time_item.close{
-      background:#e2e2e2;
-      box-shadow: none;
-      border:0;
-
-      .left{
-        strong{
-          color:#898989;
-        }
+      &.am{
         span{
-          color:#898989;
+          background:#f40f4b;
+        }
+        dl{
+          dt{
+            color:#f40f4b
+          }
         }
       }
-      .v-icon{
-        color:#aaa;
+
+      &.pm{
+        span{
+          background:#082b77;
+        }
+        dl{
+          dt{
+            color:#082b77;
+          }
+        }
       }
+
+      &.close{
+        background:#e2e2e2;
+        border:0px;
+
+        dl{
+          dt{
+            text-decoration:line-through;
+          }
+        }
+      }
+
+      span{
+        display:flex;
+        justify-content: center;
+        align-items: center;
+        background:#292929;
+        width:70px;
+        height:70px;
+        border-radius:35px;
+        color:#fff;
+        font-size:18px;
+        font-weight:bold;
+        margin-right:20px;
+      }
+      dl{
+        flex:1;
+        dt{
+          font-size:22px;
+          font-weight:bold;
+        }
+        dd{
+          font-size:12px;
+        }
+      }
+
     }
+
+ 
   }
 
   .divider{
