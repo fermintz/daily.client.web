@@ -36,11 +36,18 @@
         <li>예약하신 수거 시간이 진행 된 이 후부터는 세탁물을 내놓지 않아 데일리세탁 담당기사님의 유선 연락에 불응될 시 수거 패널티가 부과됩니다.</li>
       </ul>
     </div>
+
+    <TimeSelectPopup ref="timeSelectPopup"/>
   </div>
 </template>
 
 <script>
+import TimeSelectPopup from '@/components/modal/timeSelectPopup.vue'
+
 export default {
+  components:{
+    TimeSelectPopup
+  },
   data() {
     return {
       timeData: [
