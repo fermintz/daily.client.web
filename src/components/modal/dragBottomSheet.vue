@@ -30,8 +30,6 @@ export default {
       const topHandle = document.querySelector('.top_handle') 
       const sheet = document.querySelector('.sheet')
 
-      console.log(topHandle)
-
       topHandle.addEventListener('touchstart',(e)=>{
         // console.log(e.changedTouches[0].clientY, '터치시작')
         this.touchStartY = e.changedTouches[0].clientY;
@@ -41,7 +39,6 @@ export default {
         sheet.style.top = e.targetTouches[0].clientY + 'px'
       })
       topHandle.addEventListener('touchend',(e)=>{
-        console.log(e.changedTouches[0].clientY, document.body.clientHeight)
         if(e.changedTouches[0].clientY >= document.body.clientHeight * 0.9) {
           this.visible = false;
           return;
