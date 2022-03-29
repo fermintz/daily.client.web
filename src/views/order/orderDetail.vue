@@ -297,8 +297,9 @@ export default {
   data() {
     return {
       couponActive: true,
-      creditSeleted: 0,
+      
       termsBtn: false,
+      creditSeleted: 0,
       credit: [
         {
           name: "네이버페이",
@@ -717,7 +718,7 @@ export default {
   }
 
   .guide {
-    margin-top: 30px;
+
     h3 {
       span {
         color: #f11064;
@@ -731,6 +732,10 @@ export default {
         font-size: 12px;
         line-height: 18px;
         margin-bottom: 15px;
+
+        &:last-child{
+          margin-bottom:0px;
+        }
       }
     }
   }
@@ -810,7 +815,7 @@ export default {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-top: 10px;
+    margin-top: 30px;
     border: 1px solid #c2c2c2;
     width: 100%;
     min-height: 50px;
