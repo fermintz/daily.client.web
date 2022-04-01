@@ -56,24 +56,21 @@
           </v-btn>
         </div>
 
-        <div class="res_btn">
-          
-        </div>
-
+  
         <div class="infomation">
           <dl @click="$refs.alert.handle(true)">
-            <dt>데일리세탁 이용안내 <v-icon>mdi-chevron-right-circle</v-icon></dt>
-            <dd>데일리세탁 서비스의 작업흐름을 확인해보세요</dd>
+            <dt><v-icon>mdi-storefront-outline</v-icon></dt>
+            <dd>데일리세탁<br>가격안내</dd>
           </dl>
           <dl @click="$refs.alert.handle(true)">
-            <dt>세탁물을 내놓는 방법 <v-icon>mdi-chevron-right-circle</v-icon></dt>
-            <dd>주문 후 세탁물을 내놓는 방법을 안내해드립니다.</dd>
+            <dt><v-icon>mdi-package-variant-closed</v-icon></dt>
+            <dd>세탁물<br>내놓는 방법</dd>
           </dl>
         </div>
 
 
         <div class="promotion">
-          <h3>프로모션</h3>
+          <h3>이벤트</h3>
           <ul>
             <li>
               <img src="/img/event03_banner.png" />
@@ -321,35 +318,41 @@ export default {
 
   .infomation{
     display:flex;
-    margin-top:20px;
+    margin-top:30px;
     dl{
+      display:flex;
+      align-items: center;
       flex:1;
       border-right:1px solid #e2e2e2;
       margin-right:20px;
       padding-right:15px;
+
       &:last-child{
         border-right:0;
         margin-right:0;
         padding-right:0px;
       }
+
       dt{
+        width:50px;
+        height:50px;
+        background:#E8EEF3;
+        border-radius:25px;
         display:flex;
         align-items: center;
-        justify-content: space-between;
-        font-size:14px;
+        justify-content: center;
+        margin-right:10px;
         .v-icon{
-          font-size:16px;
+          font-size:26px;
+          color:#9AAEB7;
         }
       }
       dd{
-        font-size:12px;
-        margin-top:5px;
-        color:#898989;
-        line-height: 1.4;
+        font-size:14px;
+        color:#292929;
+        line-height: 1.3;
       }
     }
-
-    
   }
 
   .divider{
