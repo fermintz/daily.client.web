@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import DailyPrice from "../views/DailyPrice"
+import DailyPrice from "../views/dailyPrice"
 import MyOrderDetail from "../views/MyOrderDetail"
 import DeliveryInfo from '../views/DeliveryInfo'
 import OrderDetail from '../views/order/orderDetail'
@@ -121,7 +121,7 @@ const routes = [
       },
       {
         path:"/dailyPrice",
-        name:"DailyPrice",
+        name:"dailyPrice",
         component: DailyPrice,
       },
       {

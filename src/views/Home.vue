@@ -58,7 +58,7 @@
 
   
         <div class="infomation">
-          <dl @click="$refs.alert.handle(true)">
+          <dl @click="$router.push('dailyPrice')">
             <dt><v-icon>mdi-storefront-outline</v-icon></dt>
             <dd>데일리세탁<br>가격안내</dd>
           </dl>
