@@ -135,7 +135,7 @@ export default {
       display:flex;
       flex-direction: column;
       justify-content: space-between;
-      border:1px solid #e2e2e2;
+      border:1px solid #c2c2c2;
       padding:10px;
       border-radius:10px;
       min-height:140px;

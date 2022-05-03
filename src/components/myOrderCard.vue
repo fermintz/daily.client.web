@@ -81,7 +81,7 @@
     }
 
     .delivery{
-      background:#F5E8EE;
+      background:#EBEBF9;
       padding:10px;
       border-radius:5px;
       margin-top:5px;
@@ -97,7 +97,7 @@
         dd{
           font-size:12px;
           flex:1;
-          color:#F11064;
+          color:#0000ff;
         }
       }
     }

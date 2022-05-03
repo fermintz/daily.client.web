@@ -494,7 +494,7 @@ export default {
 
     strong {
       flex:1;
-      color: #0ca0e2;
+      color: #292929;
       font-size: 14px;
       border-radius: 100px;
     }
@@ -512,14 +512,14 @@ export default {
 
     strong {
       flex:1;
-      color: #DF0E68;
+      color: #0007EE;
       font-size: 14px;
       border-radius: 100px;
     }
   }
 
   .delivery-tip{
-    background:#F5E8EE;
+    background:#EBEBF9;
     border-radius:5px;
     padding:10px;
     margin-top:20px;
