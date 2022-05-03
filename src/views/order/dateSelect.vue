@@ -100,8 +100,6 @@ export default {
 
   .day_btns{
     display:flex;
-    flex-wrap: wrap;
-    margin-top:30px;
 
     .v-col{
       text-align:center;

@@ -80,6 +80,14 @@
             <span>수거예약일</span>
             <strong>9월 12일(토) 오전</strong>
           </div>
+           <div class="delivery-date">
+            <span>배송예정일</span>
+            <strong>15일(목)~16일(금) 배송예정</strong>
+          </div>
+
+          <div class="delivery-tip">
+            세탁 상황에 따라 1~2일 조기에 배송되거나 지연될 수 있습니다.
+          </div>
 
           <div class="divider" />
 
@@ -477,6 +485,7 @@ export default {
     display: flex;
     align-items: center;
     border-radius: 5px;
+    margin-bottom:10px;
 
     span {
       width: 80px;
@@ -484,11 +493,36 @@ export default {
     }
 
     strong {
+      flex:1;
       color: #0ca0e2;
       font-size: 14px;
-      font-weight: bold;
       border-radius: 100px;
     }
+  }
+
+  .delivery-date {
+    display: flex;
+    align-items: flex-start;
+    border-radius: 5px;
+
+    span {
+      width: 80px;
+      color: #292929;
+    }
+
+    strong {
+      flex:1;
+      color: #DF0E68;
+      font-size: 14px;
+      border-radius: 100px;
+    }
+  }
+
+  .delivery-tip{
+    background:#F5E8EE;
+    border-radius:5px;
+    padding:10px;
+    margin-top:20px;
   }
 
   .order-info {

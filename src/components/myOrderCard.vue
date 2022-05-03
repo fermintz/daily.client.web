@@ -16,6 +16,12 @@
           <dd>부산광역시 금정구 부산대학로 63번길 2 과학기술연구동 201호 페이오티</dd>
         </dl>
       </div>
+      <div class="delivery">
+        <dl>
+          <dt>배송예정일</dt>
+          <dd>15일(목)~16일(금) 배송예정</dd>
+        </dl>
+      </div>
     </div>
 
   </div>
@@ -61,7 +67,7 @@
         dt{
           font-size:12px;
           width:70px;
-          color:#898989;
+          color:#292929;
         }
         dd{
           font-size:12px;
@@ -71,6 +77,28 @@
 
       dl:last-child{
         margin-bottom:0px;
+      }
+    }
+
+    .delivery{
+      background:#F5E8EE;
+      padding:10px;
+      border-radius:5px;
+      margin-top:5px;
+      dl{
+        display:Flex;
+        align-items: flex-start;
+
+        dt{
+          font-size:12px;
+          width:70px;
+          color:#292929;
+        }
+        dd{
+          font-size:12px;
+          flex:1;
+          color:#F11064;
+        }
       }
     }
   }
