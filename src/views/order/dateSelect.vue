@@ -4,24 +4,33 @@
       <h2>어떤 날짜에 수거 해 갈까요?</h2>
       <p>선택하신 날짜에 세탁물을 수거합니다</p>
     </div>
-    <div class="day_btns">
+    <div class="day_selector">
       <v-row>
-        <v-col cols="4"  v-for="item in days" :key="item">
-          <div 
-            v-ripple="!item.holiday" 
-            class="day_item"
-            @click="requst('route','TimeSelect')"
-          >
-            <div class="day_in_item" :class="{holiday: item.holiday}" @click="$router.push('timeSelect')">
-              <strong>{{item.day}}</strong>
-              <span>{{item.dayText}}</span>
-            </div>
+        <v-col cols="4" v-for="item in days" :key="item" >
+          <div class="day_btn" v-ripple :class="{holiday:item.holiday}">
+            <dl class="day">
+              <dt>{{item.day}}</dt>
+              <dd>{{item.dayText}}</dd>
+            </dl>
+            <dl class="delivery">
+              <dt>배송예상일</dt>
+              <dd>{{item.deliveryDate}}</dd>
+            </dl>
           </div>
         </v-col>
       </v-row>
     </div>
 
+    <div class="divider"></div>
 
+    <div class="guide">
+      <h4>유의사항</h4>
+      <ul>
+        <li><b>선택하신 날짜는 이 후에 변동이 불가능</b>하므로 해당 부분 확인 후에 고객님께서 가능한 날짜만 반드시 선택해주세요.</li>
+        <li>수거 예약을 선택하신 날짜에 맞춰 데일리세탁 기사님이 방문하시니 꼭 <b>잊지말고 세탁물을 내놓아주세요.</b></li>
+        <li>주말 및 공휴일에는 데일리세탁이 운영하지 않으므로 수거나 배송 업무가 진행되지 않습니다.</li>
+      </ul>
+    </div>
   </div>
 </template>
 
@@ -37,28 +46,39 @@ export default {
       days:[
         {
           holiday:false,
-          day:1,
-          dayText:'화요일'
+          day:'오늘',
+          dayText:'화요일',
+          deliveryDate:'4일(금)~7일(월)'
         },
         {
           holiday:false,
           day:2,
-          dayText:'수요일'
+          dayText:'수요일',
+          deliveryDate:'7일(월)~8일(화)'
         },
         {
           holiday:false,
           day:3,
-          dayText:'목요일'
+          dayText:'목요일',
+          deliveryDate:'9일(수)~10일(목)'
         },
         {
           holiday:false,
           day:4,
-          dayText:'금요일'
+          dayText:'금요일',
+          deliveryDate:'10일(목)~11일(금)'
         },
         {
           holiday:true,
           day:5,
-          dayText:'휴일'
+          dayText:'휴일',
+          deliveryDate:'11일(금)~14일(월)'
+        },
+        {
+          holiday:true,
+          day:6,
+          dayText:'휴일',
+          deliveryDate:'11일(금)~14일(월)'
         }
       ],
     }
@@ -98,53 +118,92 @@ export default {
     }
   }
 
-  .day_btns{
+  .day_selector{
     display:flex;
+    flex-wrap: wrap;
+    gap:10px;
 
-    .v-col{
-      text-align:center;
+    .row{
+      margin:-5px;
     }
 
-    .day_item{
-      position: relative;
-      width:100%;
-      border-radius:999px;
-      overflow:hidden;
+    .col{
+      padding:5px;
+    }
 
-      .day_in_item{
-        position: absolute;
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width:100%;
-        height:100%;
+    .day_btn{
+      display:flex;
+      flex-direction: column;
+      justify-content: space-between;
+      border:1px solid #e2e2e2;
+      padding:10px;
+      border-radius:10px;
+      min-height:140px;
 
-        strong{
-          font-size:36px;
-          font-family:'Roboto';
-          font-weight:600;
+      .day{
+        dt{
+          font-size:28px;
+          font-weight:bold;
         }
-        span{
-          font-size:12px;
-          margin-top:4px;
+        dd{
+
         }
       }
-
-      .holiday{
-        strong{
-          color:#aaa;
+      .delivery{
+        dt{
+          font-size:10px;
+          color:#898989;
         }
-        span{
-          color:#d22828
+        dd{
+          font-size:10px;
+          color:#0000FF;
         }
+        
       }
     }
 
-    .day_item:after{
-      content:'';
-      display:block;
-      padding-bottom:100%;
+    .holiday{
+      border:0;
+      background:#f2f2f2;
+
+      .day{
+        dt{
+          color:#898989;
+        }
+      }
+      .delivery{
+        display:none;
+      }
+    }
+  }
+  
+  .divider{
+    height:1px;
+    background:#e2e2e2;
+    margin:40px 0;
+  }
+
+  .guide{
+    h4{
+      font-size:16px;
+      font-weight:bold;
+      margin-bottom:10px;
+    }
+    ul{
+      padding:0px;
+      li{
+        margin-bottom:6px;
+        line-height: 1.3;
+
+        &:before{
+          content:'-';
+          margin-right:3px;
+        }
+
+        b{
+          color:#de0059;
+        }
+      }
     }
   }
 }
