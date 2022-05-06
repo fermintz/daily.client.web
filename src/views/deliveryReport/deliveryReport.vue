@@ -30,6 +30,19 @@
     </div>
     <div class="divider"/>
 
+    <div class="product">
+      <dl class="title">
+        <dt>상품명</dt>
+        <dd>수량</dd>
+      </dl>
+      <dl class="item" v-for="item in 5" :key="item">
+        <dt>흰색와이셔츠</dt>
+        <dd>2개</dd>
+      </dl>
+    </div>
+
+    <div class="divider"/>
+
     <div class="image-info pickup-info">
       <dl>
         <dt>픽업일시</dt>
