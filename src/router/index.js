@@ -85,6 +85,11 @@ const routes = [
     name:"shopSearch",
     component: ShopSearch
   },
+  {
+    path:"/deliveryReport",
+    name:"deliveryReport",
+    component: ()=> import('@/views/deliveryReport/deliveryReport.vue')
+  },
 
   {
     path:"/sub",

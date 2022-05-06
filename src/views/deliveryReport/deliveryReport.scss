@@ -1,0 +1,87 @@
+.deliveryReport{
+  padding:25px;
+  font-size:14px;
+
+  .logo{
+    display:Flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding:30px 0;
+    img{
+      height:60px;
+      object-fit: cover;
+    }
+    span{
+      margin-top:5px;
+    }
+  }
+
+  .divider{
+    height:1px;
+    background:#e2e2e2;
+    margin:20px 0;
+  }
+
+  .divider.blackColor{
+    background:#292929;
+  }
+
+  .orderNumber{
+    display:flex;
+    align-items: center;
+    justify-content: space-between;
+    span{}
+    strong{
+      font-weight:bold;
+    }
+  }
+
+  .userInfo{
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+    dl{
+      display:flex;
+      justify-content: space-between;
+      dt{
+        width:110px;
+        color:#898989;
+      }
+      dd{
+        flex:1;
+      }
+    }
+  }
+
+  .image-info{
+    display:flex;
+    justify-content: space-between;
+
+    dl{
+      display:flex;
+      flex-direction: column;
+      margin-bottom:20px;
+      margin-right:20px;
+      dt{
+        margin-bottom:10px;
+      }
+      dd{
+        font-weight:bold;
+
+        span{
+          display:block;
+        }
+      }
+    }
+
+    img{
+      object-fit: cover;
+      max-width:200px;
+      width:100%;
+      max-height:300px;
+      height:auto;
+      border-radius:5px;
+    }
+  }
+}
