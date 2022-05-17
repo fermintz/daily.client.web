@@ -59,12 +59,18 @@
   
         <div class="infomation">
           <dl @click="$router.push('dailyPrice')">
-            <dt><v-icon>mdi-storefront-outline</v-icon></dt>
-            <dd>데일리세탁<br>가격안내</dd>
+            <dt>데일리세탁<br>가격안내</dt>
+            <dd>
+              <v-icon>mdi-arrow-right-circle</v-icon>
+            </dd>
           </dl>
           <dl @click="$refs.alert.handle(true)">
-            <dt><v-icon>mdi-package-variant-closed</v-icon></dt>
-            <dd>세탁물<br>내놓는 방법</dd>
+            <dt>세탁물<br>내놓는 방법</dt>
+            <dd><v-icon>mdi-arrow-right-circle</v-icon></dd>
+          </dl>
+          <dl @click="$router.push('qna')">
+            <dt>자주묻는<br>질문들(QnA)</dt>
+            <dd><v-icon>mdi-arrow-right-circle</v-icon></dd>
           </dl>
         </div>
 
@@ -322,10 +328,11 @@ export default {
     dl{
       display:flex;
       align-items: center;
+      justify-content: space-between;
       flex:1;
       border-right:1px solid #e2e2e2;
-      margin-right:20px;
-      padding-right:15px;
+      margin-right:12px;
+      padding-right:12px;
 
       &:last-child{
         border-right:0;
@@ -334,23 +341,16 @@ export default {
       }
 
       dt{
-        width:50px;
-        height:50px;
-        background:#E8EEF3;
-        border-radius:25px;
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        margin-right:10px;
-        .v-icon{
-          font-size:26px;
-          color:#9AAEB7;
-        }
-      }
-      dd{
-        font-size:14px;
+        font-size:13px;
         color:#292929;
         line-height: 1.3;
+      }
+      dd{
+        align-self: flex-end;
+        .v-icon{
+          font-size:16px;
+          color:#292929;
+        }
       }
     }
   }

@@ -1,7 +1,7 @@
 import Vue from "vue";
 import VueRouter from "vue-router";
 import Home from "../views/Home.vue";
-import DailyPrice from "../views/dailyPrice"
+import DailyPrice from "../views/DailyPrice"
 import MyOrderDetail from "../views/MyOrderDetail"
 import DeliveryInfo from '../views/DeliveryInfo'
 import OrderDetail from '../views/order/orderDetail'
@@ -236,8 +236,11 @@ const routes = [
         name:"myOrderDetailDummy",
         component: ()=> import('../views/MyOrderDetailDummy')
       },
-      
-      
+      {
+        path:"/qna",
+        name:"qna",
+        component: ()=> import('../views/qna')
+      },
     ],
   },
   {
