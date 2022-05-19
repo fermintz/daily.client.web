@@ -4,14 +4,28 @@
       <h2>쿠폰으로 더 저렴하게<br>데일리세탁을 이용해보세요</h2>
     </div>
 
-    <div class="divider" />
+    <div class="coupon_push">
+      <form method="get">
+        <input type="text" placeholder="쿠폰코드를 입력해주세요">
+        <v-btn text>등록하기</v-btn>
+      </form>
+    </div>
+
+    <div class="divider" /> 
+
+    <div class="list-head">
+      <v-icon>mdi-ticket-percent-outline</v-icon>
+      <span>보유쿠폰 <b>3</b>장</span>
+    </div>
 
     <ul>
-      <li class="no-data">현재 발급 받은 쿠폰이 없습니다.</li>
+      <!-- <li class="no-data">현재 발급 받은 쿠폰이 없습니다.</li> -->
       <li v-for="item in 3" :key="item">
         <CouponItem />
       </li>
     </ul>
+
+    <div class="divider" /> 
  
     <dl class="coupon-guide">
       <dt>
@@ -52,11 +66,49 @@ export default {
   .divider{
     height:1px;
     background: #e2e2e2;
-    margin:30px 0;
+    margin:35px 0;
+  }
+
+  .coupon_push{
+    form{
+      display:flex;
+      flex-direction: column;
+      gap:10px;
+      input{
+        height:45px;
+        padding:0 10px;
+        border:1px solid #c2c2c2;
+        border-radius:5px;
+      }
+      .v-btn{
+        height:45px;
+        background:#292929;
+        color:#fff;
+        border-radius:5px;
+        font-size:14px;
+        
+      }
+    }
+  }
+
+  .list-head{
+    display:flex;
+    align-items: center;
+    margin-bottom:10px;
+    .v-icon{
+      font-size:20px;
+      margin-right:5px;
+    }
+    span{
+      font-size:16px;
+      b{
+        font-weight:bold;
+        color:#d22929;
+      }
+    }
   }
 
   ul{
-    margin:30px 0 ;
     padding:0px;
 
     li{
@@ -77,9 +129,7 @@ export default {
  
   
   .coupon-guide{
-    border-top:1px solid #e2e2e2;
-    padding-top:30px;
-
+ 
     dt{
       display:flex;
       align-items: center;
@@ -90,18 +140,17 @@ export default {
         margin-right:5px;
       }
       label{
-        font-weight:bold;
         font-size:16px;
       }
     }
     dd{
+      display:flex;
+      flex-direction: column;
+      gap:10px;
       span{
+        color:#595959;
         display:block;
-        border-radius:4px;
-        padding:10px;
-        margin-bottom:15px;
         font-size:12px;
-        background:#f2f2f2;
       }
     }
   }
