@@ -42,6 +42,11 @@
         <dl class="goods_cate">
           <dt>
             <label>남성</label>
+            <div class="right">
+              <span v-ripple>명품브랜드 <v-icon>mdi-help-circle-outline</v-icon></span>
+              <span class="bar">|</span>
+              <span v-ripple>이용불가품목 <v-icon>mdi-help-circle-outline</v-icon></span>
+            </div>
           </dt>
           <dd>
             <div class="goods" v-for="item in tab.product" :key="item">
@@ -100,15 +105,37 @@
       </v-tab-item>
     </v-tabs-items>
 
-
-    <div class="bottom">
-      <div class="guide">
-        <div class="guide_in">
-          <span v-ripple>명품브랜드 확인</span>
-          <span v-ripple>이용불가품목 안내</span>
-          <span v-ripple>주문시 주의사항</span>
+    <div class="floating">
+      <div class="cont" v-show="floating">
+        <div class="image">
+          <img src="@/assets/img/howUse01.png">
+        </div>
+        <strong>
+          상품선택이 어렵다면 데일레세탁 검수에 맡기세요 수거한 세탁물을 직접 검수 후 결제요청을 드립니다
+        </strong>
+        <span>※ 상품선택이 없는 경우, 보증금 10,000원 결제가 필요합니다.</span>
+        <div class="next" v-ripple>
+          <label>상품선택 넘기기</label>
+          <v-icon>mid-chevron-right</v-icon>
         </div>
       </div>
+      <v-btn icon class="floatingBtn" @click="floating = !floating">
+        <v-icon v-if="floating"> 
+          mdi-close
+        </v-icon>
+        <v-icon v-else>
+          mdi-alert-circle-outline
+        </v-icon>
+      </v-btn>
+    </div>
+
+    <div class="bottom">
+      <!-- <div class="guide">
+        <div class="guide_in">
+          
+          <span v-ripple>주문시 주의사항</span>
+        </div>
+      </div> -->
       <div class="btns">
         <v-btn text class="basket" @click="$refs.basket.handle(true)">
           <label>장바구니</label>
@@ -146,6 +173,7 @@ export default {
       tabActive: 0,
       oncePopup: false,
       priceTable: [],
+      floating:true,
     };
   },
   watch:{
@@ -234,13 +262,74 @@ export default {
         color:#fff
       }
     }
+  }
 
+  .floating{
+    display:flex;
+    align-items: flex-end;
+    position: fixed;
+    padding:0 15px;
+    right:0px;
+    bottom:81px;
+    z-index:99;
+
+    .cont{
+      border:1px solid #d2d2d2;
+      background: #fff;
+      margin-right:10px;
+      border-radius:10px;
+      margin-bottom:38px;
+      padding:15px;
+      box-shadow: 3px 3px 20px rgba(0,0,0,0.1) ,1px 1px 3px rgba(0,0,0,0.05);
+
+      .image{
+        display:flex;
+        justify-content: center;
+        background:#f8f8f8;
+        border-radius:7px;
+        margin-bottom:15px;
+        img{
+          height:170px;
+        }
+      }
+
+      strong{
+        display:block;
+        margin-bottom:10px;
+        line-height:1.3;
+      }
+      span{
+        display:block;
+        font-size:11px;
+        margin-bottom:15px;
+      }
+
+      .next{
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        border-radius:5px;
+        height:40px;
+        background:#292929;
+        color:#fff
+      }
+    }
+    
+    .floatingBtn{
+      width:50px;
+      height:50px;
+      background:#F11064;
+      .v-icon{
+        color:#fff;
+        font-size:30px;
+      }
+    }
     
   }
 
   .goods-list{
     padding:0 20px;
-    padding-bottom:100px;
+    padding-bottom:120px;
     
     
     .tip{
@@ -257,13 +346,35 @@ export default {
       dt{
         display:flex;
         align-items: center;
-        justify-content: center;
+        justify-content: space-between;
         font-size:14px;
         background:#F4F7F9;
         height:40px;
         padding:0 15px;
         border-radius:12px;
         margin-bottom:10px;
+
+        .right{
+          display:Flex;
+          align-items: center;
+
+          span{
+            display:flex;
+            align-items: center;
+            font-size:12px;
+            padding:2px 5px;
+            border-radius:3px;
+
+            .v-icon{
+              font-size:15px;
+              margin-left:3px;
+            }
+          }
+          span.bar{
+            padding:0;
+            color:#c2c2c2;
+          }
+        }
       }
 
       .goods{

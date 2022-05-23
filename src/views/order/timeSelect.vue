@@ -14,7 +14,7 @@
       <div 
         class="time_item am close"
         v-ripple
-        @click="$router.push('product')"
+        @click="$router.push('howUse')"
       >
         <span>
           마감
@@ -29,7 +29,7 @@
       <div
         class="time_item pm"
         v-ripple
-        @click="$router.push('product')"
+        @click="$router.push('howUse')"
       >
         <span>
           오후

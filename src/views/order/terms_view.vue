@@ -122,6 +122,38 @@
       </dd>
     </dl>
 
+    <dl class="terms delivery">
+      <dt @click="state.check2 = !state.check2" :class="{active:state.check2}">
+        <v-icon>{{state.check2 ? 'mdi-check-circle' : 'mdi-check-circle-outline'}}</v-icon>
+        <label>(필수) 세탁물 직접 선택하기 주의사항</label>
+      </dt>
+      <!-- <dd class="image_area">
+        <img src="@/assets/img/terms04.png" />
+      </dd> -->
+      <dd>
+        <span>품목이 상이하거나, 수선, 오점제거 등의 사유로 추가결제가 발생할 수 있습니다.</span>
+        <p>데일리세탁에서 진행하는 모든 세탁물은 위 사전공지 안내를 진행하며, 이후 동의하여 세탁을 요청한 경우에 대해서는 손해배상에 대해 면책됩니다.</p>
+      </dd>
+    </dl>
+    
+    <dl class="terms delivery">
+      <dt @click="state.check2 = !state.check2" :class="{active:state.check2}">
+        <v-icon>{{state.check2 ? 'mdi-check-circle' : 'mdi-check-circle-outline'}}</v-icon>
+        <label>(필수) 수거신청 후 결제하기 주의사항</label>
+      </dt>
+      <!-- <dd class="image_area">
+        <img src="@/assets/img/terms04.png" />
+      </dd> -->
+      <dd>
+        <span>수거배송 보증금 8000원이 결제 됩니다.</span>
+        <span>보증금은 세탁물 검수 이후 세탁 청구비용에서 차감이됩니다.</span>
+        <span>최소주문금액은 8,000원 세탁품목이 8000원 이하인 경우에는 보증금 차감이 되지 않습니다.</span>
+        <span>변심으로 인한 세탁철회 요청 시 보증금은 환불되지 않습니다.</span>
+        <span>세탁불가품목 신청으로 인해 발생하게되는 수거배송비용은 환불되지 않습니다.</span>
+        <p>데일리세탁에서 진행하는 모든 세탁물은 위 사전공지 안내를 진행하며, 이후 동의하여 세탁을 요청한 경우에 대해서는 손해배상에 대해 면책됩니다.</p>
+      </dd>
+    </dl>
+
     <div 
       class="totalCheck" 
       :class="{active:total}"
@@ -249,7 +281,7 @@ export default {
       span{
         font-size:13px;
         display:block;
-        margin-bottom:15px;
+        margin-bottom:5px;
         color:#595959;
       }
       span:last-child{
@@ -267,6 +299,7 @@ export default {
         font-weight:bold;
         border-top:1px solid #c2c2c2;
         padding-top:15px;
+        margin-top:15px;
       } 
     }
 

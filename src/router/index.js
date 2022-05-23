@@ -164,6 +164,11 @@ const routes = [
         component: TimeSelect,
       },
       {
+        path:"/howUse",
+        name:"howUse",
+        component: ()=> import('../views/order/howUse.vue')
+      },
+      {
         path:"/product",
         name:"product",
         component: Product,
