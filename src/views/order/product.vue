@@ -113,14 +113,16 @@
         <div class="image">
           <img src="@/assets/img/howUse01.png">
         </div>
-        <strong>
-          상품선택이 어렵다면 데일레세탁 검수에 맡기세요 수거한 세탁물을 직접 검수 후 결제요청을 드립니다
-        </strong>
-        <span>※ 상품선택이 없는 경우, 보증금 10,000원 결제가 필요합니다.</span>
-        <div class="next" v-ripple>
+        <dl>
+          <dt>세탁물 선택이 어렵다면 넘겨보세요!</dt>
+          <dd>데일리세탁에서 직접 검수 후 고객님께 결제 요청을 드립니다.</dd>
+        </dl>
+        
+        <v-btn text class="next" >
           <label>상품선택 넘기기</label>
           <v-icon>mid-chevron-right</v-icon>
-        </div>
+        </v-btn>
+        <p>* 상품선택 넘기기를 선택하시는 경우, 후불결제 보증금 8,000원 결제가 진행됩니다.</p>
       </div>
       <v-btn icon class="floatingBtn" @click="floating = !floating">
         <v-icon v-if="floating"> 
@@ -326,26 +328,31 @@ export default {
         }
       }
 
-      strong{
-        display:block;
-        margin-bottom:10px;
-        line-height:1.3;
-      }
-      span{
-        display:block;
-        font-size:11px;
-        margin-bottom:15px;
+      dl{
+        dt{
+          font-size:15px;
+          font-weight:bold;
+        }
+        dd{
+          font-size:12px;
+          margin-top:2px;
+        }
       }
 
       .next{
-        display:flex;
-        align-items: center;
-        justify-content: center;
-        border-radius:5px;
-        height:40px;
+        width:100%;
+        color:#fff;
         background:#292929;
-        color:#fff
+        margin:10px 0;
       }
+
+      p{
+        font-size:10px;
+        color:#898989;
+        margin:0;
+      }
+
+      
     }
     
     .floatingBtn{
