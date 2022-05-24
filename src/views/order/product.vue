@@ -3,8 +3,15 @@
     <div class="inner">
       <div class="page-title">
         <h2>어떤 품목을 맡기실건가요?</h2>
-        <p>맡기실 세탁품목을 선택해주세요</p>
       </div>
+    </div>
+
+    <div class="guide_btns">
+      <span>명품브랜드 <v-icon>mdi-help-circle-outline</v-icon></span>
+      <b class="bar">|</b>
+      <span>이용불가품목 <v-icon>mdi-help-circle-outline</v-icon></span>
+      <b class="bar">|</b>
+      <span>주문 주의사항 <v-icon>mdi-help-circle-outline</v-icon></span>
     </div>
 
     <v-tabs
@@ -42,11 +49,7 @@
         <dl class="goods_cate">
           <dt>
             <label>남성</label>
-            <div class="right">
-              <span v-ripple>명품브랜드 <v-icon>mdi-help-circle-outline</v-icon></span>
-              <span class="bar">|</span>
-              <span v-ripple>이용불가품목 <v-icon>mdi-help-circle-outline</v-icon></span>
-            </div>
+            
           </dt>
           <dd>
             <div class="goods" v-for="item in tab.product" :key="item">
@@ -221,11 +224,41 @@ export default {
     padding:0 20px;
   }
 
-  .page-title {
-    p {
-      margin-top: 5px;
-      color: #888;
+  .page-title{
+    margin-bottom:0px;
+  }
+
+  .guide_btns{
+    display:flex;
+    align-items: center;
+    overflow-x:scroll;
+    margin-top:5px;
+    padding:0 20px;
+    gap:6px;
+    margin-bottom:20px;
+
+    span{
+      flex:none;
+      min-width:auto;
+      display:flex;
+      align-items: center;
+      border-radius:4px;
+      font-size:12px;
+      color:#898989;
+      .v-icon{
+        font-size:13px;
+        margin-left:2px;
+        color:#898989;
+      }
     }
+
+    b.bar{
+      color:#d2d2d2;
+    }
+  }
+
+  .guide_btns::-webkit-scrollbar{
+    display:none;
   }
 
   .v-tabs{
