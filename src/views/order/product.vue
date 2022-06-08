@@ -110,19 +110,21 @@
 
     <div class="floating">
       <div class="cont" v-show="floating">
+        <h4>세탁물 고르기 어려우신가요?</h4>
         <div class="image">
           <img src="@/assets/img/howUse01.png">
         </div>
         <dl>
-          <dt>세탁물 선택이 어렵다면 넘겨보세요!</dt>
-          <dd>데일리세탁에서 직접 검수 후 고객님께 결제 요청을 드립니다.</dd>
+          <!-- <dt>세탁물 고르기 어려우신가요?</dt> -->
+          <dd>세탁물 선태이 어렵다면 PASS 하실 수 있습니다. <br>데일리세탁에서 직접 <b>검수 후 고객님께 결제요청</b>을 드립니다.</dd>
+          <dd></dd>
         </dl>
         
         <v-btn text class="next" >
           <label>상품선택 넘기기</label>
           <v-icon>mid-chevron-right</v-icon>
         </v-btn>
-        <p>* 상품선택 넘기기를 선택하시는 경우, 후불결제 보증금 8,000원 결제가 진행됩니다.</p>
+        <p><b>*</b> 상품선택 넘기기를 선택하시는 경우, <b>후불결제 보증금 8,000원</b>이 결제됩니다.</p>
       </div>
       <v-btn icon class="floatingBtn" @click="floating = !floating">
         <v-icon v-if="floating"> 
@@ -306,16 +308,25 @@ export default {
     padding:0 15px;
     right:0px;
     bottom:81px;
+    width:92%;
     z-index:99;
 
     .cont{
       border:1px solid #d2d2d2;
       background: #fff;
-      margin-right:10px;
+      margin-right:-25px;
       border-radius:10px;
-      margin-bottom:38px;
+      margin-bottom:30px;
       padding:15px;
+      border:2px solid #292929;
       box-shadow: 3px 3px 20px rgba(0,0,0,0.1) ,1px 1px 3px rgba(0,0,0,0.05);
+
+      h4{
+        font-size:16px;
+        margin-bottom:10px;
+        font-weight:bold;
+        letter-spacing: -.4px;
+      }
 
       .image{
         display:flex;
@@ -324,18 +335,23 @@ export default {
         border-radius:7px;
         margin-bottom:15px;
         img{
-          height:170px;
+          height:150px;
         }
       }
 
       dl{
         dt{
-          font-size:15px;
+          font-size:16px;
           font-weight:bold;
+          letter-spacing: -.4px;
         }
         dd{
-          font-size:12px;
+          font-size:13px;
           margin-top:2px;
+          letter-spacing: -.4px;
+          b{
+            color:#D20A61
+          }
         }
       }
 
@@ -344,21 +360,23 @@ export default {
         color:#fff;
         background:#292929;
         margin:10px 0;
+        min-height:40px;
       }
 
       p{
-        font-size:10px;
-        color:#898989;
+        font-size:11px;
+        color:#292929;
         margin:0;
+        b{
+          color:#D20A61;
+        }
       }
-
-      
     }
     
     .floatingBtn{
       width:50px;
       height:50px;
-      background:#F11064;
+      background:#292929;
       .v-icon{
         color:#fff;
         font-size:30px;
