@@ -2,7 +2,7 @@
   <div class="product contents">
     <div class="inner">
       <div class="page-title">
-        <h2>어떤 품목을 맡기실건가요?</h2>
+        <h2>어떤 세탁물을 맡기실건가요?</h2>
       </div>
     </div>
 
@@ -17,7 +17,7 @@
     <v-tabs
       v-model="tabActive"
       :show-arrows="false"
-      hide-slider
+      hide-slide
       append
       height="40px"
     >
@@ -110,20 +110,25 @@
 
     <div class="floating">
       <div class="cont" v-show="floating">
-        <h4>세탁물 고르기 어려우신가요?</h4>
+        <h4>세탁물 선택이 어려우신가요?</h4>
         <div class="image">
           <img src="@/assets/img/howUse01.png">
         </div>
         <dl>
           <!-- <dt>세탁물 고르기 어려우신가요?</dt> -->
-          <dd>세탁물 선태이 어렵다면 PASS 하실 수 있습니다. <br>데일리세탁에서 직접 <b>검수 후 고객님께 결제요청</b>을 드립니다.</dd>
+          <dd>세탁물 선택이 어렵다면 PASS 하실 수 있습니다. <br>데일리세탁에서 직접 <b>검수 후 고객님께 결제요청</b>을 드립니다.</dd>
           <dd></dd>
         </dl>
         
-        <v-btn text class="next" >
-          <label>상품선택 넘기기</label>
-          <v-icon>mid-chevron-right</v-icon>
-        </v-btn>
+        <div class="btns">
+          <v-btn text>
+            상품직접선택
+          </v-btn>
+          <v-btn text class="next">
+            PASS하기
+          </v-btn>
+        </div>
+        
         <p><b>*</b> 상품선택 넘기기를 선택하시는 경우, <b>후불결제 보증금 8,000원</b>이 결제됩니다.</p>
       </div>
       <v-btn icon class="floatingBtn" @click="floating = !floating">
@@ -308,21 +313,23 @@ export default {
     padding:0 15px;
     right:0px;
     bottom:81px;
-    width:92%;
+    width:85%;
     z-index:99;
 
     .cont{
+      position: relative;
+      
       border:1px solid #d2d2d2;
       background: #fff;
-      margin-right:-25px;
       border-radius:10px;
-      margin-bottom:30px;
+      margin-bottom:25px;
+      right:25px;
       padding:15px;
       border:2px solid #292929;
       box-shadow: 3px 3px 20px rgba(0,0,0,0.1) ,1px 1px 3px rgba(0,0,0,0.05);
 
       h4{
-        font-size:16px;
+        font-size:18px;
         margin-bottom:10px;
         font-weight:bold;
         letter-spacing: -.4px;
@@ -355,18 +362,29 @@ export default {
         }
       }
 
-      .next{
-        width:100%;
-        color:#fff;
-        background:#292929;
+      .btns{
+        display:flex;
+        gap:5px;
         margin:10px 0;
-        min-height:40px;
+        .v-btn{
+          flex:1;
+          min-height:40px;
+          font-size:14px;
+          color:#fff;
+          background:#292929;
+        }
+        .v-btn.next{
+          background:#D20A61;
+        }
+
       }
 
       p{
         font-size:11px;
         color:#292929;
+        letter-spacing: -.4px;
         margin:0;
+        
         b{
           color:#D20A61;
         }
@@ -374,6 +392,8 @@ export default {
     }
     
     .floatingBtn{
+      position: fixed;
+      right:10px;
       width:50px;
       height:50px;
       background:#292929;
