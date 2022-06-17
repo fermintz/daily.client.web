@@ -25,7 +25,6 @@
         v-for="(tab, index) in priceTable" 
         :key="index"
         :ripple="false"
-
       >
         <div class="tab-item">
           <!-- <strong>
@@ -54,6 +53,9 @@
           <dd>
             <div class="goods" v-for="item in tab.product" :key="item">
               <div class="goods-info">
+                <div class="icons">
+                  <label>이벤트</label>
+                </div>
                 <span class="goods-name">
                   <label>{{ item.name }}</label>
                   
@@ -61,14 +63,14 @@
                     <v-icon >mdi-help-circle-outline</v-icon>
                   </v-btn> -->
                 </span>
-                <span class="goods-sub">
-                  Lorem ipsum dolor sit amet consectetur adipisicing elit.
-                </span>
-                <!-- <span class="sub">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, </span> -->
+                <span class="sub">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, </span>
               </div>
               <div class="goods-price">
-                <!-- <span>{{item.userAmount}}원</span> -->
-                <strong>{{ item.userAmount }}원</strong>
+                <span>{{item.userAmount}}원</span>
+                <div class="sale">
+                  <label>50</label>
+                  <strong>{{ item.userAmount }}</strong>
+                </div>
               </div>
               <div class="goods-btns">
                 <v-btn icon class="add" @click="$refs.snackbar.handle(true)">
@@ -273,9 +275,11 @@ export default {
   .v-tabs{
     position:sticky;
     padding-bottom:20px;
+    overflow:auto;
     top:60px;
     z-index:99;
     background:#fff;
+    padding-left:20px;
 
     .v-tab{
       min-width:auto;
@@ -318,7 +322,6 @@ export default {
 
     .cont{
       position: relative;
-      
       border:1px solid #d2d2d2;
       background: #fff;
       border-radius:10px;
@@ -467,9 +470,32 @@ export default {
 
 
         .goods-info{
+          display:flex;
+          flex-direction: column;
           flex:1;
           margin-right:10px;
-          span{display:block;line-height:1.2;}
+          
+          .icons{
+            display:flex;
+            margin-bottom:5px;
+            label{
+              display:flex;
+              align-items: center;
+              justify-content: center;
+              color:#fff;
+              height:18px;
+              border-radius:100px;
+              font-size:11px;
+              padding:0 10px;
+              background:#D20A61
+            }
+          }
+          span.icon{
+            width:100px;
+            padding:0 8px;
+            background:#D20A61;
+            color:#fff;
+          }
           span.goods-name{
             font-size:14px;
             display:flex;
@@ -499,22 +525,49 @@ export default {
           }
         }
         .goods-price{
-          margin-right:15px;
+          margin-right:10px;
           text-align:right;
+
           span{
             font-size:11px;
-            color:#999;
+            color:#797979;
             line-height:1.2;
             text-decoration:line-through;
             display:block;
+            margin-bottom:3px;
           }
-          strong{
-            display:block;
-            font-weight:500;
-            line-height:1.2;
-            font-size:14px;
+
+          .sale{
+            display:flex;
+            align-items: center;
+            text-align:left;
+
+            label{
+              font-size:16px;
+              margin-right:5px;
+              color:#D20A61;
+              line-height:1;
+
+              &:after{
+                content:'%';
+                font-size:14px;
+              }
+            }
+            
+            strong{
+              display:block;
+              font-weight:500;
+              line-height:1.2;
+              font-size:16px;
+              font-weight:bold;
+
+              &:after{
+                content:'원';
+                font-size:14px;
+              }
+            }
           }
-          
+         
         }
         .goods-btns{
           .v-btn{
@@ -531,10 +584,9 @@ export default {
           }
 
           .add{
-            background:#c2c2c2;
-            border:0px;
+            border:2px solid #292929;
             .v-icon{
-              color:#fff;
+              color:#292929;
             }
           }
         }
