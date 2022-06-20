@@ -25,7 +25,10 @@
             <div class="item-top">
               <div class="name">
                 <strong>미용실 수건류 80L</strong>
-                <span>15,000 원</span>
+                <div class="item-price">
+                  <span class="default">15,000원</span>
+                  <span class="discount">7,500원</span>
+                </div>
               </div>
 
               <v-btn icon>
@@ -131,8 +134,7 @@ export default {
   }
 
   .head-btns{
-
-    .v-btn{
+   .v-btn{
       height:30px;
       background:#292929;
       border-radius:20px;
@@ -192,8 +194,22 @@ export default {
 
         .name{
           strong{display:block;}
-          span{display:block; font-size:11px;
-          color:#898989;}
+          
+          .item-price{
+            display:flex;
+            align-items: center;
+            gap:10px;
+            span{
+              font-size:12px;
+            }
+            span.default{
+              text-decoration: line-through;
+              color:#797979;
+            }
+            span.discount{
+              color:#F11064;
+            }
+          }
         }
 
         .v-btn{
