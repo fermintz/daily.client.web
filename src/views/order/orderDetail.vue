@@ -85,6 +85,22 @@
       <ul>
         <li>
           <div class="left">
+            
+            <label>정장/교복 자켓</label>
+            <div class="price">
+              <strong>7,900원</strong>
+            </div>
+          </div>
+          <div class="amount">2개</div>
+          <div class="total_price">15,800</div>
+        </li>
+
+        <li class="event">
+          <div class="left">
+            <div class="icons">
+              <span>이벤트</span>
+            </div>
+            
             <label>정장/교복 자켓</label>
             <div class="price">
               <span>7,900</span>
@@ -575,15 +591,26 @@ export default {
           flex: 1;
           margin-right: 15px;
 
+          .icons{
+            span{
+              padding:1px 5px;
+              font-size:10px;
+              background:#f11064;
+              color:#fff;
+              border-radius:3px;
+            }
+          }
+
           .price {
             span {
-              font-size: 11px;
+              font-size: 12px;
               text-decoration: line-through;
               color: #999;
               margin-right: 5px;
             }
             strong {
-              font-size: 11px;
+              font-size: 12px;
+              color:#292929;
             }
           }
         }
@@ -612,6 +639,16 @@ export default {
       }
       li:last-child {
         margin-bottom: 0;
+      }
+
+      li.event{
+        .left{
+          .price{
+            strong{
+              color:#f11064
+            }
+          }
+        }
       }
     }
   }
