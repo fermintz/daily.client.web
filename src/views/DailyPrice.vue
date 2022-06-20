@@ -19,10 +19,37 @@
         <dt>
           <label>{{ items.category }}</label>
         </dt>
-        <dd>
+        <dd><div class="item" :class="{event:true}">
+            <div class="left ">
+              <div class="icons">
+                <span>이벤트</span>
+              </div>
+              <label>상품이름</label>
+              <p>부가적인 설명</p>
+            </div>
+            <div class="right">
+              <span class="normal">5,000</span>
+              <div class="sale">
+                <span class="per">0%</span>
+                <span class="price">5,000</span>
+              </div>
+            </div>
+          </div>
           <div class="item" v-for="item in items.product" :key="item.name">
-            <label>{{ item.name }}</label>
-            <span>{{ item.userAmount.toLocaleString() }}</span>
+            <div class="left">
+              <div class="icons">
+                <span>이벤트</span>
+              </div>
+              <label>{{ item.name }}</label>
+              <p>부가적인 설명</p>
+            </div>
+            <div class="right">
+              <span class="normal">{{ item.userAmount.toLocaleString() }}</span>
+              <div class="sale">
+                <span class="per">50%</span>
+                <span class="price">{{ item.userAmount.toLocaleString() }}</span>
+              </div>
+            </div>
           </div>
         </dd>
       </dl>
@@ -105,7 +132,7 @@ export default {
     dt {
       display: flex;
       align-items: center;
-      border-bottom: 1px solid #e2e2e2;
+      border-bottom: 2px solid #292929;
       padding-bottom: 10px;
 
       label {
@@ -115,23 +142,87 @@ export default {
     }
     dd {
       margin-top: 20px;
+      display:flex;
+      flex-direction: column;
+      gap:15px;
 
       .item {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 10px;
-        label {
-          color: #888;
+
+        .left{
+          display:flex;
+          flex-direction: column;
+          flex:1;
+          margin-right:20px;
+          .icons{
+            display:none;
+          }
+          label{
+            font-size:14px;
+          }
+          p{
+            font-size:12px;
+            color:#797979;
+            margin:0;
+          }
         }
-        span::after {
-          content: "원";
-          font-weight: normal;
-          margin-left: 5px;
+        .right{
+          .normal{
+            display:none;
+            
+          }
+          .sale{
+            display:flex;
+            align-items: center;
+            font-size:16px;
+            .per{
+              display:none;
+             
+            }
+            .price{
+              font-weight:bold;
+              &:after{
+                content:'원';
+                font-size:14px;
+                font-weight:normal;
+              }
+            }
+          }
         }
       }
-      .item:last-child {
-        margin-bottom: 0px;
+
+      .item.event{
+        .left{
+          .icons{
+            display:flex;
+            margin-bottom:5px;
+            span{
+              background:#D20A61;
+              color:#fff;
+              padding:1px 5px;
+              border-radius:3px;
+              font-size:11px;
+            }
+          }
+        }
+        .right{
+          .normal{
+            display:block;
+            text-decoration:line-through;
+            color:#898989;
+
+            &:after{
+              content:'원'
+            }
+          }
+          .per{
+            display:block;
+            margin-right:5px;
+            color:#D20A61;
+          }
+        }
       }
     }
   }
