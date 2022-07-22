@@ -47,7 +47,7 @@
       </div>
     </div>
     
-    <div class="inner">
+    <!-- <div class="inner">
       <div class="divider" />
       <div class="guide">
         <h4>유의사항</h4>
@@ -57,7 +57,7 @@
           </li>
         </ul>
       </div>
-    </div>
+    </div> -->
 
     
   </div>

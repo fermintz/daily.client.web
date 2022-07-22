@@ -74,26 +74,15 @@
 
         <div class="divider" />
 
-        <dl>
-          <dt>세탁업체</dt>
-          <dd>월드크리닝(덕포지사)</dd>
-        </dl>
-        <dl>
-          <dt>전화번호</dt>
-          <dd>051-123-1234</dd>
-        </dl>
-        <dl>
-          <dt>주소</dt>
-          <dd>부산광역시 사상구 덕상로 1 (덕포동) 월드크리닝 덕포지사</dd>
-        </dl>
-        <dl>
-          <dt>사업자번호</dt>
-          <dd>599-81-00659</dd>
-        </dl>
-        <dl>
-          <dt>통신판매업</dt>
-          <dd>2021-부산강서구-0877</dd>
-        </dl>
+        <div class="company">
+          <strong>(주)페이오티</strong>
+          <ul>
+            <li>사업자등록번호: 599-81-00659</li>
+            <li>통신판매업: 2021-부산강서구-0877</li>
+            <li>부산광역시 강서구 대저1동 2304-3</li>
+            <li>대표: 차경진 | 연락처: 070-4709-1003</li>
+          </ul>
+        </div>
       </div>
     </div>
   </div>
@@ -107,8 +96,6 @@ export default {
 
 <style lang="scss" scoped>
 .receipt{
-  padding:15px;
-  background:#f2f2f2;
   min-height:100%;
 
   .inner{
@@ -138,7 +125,7 @@ export default {
   .divider{
     height:1px;
     background:#e2e2e2;
-    margin:20px 0;
+    margin:30px 0;
 
     &.bold{
       background:#292929;
@@ -210,8 +197,18 @@ export default {
         background:#FBEFF4;
       }
     }
+  }
 
-    
+  .company{
+    strong{
+
+    }
+
+    ul{
+      margin-top:10px;
+      font-size:12px;
+      color:#898989;
+    }
   }
 
   .btns{

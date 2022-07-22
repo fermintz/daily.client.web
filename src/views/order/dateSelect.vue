@@ -4,33 +4,62 @@
       <h2>어떤 날짜에 수거 해 갈까요?</h2>
       <p>선택하신 날짜에 세탁물을 수거합니다</p>
     </div>
-    <div class="day_btns">
-      <v-row>
-        <v-col cols="4"  v-for="item in days" :key="item">
-          <div 
-            v-ripple="!item.holiday" 
-            class="day_item"
-            @click="requst('route','TimeSelect')"
+
+    <div class="day_selector">
+      <div class="day_list">
+        <div
+          :class="{
+            day_item: true,
+            active: dayActive === index,
+            disable: item.state === false,
+          }"
+          v-for="(item, index) in days"
+          :key="index"
+          @click="getDay(item, index)"
+        >
+          <span>{{ item.week }}</span>
+          <strong>{{ item.day }}</strong>
+        </div>
+      </div>
+      <div class="delivery_text">
+        <span>배송예상일</span>
+        <!-- <strong>08/04(목) - 08/05(금)</strong> -->
+        <strong>수거날짜를 선택해주세요</strong>
+      </div>
+    </div>
+
+    <div class="time_selector" id="times">
+      <div
+        :class="{ time_item: true, active: timeActive === index }"
+        v-for="(item, index) in times"
+        :key="index"
+        @click="timeActive = index"
+      >
+        <div class="left">
+          <v-icon
+            :style="{ color: timeActive === index ? item.color : '#c2c2c2' }"
           >
-            <div class="day_in_item" :class="{holiday: item.holiday}" @click="$router.push('timeSelect')">
-              <strong>{{item.day}}</strong>
-              <span>{{item.dayText}}</span>
-            </div>
-          </div>
-        </v-col>
-      </v-row>
+            {{item.icon}}
+          </v-icon>
+        </div>
+        <div class="right">
+          <strong>{{ item.text }}</strong>
+          <span>{{ item.description }}</span>
+        </div>
+      </div>
+      <p>
+        <v-icon>mdi-alert-circle-outline</v-icon>
+        <span>수거는 시작시간부터 순차적으로 진행됩니다</span>
+      </p>
     </div>
 
-    <div class="divider"></div>
-
-    <div class="guide">
-      <h4>유의사항</h4>
-      <ul>
-        <li><b>선택하신 날짜는 이 후에 변동이 불가능</b>하므로 해당 부분 확인 후에 고객님께서 가능한 날짜만 반드시 선택해주세요.</li>
-        <li>수거 예약을 선택하신 날짜에 맞춰 데일리세탁 기사님이 방문하시니 꼭 <b>잊지말고 세탁물을 내놓아주세요.</b></li>
-        <li>주말 및 공휴일에는 데일리세탁이 운영하지 않으므로 수거나 배송 업무가 진행되지 않습니다.</li>
-      </ul>
+    <div class="btns">
+      <v-btn text @click="$router.push('howUse')">
+        <label>다음으로</label>
+        <v-icon>mdi-arrow-right</v-icon>
+      </v-btn>
     </div>
+
   </div>
 </template>
 
@@ -43,32 +72,37 @@ export default {
   },
   data(){
     return{
+      dayActive:null,
+      timeActive:0,
       days:[
+        { week: "월요일", day: 1, state: true },
+        { week: "화요일", day: 2, state: true },
+        { week: "수요일", day: 3, state: true },
+        { week: "목요일", day: 4, state: true },
+        { week: "금요일", day: 5, state: true },
+        { week: "토요일", day: 6, state: false },
+        { week: "일요일", day: 7, state: false },
+        { week: "월요일", day: 8, state: true },
+      ],
+      times:[
         {
-          holiday:false,
-          day:'오늘',
-          dayText:'화요일'
+          color: "#FF8000",
+          icon: "mdi-weather-sunset",
+          text: "오전에 수거",
+          description: "09시부터 - 14시까지",
         },
         {
-          holiday:false,
-          day:2,
-          dayText:'수요일'
+          color: "#E5145B",
+          icon: "mdi-white-balance-sunny",
+          text: "오후에 수거",
+          description: "14시부터 - 18시까지",
         },
         {
-          holiday:false,
-          day:3,
-          dayText:'목요일'
+          color: "#FFBB00",
+          icon: "mdi-weather-night",
+          text: "밤에 수거",
+          description: "21시부터 - 02시까지",
         },
-        {
-          holiday:false,
-          day:4,
-          dayText:'금요일'
-        },
-        {
-          holiday:true,
-          day:5,
-          dayText:'휴일'
-        }
       ],
     }
   },
@@ -76,17 +110,29 @@ export default {
 
   },
   methods:{
-    requst(type, value){
-      const data = JSON.stringify({type:type, value:value})
-      window.ReactNativeWebView.postMessage(data)
+    getDay(item, index){
+      item.state === false ? "" : (this.dayActive = index);
+      this.showTime()
     },
+
+    showTime(){
+      const times = document.getElementById("times");
+      window.scrollTo({
+        behavior: "smooth",
+        top: 120,
+      });
+      times.style.transition = "all 0.4s ease-in-out";
+      times.style.top = 0;
+      times.style.opacity = 1;
+    }
   },
 }
 </script>
 
 <style lang="scss" scoped>
 .dateSelect{
-
+  padding-bottom:80px;
+}
   .back{
     margin-bottom:20px;
     .v-btn{
@@ -107,86 +153,151 @@ export default {
     }
   }
 
-  .day_btns{
-    display:flex;
-    flex-wrap: wrap;
-    margin-top:30px;
+  .day_selector{
+  border:1px solid #e2e2e2;
+  border-radius:12px;
+  padding:15px;
 
-    .v-col{
-      text-align:center;
-    }
+  .day_list{
+    display:grid;
+    grid-template-columns: repeat(4,1fr);
+    gap:10px;
 
     .day_item{
-      position: relative;
-      width:100%;
-      border-radius:999px;
-      overflow:hidden;
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      border-radius:12px;
+      padding:10px 0;
+      border:2px solid #fff;
 
-      .day_in_item{
-        position: absolute;
-        display:flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        width:100%;
-        height:100%;
-
-        strong{
-          font-size:36px;
-          font-family:'Roboto';
-          font-weight:600;
-        }
-        span{
-          font-size:12px;
-          margin-top:4px;
-        }
+      span{
+        font-size:12px;
+        margin-bottom:5px;
       }
-
-      .holiday{
-        strong{
-          color:#aaa;
-        }
-        span{
-          color:#d22828
-        }
+      strong{
+        font-size:30px;
+        line-height:1;
+        font-family:'Roboto';
+        font-weight:600;
       }
     }
 
-    .day_item:after{
-      content:'';
-      display:block;
-      padding-bottom:100%;
+    .active{
+      border:2px solid #0090FF;
+      strong{color:#0090FF}
+    }
+
+    .disable{
+      span,strong{color:#aaa;}
     }
   }
 
-  .divider{
-    height:1px;
-    background:#e2e2e2;
-    margin:40px 0;
-  }
+  .delivery_text{
+    display:flex;
+    align-items: center;
+    margin-top:15px;
+    border-radius:5px;
+    padding:10px;
+    background:#f6f6f6;
 
-  .guide{
-    h4{
-      font-size:16px;
-      font-weight:bold;
-      margin-bottom:10px;
+    span{
+      margin-right:15px;
+      font-size:12px;
     }
-    ul{
-      padding:0px;
-      li{
-        margin-bottom:6px;
-        line-height: 1.3;
-
-        &:before{
-          content:'-';
-          margin-right:3px;
-        }
-
-        b{
-          color:#de0059;
-        }
-      }
+    strong{
+      color:#E5145B;
+      font-size:13px;
     }
   }
 }
+
+
+
+.time_selector{
+  position: relative;
+  margin-top:30px;
+  display:flex;
+  flex-direction: column;
+  gap:10px;
+  opacity:0;
+  top:50px;
+  // transition: all 1s ease-in-out;
+
+  .time_item{
+    border:1px solid #e2e2e2;
+    padding:15px;
+    border-radius:12px;
+    display:flex;
+    align-items: center;
+
+    .left{
+      .q-icon{
+        font-size:24px;
+      }
+    }
+
+    .right{
+      display:flex;
+      flex-direction: column;
+      margin-left:20px;
+      strong{
+        font-size:18px;
+        font-weight:bold;
+      }
+      span{
+        font-size:13px;
+      }
+    }
+  }
+
+  .time_item.active{
+    border:2px solid #0090FF;
+  }
+
+  p{
+    display:flex;
+    margin-top:5px;
+    background:#f8f8f8;
+    padding:10px;
+    border-radius:5px;
+    span{
+      flex:1;
+
+    }
+    .v-icon{
+      font-size:14px;
+      margin-right:5px;
+      color:#E5145B;
+    }
+  }
+}
+
+
+.btns{
+  position: fixed;
+  padding:10px;
+  left:0px;
+  bottom:0px;
+  width:100%;
+  background:#fff;
+  
+  
+  .v-btn{
+    width:100%;
+    height:50px;
+    font-size:14px;
+    color:#fff;
+    border-radius:5px;
+    background:#0CA0E2;
+
+    .v-icon{
+      font-size:18px;
+      margin-left:10px;
+      color:#fff
+    }
+  }
+}
+
 </style>

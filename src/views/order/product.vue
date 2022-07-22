@@ -155,7 +155,7 @@
           <label>장바구니</label>
           <div class="badge">6</div>
         </v-btn>
-        <v-btn text class="next" @click="$router.push('userMessage')">
+        <v-btn text class="next" @click="$router.push('orderDetail')">
           <label>14,900원 예약하기</label>
           <v-icon>mdi-arrow-right</v-icon>
         </v-btn>

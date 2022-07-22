@@ -1,110 +1,159 @@
 <template>
   <div class="receipt">
-    <div class="inner">
-      <div class="logo">
+    
+    <section class="top">
+
+      <div class="page_title">
         <img src="@/assets/img/logo.svg">
-        <span>데일리세탁</span>
-      </div>
-      <div class="cont">
-        <dl>
-          <dt>주문번호</dt>
-          <dd>5D0IFK-FA2H</dd>
-        </dl>
-
-        <div class="divider bold" />
-
-        <h3>세탁 안내사항</h3>
-        <div class="message">
-          Lorem ipsum dolor sit amet consectetur adipisicing elit. Eaque hic inventore illo, sunt, aspernatur porro itaque, voluptate in rerum natus ipsum temporibus debitis esse error eos accusantium laboriosam. Eum, quis?
-        </div>
-        <div class="photos">
-          <v-row>
-            <v-col cols="3" v-for="item in 5" :key="item" >
-              <div class="photo" v-ripple @click="$refs.imageView.handle(true)" >
-                <img src="https://picsum.photos/200/300">
-              </div>
-            </v-col>
-          </v-row>
-        </div>   
-    
-        <div class="divider" />
-
-        <dl>
-          <dt>세탁업체</dt>
-          <dd>월드크리닝(덕포지사)</dd>
-        </dl>
-        <dl>
-          <dt>전화번호</dt>
-          <dd>051-123-1234</dd>
-        </dl>
-        <dl>
-          <dt>주소</dt>
-          <dd>부산광역시 사상구 덕상로 1 (덕포동) 월드크리닝 덕포지사</dd>
-        </dl>
-        <dl>
-          <dt>사업자번호</dt>
-          <dd>599-81-00659</dd>
-        </dl>
-        <dl>
-          <dt>통신판매업</dt>
-          <dd>2021-부산강서구-0877</dd>
-        </dl>
+        <h2>추가결제요청이 있습니다</h2>
+        <p><b>나의정보 > 상품상세정보</b> 에서 추가결제를 진행해주세요</p>
+        <p></p>
       </div>
 
-      <div class="divider"/> 
+      <dl class="order_number">
+        <dt>주문번호</dt>
+        <dd>5D0IFK-FA2H</dd>
+      </dl>
 
-      <div class="credit">
-        <h3>결제방법 선택</h3>
+      <div class="divider"></div>
 
-        <div class="credit-btns">
-          <div
-            class="credit-btn"
-            text
-            v-ripple
-            :class="{active:creditSeleted === index}"
-            v-for="(item, index) in credit"
-            :key="index"
-            @click="creditSeleted = index"
-          >
-            <div class="check"></div>
-            <div class="img" v-show="item.url">
-              <img :src="item.url" />
-            </div>
-            <div class="text">{{item.name}}</div>
+      <dl>
+        <dt>주문자</dt>
+        <dd>박수민</dd>
+      </dl>
+      <dl>
+        <dt>연락처</dt>
+        <dd>010-8525-4561</dd>
+      </dl>
+      <dl>
+        <dt>주소지</dt>
+        <dd>부산시 북구 구남언덕로 15</dd>
+      </dl>
+    </section>
+
+    <div class="divider bold"></div>
+
+    <section class="guide">
+      <h4>안내메세지</h4>
+      <p>
+        안녕하세요 데일리세탁입니다. 
+      </p>
+    </section>
+
+    <div class="divider bold"></div>
+
+    <section class="product">
+      <h4>상품정보</h4>
+      <ul>
+        <li class="item" v-for="item in 5" :key="item">
+          <div class="item_info">
+            <span class="name">
+              맨투맨/후드티이름이 길면 어떻게 될까요요요용 하하하하하
+            </span>
+            <span class="amount">
+              1개
+            </span>
+            <span class="price">
+              5,000원
+            </span>
           </div>
-        </div>
-      </div>
-    </div>
+        </li>
+        <li class="item add">
+          <div class="item_top">
+            <span class="add">추가</span>
+          </div>
+          <div class="item_info">
+            <span class="name">
+              흰색 와이셔츠
+            </span>
+            <span class="amount">
+              1개
+            </span>
+            <span class="price">
+              3,000원
+            </span>
+          </div>
+        </li>
+        <li class="item change">
+          <div class="item_top">
+            <span class="change">변경</span>
+          </div>
+          <div class="item_info">
+            <span class="name">
+              맨투맨/후드티
+            </span>
+            <span class="amount">
+              1개
+            </span>
+            <span class="price">
+              5,000원
+            </span>
+          </div>
+          <div class="change_info">
+            <span class="amount">
+              2개
+            </span>
+            <span class="price">
+              10,000원
+            </span>
+          </div>
+        </li>
+        <li class="item del">
+          <div class="item_top">
+            <span class="del">삭제</span>
+          </div>
+          <div class="item_info">
+            <span class="name">
+              울/모직 코트(롱)
+            </span>
+            <span class="amount">
+              1개
+            </span>
+            <span class="price">
+              8,000원
+            </span>
+          </div>
+        </li>
+      </ul>
+    </section>
 
-    
+    <div class="divider bold"></div>
 
-    <ImageView ref="imageView"/>
+    <section class="price_info">
+      <h4>금액정보</h4>
+      <ul>
+        <li>
+          <span>전체 상품금액</span>
+          <strong>25,000원</strong>
+        </li>
+        <li>
+          <span><v-icon size="15px">mdi-plus-circle-outline</v-icon>추가된 상품금액</span>
+          <strong>5,000원</strong>
+        </li>
+        <li>
+          <span><v-icon size="15px">mdi-minus-circle-outline</v-icon>제거된 상품금액</span>
+          <strong>-8,000원</strong>
+        </li>
+        <li class="total">
+          <span>최종 확정금액</span>
+          <strong>22,000원</strong>
+        </li>
+      </ul>
+    </section>
+
+
+
   </div>
 </template>
 
 <script>
-
-import ImageView from '@/components/modal/imageView'
 export default {
   components:{
-    ImageView
+  
   },
   data(){
     return{
-      creditSeleted: 0,
-      credit: [
-        {
-          name: "네이버페이",
-          url: "img/naverPay.png",
-        },
-        {
-          name: "카카오페이",
-          url: "img/kakaoPay.png",
-        },
-        {
-          name: "신용카드",
-        },
-      ],
+
     }
   }
 }
@@ -112,150 +161,206 @@ export default {
 
 <style lang="scss" scoped>
 .receipt{
-  padding:15px;
-  background:#f2f2f2;
   min-height:100%;
+  background:#fff;
+  font-size:14px;
+  padding-bottom:80px;
 
-  .inner{
-    background:#fff;
-    padding:20px;
-    padding-bottom:60px;
-    border-radius:5px;
-    box-shadow: 5px 5px 15px rgba(0,0,0,0.1);
-  }
-
-  .logo{
+  .page_title{
     padding:30px 0;
-    display:flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
 
     img{
-      height:60px;
+      height:40px;
+      display:block;
+      margin-bottom:25px;
     }
-
-    span{
+    h2{
+      font-size:24px;
+      letter-spacing: -0.7px;
+    }
+    p{
       margin-top:10px;
+      b{
+        color:#D20059;
+      }
     }
   }
 
+  
   .divider{
     height:1px;
-    background:#e2e2e2;
     margin:20px 0;
+    background:#e2e2e2;
 
     &.bold{
-      background:#292929;
+      margin:0;
+      height:8px;
+      background:#f2f2f2;
     }
   }
 
-  dl{
-    display:flex;
-    justify-content: space-between;
-    margin-bottom:10px;
-    dt{
-      width:100px;
-      color:#898989;
-    }
-    dd{
-      text-align:right;
-      flex:1;
-    }
-
-    &:last-child{
-      margin-bottom:0px;
+  section{
+    padding:25px;
+    h4{
+      margin-bottom:20px;
+      font-size:16px;
+      font-weight:bold;
     }
   }
 
-  h3{
-    margin-bottom:15px;
-    font-weight:bold;
-  }
-
-  .message{
-    margin-bottom:20px;
-    background:#f2f2f2;
-    border-radius:4px;
-    padding:15px;
-  }
-
-  .photos{
-    .row{
-      margin:-5px;
-      .col{
-        padding:5px;
-      }
-    }
-    .photo{
+  section.top{
+    dl.order_number{
       display:flex;
+      justify-content: space-between;
       align-items: center;
-      justify-content: center;
-      position: relative;
-      overflow:hidden;
-      border-radius:4px;
-      height:100%;
-      border:1px solid #e2e2e2;
-
-      img{
-        position: absolute;
-        width:100%;
+      dd{
+        font-weight:bold;
       }
-
-      &:after{
-        display:block;
-        content:'';
-        padding-bottom:100%;
+    }
+    dl{
+      display:flex;
+      margin-bottom:10px;
+      &:last-child{
+        margin-bottom:0;
+      }
+      
+      dt{
+        width:80px;
+        color:#898989;
+        font-size:13px;
       }
     }
   }
 
-  .credit {
-    .credit-btns {
-      .credit-btn {
-        width: 100%;
-        height: 50px;
-        margin-bottom: 10px;
-        border: 1px solid #d2d2d2;
-        border-radius: 5px;
-        display: flex;
+  section.product{
+    ul{
+      display:flex;
+      flex-direction: column;
+      gap:10px;
+    }
+    .item{
+      padding:15px;
+      border:1px solid #e2e2e2;
+      border-radius:3px;
+      box-shadow: 3px 3px 12px rgba(0,0,0,0.05);
+      .item_top{
+        display:flex;
         align-items: center;
-        padding: 0 10px;
+        justify-content: space-between;
+        margin-bottom:8px;
+        
+        span{
+          display:flex;
+          align-items: center;
+          border:1.5px solid #292929;
+          height:18px;  
+          font-size:11px; 
+          padding:0 10px;
+          border-radius:10px;
+        }
 
-        &:last-child {
-          margin-bottom: 0;
+        span.add{
+          color:#0090FF;
+          border-color:#0090FF;
         }
-        .check {
-          display: block;
-          width: 22px;
-          height: 22px;
-          border: 1px solid #a2a2a2;
-          border-radius: 11px;
-          margin-right: 15px;
+        span.change{
+          color:#D20059;
+          border-color:#D20059;
         }
-        .img {
-          width: 70px;
-          img {
-            display: block;
-            height: 20px;
+      }
+      .item_info{
+        display:flex;
+        align-items: center;
+        .name{
+          flex:1;
+        }
+        .amount{
+          text-align:right;
+          width:40px;
+        }
+        .price{
+          text-align:right;
+          width:80px;
+        }
+      }
+    }
+
+    .item.change{
+      .item_info{
+        .amount,.price{
+          text-decoration: line-through;
+        }
+      }
+      .change_info{
+        margin-top:5px;
+        display:flex;
+        justify-content: flex-end;
+
+        .amount{
+          text-align:right;
+          width:40px;
+          color:#D20059;
+        }
+        .price{
+          text-align:right;
+          width:80px;
+          color:#D20059;
+        }
+      }
+    }
+
+    .item.del{
+      background:#f2f2f2;
+      box-shadow: none;
+      border:0px;
+      .item_info{
+        span{
+          color:#898989;
+        }
+      }
+    }
+  }
+
+  .price_info{
+    ul{
+      display:flex;
+      flex-direction: column;
+      gap:10px;
+      li{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+
+        span{
+          display:flex;
+          align-items: center;
+          font-size:14px;
+          color:#898989;
+          .v-icon{
+            margin-right:5px;
           }
         }
-        .text {
-          flex: 1;
-          font-size: 14px;
-          font-weight: bold;
+        strong{
+          font-size:16px;
         }
       }
-
-      .credit-btn.active {
-        border-color: #0ca0e2;
-        .check {
-          border: 7px solid #0ca0e2;
+      li.total{
+        margin-top:10px;
+        border-top:1px solid #e2e2e2;
+        padding-top:20px;
+        span{
+          color:#292929;
+        }
+        strong{
+          font-family:'Roboto';
+          font-size:24px;
+          font-weight:600;
         }
       }
     }
   }
 
+ 
 
   .btns{
     text-align:center;
