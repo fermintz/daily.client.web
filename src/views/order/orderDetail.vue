@@ -1,18 +1,12 @@
 <template>
-  <div class="orderDetail contents">
+  <div class="orderDetail">
     <div class="page-title">
       <h2>마지막으로 확인해주세요</h2>
       <p>정보가 상이할 경우 다시 주문해주세요</p>
     </div>
 
-    <div class="divider" />
-
     <div class="order-info">
       <h3>예약정보</h3>
-      <dl class="order-date">
-        <dt>수거일</dt>
-        <dd>9월 12일(토)</dd>
-      </dl>
       <dl>
         <dt>이름</dt>
         <dd>박수민</dd>
@@ -31,204 +25,139 @@
         <dt>출입문</dt>
         <dd>종 누루고 #1245</dd>
       </dl>
-    </div>
 
-    <div class="divider" />
+      <div class="divider" />
 
-    <div class="shop_info">
-      <h3>세탁소정보</h3>
       <dl>
-        <dt>세탁소명</dt>
+        <dt>세탁픽업일</dt>
         <dd>세탁프리워시 금정점</dd>
       </dl>
       <dl>
-        <dt>연락처</dt>
+        <dt>픽업시간</dt>
         <dd>070-7807-6857</dd>
       </dl>
-      <dl>
-        <dt>대표자</dt>
-        <dd>차경진</dd>
-      </dl>
-      <dl>
-        <dt>주소지</dt>
-        <dd>부산광역시 강서구 대저1동 2304-3</dd>
-      </dl>
     </div>
 
-    <div class="divider" />
-
-    <div class="user-message">
-      <h3>요청메세지</h3>
-      <dl class="washing">
-        <dt><v-icon>mdi-message-text-outline</v-icon>세탁소에게</dt>
-        <dd>
-          <ul>
-            <li>
-              오염 제거요청(혈액/음식물/토사물/기타 등) 오염
-              제거요청(혈액/음식물/토사물/기타 등)
-            </li>
-            <li>수선 요청</li>
-            <li>바지 기장 접은 만큼 줄여주세요!</li>
-          </ul>
-        </dd>
-      </dl>
-      <dl class="delivery">
-        <dt><v-icon>mdi-message-text-outline</v-icon>기사님에게</dt>
-        <dd>현관문앞에 나둘게요</dd>
-      </dl>
-    </div>
-
-    <div class="divider" />
+    <div class="divider-8" />
 
     <div class="product-info">
       <h3>선택한 상품</h3>
-      <ul>
-        <li>
-          <div class="left">
-            
-            <label>정장/교복 자켓</label>
-            <div class="price">
-              <strong>7,900원</strong>
-            </div>
-          </div>
-          <div class="amount">2개</div>
-          <div class="total_price">15,800</div>
-        </li>
-
-        <li class="event">
-          <div class="left">
-            <div class="icons">
-              <span>이벤트</span>
-            </div>
-            
-            <label>정장/교복 자켓</label>
-            <div class="price">
-              <span>7,900</span>
-              <strong>7,900원</strong>
-            </div>
-          </div>
-          <div class="amount">2개</div>
-          <div class="total_price">15,800</div>
-        </li>
-      </ul>
+      <div class="product_btn" v-ripple>
+        <div class="left">
+          <strong>선택한 상품목록 보기</strong>
+          <span>상품7개 <b>22,500원</b></span>
+        </div>
+        <v-icon>
+          mdi-chevron-right
+        </v-icon>
+      </div>
     </div>
 
-    <div class="divider" />
+    <div class="divider-8" />
+
+      <div class="user-message">
+      <h3>요청사항</h3>
+
+      <dl class="wash">
+        <dt>
+          <strong>세탁</strong>
+        </dt>
+        <dd>
+          <div class="selectorBox">
+            <input class="selector" v-ripple 
+              @focus.stop="washSelectMenu = !washSelectMenu" 
+              @blur.self="washSelectMenu = !washSelectMenu"
+              :value="washSelectText"
+            >
+   
+            <div class="selectMenu" v-show="washSelectMenu">
+              <span 
+                v-for="(item, index) in washMessage" 
+                :key="index"
+                @click="washSelectText = item.text, washSelectMenu = false"
+              >{{item.text}}</span>
+            </div>
+          </div>
+          <textarea placeholder="내용을 입력해주세요"></textarea>
+        </dd>
+      </dl>
+
+      <dl class="repair">
+        <dt>
+          <strong>수선</strong>
+        </dt>
+        <dd>
+          <textarea placeholder="ex) 검은색 바지 기장을 5cm정도 줄여주세요"></textarea>
+        </dd>
+      </dl>
+
+      <dl class="delivery">
+        <dt>
+          <strong>배송</strong>
+        </dt>
+        <dd>
+          
+            
+          <textarea placeholder="내용을 입력해주세요"></textarea>
+        </dd>
+      </dl>
+    </div>
+
+    <div class="divider-8" />
 
     <div class="coupon_use">
       <h3>쿠폰사용</h3>
       <div class="no-data">사용가능한 쿠폰이 없습니다.</div>
-      <ul class="coupon_list">
-        <li v-ripple :class="{ active: true }">
-          <div class="check-wr">
-            <v-btn text>
-              <v-icon v-if="true">mdi-check</v-icon>
-            </v-btn>
-          </div>
-          <div class="coupon-info">
-            <strong>새해 명절 세탁쿠폰</strong>
-            <span>최소주문금액 : 15,000원</span>
-            <span>2021.09.20 까지 사용가능</span>
-          </div>
-          <div class="price">5,000원</div>
-        </li>
-        <li v-ripple>
-          <div class="check-wr">
-            <v-btn text>
-              <v-icon v-if="false">mdi-check</v-icon>
-            </v-btn>
-          </div>
-          <div class="coupon-info">
-            <strong>새해 명절 세탁쿠폰</strong>
-            <span>최소주문금액 : 15,000원</span>
-            <span>2021.09.20 까지 사용가능</span>
-          </div>
-          <div class="price">5,000원</div>
-        </li>
-        <li v-ripple class="disable">
-          <div class="check-wr">
-            <v-btn text>
-              <v-icon v-if="false">mdi-check</v-icon>
-            </v-btn>
-          </div>
-          <div class="coupon-info">
-            <strong>새해 명절 세탁쿠폰</strong>
-            <span>최소주문금액 : 15,000원</span>
-            <span>2021.09.20 까지 사용가능</span>
-          </div>
-          <div class="price">5,000원</div>
-        </li>
-      </ul>
-      <div class="more-wr">
-        <!-- 3개 이상시 3개씩 -->
-        <v-btn text> 더보기 </v-btn>
+
+      <div class="coupon_btn" v-ripple>
+        <div class="left">
+          <strong>쿠폰사용하기</strong>
+          <span>적용가능한 쿠폰이 <b>1개</b>있습니다</span>
+        </div>
+        <v-icon>
+          mdi-chevron-right
+        </v-icon>
       </div>
 
-      <div class="guide">
-        <h4>쿠폰사용시 주의사항</h4>
-        <ul>
-          <li>회 결제 시 중복으로 쿠폰사용은 불가능합니다.</li>
-        </ul>
+      <div class="coupon_btn use" v-ripple>
+        <div class="left">
+          <strong>무료배송이벤트</strong>
+          <span><b>3,500</b>원 할인적용</span>
+        </div>
+        <v-icon>
+          mdi-chevron-right
+        </v-icon>
       </div>
     </div>
 
-    <div class="divider" />
+    <div class="divider-8" />
 
-    <div class="payment-info">
-      <div class="payment-info-top">
-        <h3>결제 예정금액</h3>
-      </div>
+    <div class="payment">
+
+      <h3>결제금액</h3>
 
       <div class="price-info">
         <dl class="product">
-          <dt><v-icon>mdi-plus-circle</v-icon>상품합계</dt>
+          <dt>주문금액</dt>
           <dd>34,500</dd>
         </dl>
         <dl class="sale">
-          <dt><v-icon>mdi-minus-circle</v-icon>상품할인</dt>
+          <dt><v-icon>mdi-plus-circle-outline</v-icon>배송비</dt>
           <dd>2,000</dd>
         </dl>
         <dl class="coupon">
-          <dt><v-icon>mdi-minus-circle</v-icon>쿠폰할인</dt>
+          <dt><v-icon>mdi-minus-circle-outline</v-icon>쿠폰할인</dt>
           <dd>5,000</dd>
         </dl>
-        <dl class="delivery">
-          <dt><v-icon>mdi-plus-circle</v-icon>수거배송비</dt>
-          <dd>3,500</dd>
+        <div class="divider"></div>
+        <dl class="total">
+          <dt>최종결제금액</dt>
+          <dd>24,200</dd>
         </dl>
       </div>
-
-      <div class="total">
-        <label>최종 결제금액</label>
-        <span>31,000</span>
-      </div>
     </div>
 
-    <div class="divider" />
-
-    <div class="credit">
-      <h3>결제방법 선택</h3>
-
-      <div class="credit-btns">
-        <div
-          class="credit-btn"
-          text
-          v-ripple
-          :class="{active:creditSeleted === index}"
-          v-for="(item, index) in credit"
-          :key="index"
-          @click="creditSeleted = index"
-        >
-          <div class="check"></div>
-          <div class="img" v-show="item.url">
-            <img :src="item.url" />
-          </div>
-          <div class="text">{{item.name}}</div>
-        </div>
-      </div>
-    </div>
-
-    <div class="divider" />
+    <div class="divider-8" />
 
     <div class="detail-bottom">
       <h3>주문정보 및 서비스 약관동의</h3>
@@ -313,22 +242,19 @@ export default {
   data() {
     return {
       couponActive: true,
-      
       termsBtn: false,
-      creditSeleted: 0,
-      credit: [
-        {
-          name: "네이버페이",
-          url: "img/naverPay.png",
-        },
-        {
-          name: "카카오페이",
-          url: "img/kakaoPay.png",
-        },
-        {
-          name: "신용카드",
-        },
+      washSelectText:'세탁',
+      washSelectMenu:false,
+      washMessage:[
+        {id:0,text:'깨끗하게 세탁 부탁드립니다'},
+        {id:1,text:'직접입력'}
       ],
+      deliveryMessgae:[
+        {id:0,text:'안전하게 배송해주세요'},
+        {id:1,text:'수거한 백은 돌려주세요'},
+        {id:2,text:'직접입력'}
+      ]
+      
     };
   },
   methods: {
@@ -350,6 +276,7 @@ export default {
   }
 
   .page-title {
+    padding:0 20px;
     p {
       margin-top: 5px;
       color: #888;
@@ -359,101 +286,114 @@ export default {
   .divider {
     height: 1px;
     background: #e2e2e2;
-    margin: 40px 0;
+    margin:15px 0;
+  }
+
+  .divider-8{
+    height:8px;
+    background:#f2f2f2;
   }
 
   h3 {
+    font-size:16px;
     margin-bottom: 20px;
     font-weight: bold;
   }
 
   .order-info {
+    padding:35px 20px;
+    display:flex;
+    flex-direction: column;
+    gap:10px;
+
     dl {
       display: flex;
       align-items: center;
-      margin-bottom: 5px;
 
       dt {
-        width: 60px;
+        width: 80px;
         font-size: 12px;
         color: #888;
       }
       dd {
         flex: 1;
-        background: #f8f8f8;
         border-radius: 5px;
-        padding: 10px;
         font-size: 14px;
       }
     }
   }
 
-  .shop_info {
-    dl {
-      display: flex;
-      align-items: center;
-      margin-bottom: 5px;
-
-      dt {
-        width: 60px;
-        font-size: 12px;
-        color: #888;
-      }
-      dd {
-        flex: 1;
-        background: #f8f8f8;
-        border-radius: 5px;
-        padding: 10px;
-        font-size: 14px;
-      }
-    }
-  }
 
   .user-message {
-    dl {
-      margin-bottom: 40px;
+    padding:35px 20px;
 
-      dt {
-        font-size: 12px;
-        margin-bottom: 10px;
-        color: #888;
+    dl{
+      margin-bottom:20px;
 
-        .v-icon {
-          margin-right: 5px;
-          font-size: 16px;
+      &:last-child{
+        margin-bottom:0;
+      }
+      dt{
+        margin-bottom:10px;
+      }
+      dd{
+        textarea{
+          width:100%;
+          resize: none;
+          min-height:80px;
+          border:1px solid #c2c2c2;
+          border-radius:10px;
+          padding:10px;
         }
       }
     }
 
-    dl.washing {
-      dd {
-        ul {
-          li {
-            background: #f1f5f9;
-            margin-bottom: 10px;
-            padding: 10px;
-            border-radius: 5px;
-          }
-          li:last-child {
-            margin-bottom: 0px;
-          }
+    .selectorBox{
+      position: relative;
+
+      .selector{
+        width:100%;
+        height:50px;
+        padding:0 10px;
+        border:1px solid #c2c2c2;
+        border-radius:10px;
+      }
+
+      .selectMenu{
+        position: absolute;
+        width:100%;
+        top:0px;
+        background:#fff;
+        border-radius:10px;
+        display:flex;
+        flex-direction: column;
+        border:2px solid #292929;
+
+        span{
+          display:flex;
+          align-items: center;
+          padding:10px;
         }
       }
     }
-    dl.delivery {
-      dd {
-        background: #f6f3ea;
-        padding: 10px;
-        border-radius: 5px;
+
+
+    .wash{
+      dd{
+        textarea{
+          display:block;
+          margin-top:10px;
+        }
       }
     }
 
-    dl:last-child {
-      margin-bottom: 0px;
+    .repair{
+      
     }
   }
 
   .coupon_use {
+    padding:35px 20px;
     .no-data {
       display: flex;
       background: #f2f2f2;
@@ -461,231 +401,74 @@ export default {
       border-radius: 5px;
       justify-content: center;
       align-items: center;
-      margin-bottom: 10px;
     }
-    ul.coupon_list {
-      padding: 0px;
-      li {
-        display: flex;
-        align-items: flex-start;
-        border: 1px solid #c2c2c2;
-        border-radius: 5px;
-        padding: 15px;
-        margin-bottom: 10px;
 
-        &.active {
-          border-color: #f11064;
-        }
-
-        &.disable {
-          border: 0;
-          background: #f2f2f2;
-          .check-wr {
-            .v-btn {
-              border: 0;
-              background: #d2d2d2;
-            }
-          }
-          strong {
-            color: #898989;
-          }
-          .price {
-            color: #898989;
-          }
-        }
-
-        .check-wr {
-          margin-right: 15px;
-          .v-btn {
-            min-width: 20px;
-            max-height: 20px;
-            padding: 0px;
-            border: 1px solid #292929;
-            border-radius: 5px;
-
-            .v-icon {
-              font-size: 18px;
-              color: #f11064;
-            }
-          }
-        }
-        .coupon-info {
-          flex: 1;
-          strong {
-            display: block;
-            font-size: 14px;
-            line-height: 1;
-            font-weight: bold;
-            margin-bottom: 6px;
-          }
-          span {
-            display: block;
-            font-size: 12px;
-            color: #898989;
-          }
-        }
-
-        .price {
-          margin-left: 15px;
-          justify-content: flex-end;
-          align-self: flex-end;
-          font-size: 16px;
-          line-height: 1;
-          font-weight: bold;
-        }
-
-        &:last-child {
-          margin-bottom: 0px;
-        }
-      }
-    }
-    .more-wr {
-      display: flex;
-      justify-content: center;
+    .coupon_btn{
+      display:flex;
       align-items: center;
-      margin-top: 30px;
+      justify-content: space-between;
+      padding:15px;
+      border:1px solid #292929;
+      border-radius:10px;
 
-      .v-btn {
-        width: 120px;
-        background: #f2f2f2;
-        height: 34px;
-        border-radius: 17px;
-      }
-    }
-
-    .guide {
-      h4 {
-        font-size: 14px;
-        font-weight: bold;
-        margin-bottom: 10px;
-      }
-
-      ul {
-        padding: 0px;
-        li {
-          margin-bottom: 5px;
-          &:last-child {
-            margin-bottom: 0px;
-          }
-          &:before {
-            content: "-";
-            margin-right: 5px;
-          }
+      .left{
+        display:flex;
+        flex-direction:column;
+        strong{
+          font-size:16px;
+        }
+        span{
+          color:#898989;
+          b{color:#f11064;}
         }
       }
     }
+
+
   }
 
   .product-info {
-    ul {
-      padding: 0px;
-      li {
-        display: flex;
-        align-items: center;
-        padding: 10px;
-        border: 1px solid #e2e2e2;
-        border-radius: 5px;
-        margin-bottom: 6px;
+    padding:35px 20px;
+    
+    .product_btn{
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+      padding:15px;
+      border:1px solid #292929;
+      border-radius:10px;
 
-        .left {
-          flex: 1;
-          margin-right: 15px;
-
-          .icons{
-            span{
-              padding:1px 5px;
-              font-size:10px;
-              background:#f11064;
-              color:#fff;
-              border-radius:3px;
-            }
-          }
-
-          .price {
-            span {
-              font-size: 12px;
-              text-decoration: line-through;
-              color: #999;
-              margin-right: 5px;
-            }
-            strong {
-              font-size: 12px;
-              color:#292929;
-            }
-          }
+      .left{
+        display:flex;
+        flex-direction:column;
+        strong{
+          font-size:16px;
         }
-
-        .amount {
-          display: flex;
-          justify-content: center;
-          align-items: center;
-          border-radius: 18px;
-          width: 36px;
-          height: 36px;
-          background: #f2f2f2;
-          font-size: 11px;
-        }
-
-        .total_price {
-          width: 90px;
-          font-weight: 500;
-          text-align: right;
-        }
-        .total_price:after {
-          content: "원";
-          margin-left: 2px;
-          font-size: 12px;
-        }
-      }
-      li:last-child {
-        margin-bottom: 0;
-      }
-
-      li.event{
-        .left{
-          .price{
-            strong{
-              color:#f11064
-            }
-          }
+        span{
+          color:#898989;
+          b{color:#f11064;}
         }
       }
     }
   }
 
-  .payment-info {
-    .payment-info-top {
-      margin-bottom: 20px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      h3 {
-        margin: 0px;
-      }
-
-      .v-btn {
-        min-height: 30px;
-        height: 30px;
-        color: #f11064;
-        border: 1px solid #f11064;
-      }
-    }
+  .payment {
+    padding:35px 20px;
 
     .price-info {
-      border: 1px solid #e2e2e2;
-      padding: 15px;
-      border-radius: 5px;
+      display:flex;
+      flex-direction: column;
+      gap:10px;
 
       dl {
         display: flex;
         justify-content: space-between;
         align-items: center;
-        margin-bottom: 10px;
 
         dt {
           display: flex;
           align-items: center;
-          font-size: 12px;
+
           .v-icon {
             font-size: 16px;
             margin-right: 5px;
@@ -696,43 +479,19 @@ export default {
           margin-left: 5px;
         }
       }
-      dl.coupon {
-        dd {
-          color: #f11064;
+      dl.total{
+        dt{}
+        dd{
+          
         }
       }
-      dl:last-child {
-        margin-bottom: 0px;
-      }
-    }
 
-    .total {
-      display: flex;
-      justify-content: flex-end;
-      align-items: flex-end;
-      margin-top: 20px;
-
-      label {
-        margin-right: 30px;
-        font-size: 12px;
-      }
-      span {
-        display: flex;
-        align-items: flex-end;
-        font-size: 24px;
-        line-height: 1;
-        font-weight: bold;
-      }
-      span:after {
-        content: "원";
-        font-size: 12px;
-        margin-left: 5px;
-        font-weight: normal;
-      }
+  
     }
   }
 
   .detail-bottom {
+    padding:35px 20px;
     .terms-btn {
       display: flex;
       align-items: center;
@@ -772,52 +531,6 @@ export default {
 
         &:last-child{
           margin-bottom:0px;
-        }
-      }
-    }
-  }
-
-  .credit {
-    .credit-btns {
-      .credit-btn {
-        width: 100%;
-        height: 50px;
-        margin-bottom: 10px;
-        border: 1px solid #d2d2d2;
-        border-radius: 5px;
-        display: flex;
-        align-items: center;
-        padding: 0 10px;
-
-        &:last-child {
-          margin-bottom: 0;
-        }
-        .check {
-          display: block;
-          width: 22px;
-          height: 22px;
-          border: 1px solid #a2a2a2;
-          border-radius: 11px;
-          margin-right: 15px;
-        }
-        .img {
-          width: 70px;
-          img {
-            display: block;
-            height: 20px;
-          }
-        }
-        .text {
-          flex: 1;
-          font-size: 14px;
-          font-weight: bold;
-        }
-      }
-
-      .credit-btn.active {
-        border-color: #0ca0e2;
-        .check {
-          border: 7px solid #0ca0e2;
         }
       }
     }
