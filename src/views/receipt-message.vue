@@ -33,14 +33,13 @@
 
     <div class="divider bold"></div>
 
-    <section class="guide">
+    <!-- <section class="guide">
       <h4>안내메세지</h4>
       <p>
         안녕하세요 데일리세탁입니다. 
       </p>
-    </section>
+    </section> -->
 
-    <div class="divider bold"></div>
 
     <section class="product">
       <h4>상품정보</h4>
@@ -115,6 +114,18 @@
           </div>
         </li>
       </ul>
+    </section>
+
+    <div class="divider bold"></div>
+
+    <section class="add_charge">
+      <h4>추가비용</h4>
+      <div class="item">
+        <span>세탁물 외 추가결제금액</span>
+        <strong>3,500원</strong>
+      </div>
+      
+      <p>수선 비용 및 오염제거 비용 등</p>
     </section>
 
     <div class="divider bold"></div>
@@ -321,6 +332,28 @@ export default {
     }
   }
 
+  .add_charge{
+    .item{
+      display:flex;
+      flex-direction: column;
+      border-left:5px solid #e2e2e2;
+      padding-left:10px;
+      gap:5px;
+      justify-content: space-between;
+
+      strong{
+        font-weight:bold;
+      }
+    }
+
+    p{
+      background:#f2f2f2;
+      padding:15px;
+      border-radius:5px;
+      margin-top:15px;
+    }
+  }
+
   .price_info{
     ul{
       display:flex;
@@ -360,7 +393,6 @@ export default {
     }
   }
 
- 
 
   .btns{
     text-align:center;

@@ -1,44 +1,41 @@
 <template>
-  <v-bottom-sheet
+  <v-dialog
     v-model="visible"
     fullscreen
     scrollable
+    transition="dialog-bottom-transition"
   >
+    
     <div class="couponUse">
-      <div class="modal-head">
-        <h2>쿠폰사용하기</h2>
-        <v-btn icon @click="visible = false">
+      <header>
+        <h3>쿠폰적용</h3>
+        <v-btn icon @click="visible=false">
           <v-icon>mdi-close</v-icon>
         </v-btn>
-      </div>
+      </header>
+    
 
       <ul class="coupon-list">
-        <li class="no-data">
-          등록된 쿠폰이 없습니다.
-        </li>
-        <li v-for="item in 3" :key="item">
-          <CouponItem />
+        <li>
+          
         </li>
       </ul>
-
     </div>
-  </v-bottom-sheet>
+  </v-dialog>
 </template>
 
 <script>
-import CouponItem from '@/components/couponItem'
+
 
 export default {
-  components:{
-    CouponItem,
-  },
+
   data(){
     return{
       visible:false,
     }
   },
   methods:{
-    handle(value){
+    show(value){
       this.visible = value;
     },
   }
@@ -46,6 +43,31 @@ export default {
 </script>
 
 <style lang="scss" scoped>
+
+header{
+  position: sticky;
+  top:0px;
+  background:#fff;
+  display:flex;
+  align-items: center;
+  justify-content: space-between;
+  padding:0 20px;
+  height:70px;
+  z-index:2;
+
+  .v-btn{
+    background:#f2f2f2;
+  }
+
+  h3{
+    display:flex;
+    align-items: center;
+    justify-content: center;
+    font-size:18px;
+    font-weight:bold;
+  }
+}
+
 .couponUse{
   position: relative;
   background:#fff;
