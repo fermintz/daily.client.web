@@ -53,8 +53,11 @@ export default {
 
 <style lang="scss" scoped>
 .detailInProduct{
-  min-height:100%;
+  position: relative;
   background:#fff;
+  overflow-y:auto;
+  height:100%;
+
 
   header{
     position: sticky;

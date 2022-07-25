@@ -1,8 +1,7 @@
 <template>
   <div class="orderDetail">
     <div class="page-title">
-      <h2>마지막으로 확인해주세요</h2>
-      <p>정보가 상이할 경우 다시 주문해주세요</p>
+      <h2>마지막으로 <b>내 주문과 동의사항</b>을 반드시 확인해주세요</h2>
     </div>
 
     <section class="order-info">
@@ -30,11 +29,11 @@
 
       <dl>
         <dt>세탁픽업일</dt>
-        <dd>세탁프리워시 금정점</dd>
+        <dd>2022년 3월 08일</dd>
       </dl>
       <dl>
         <dt>픽업시간</dt>
-        <dd>070-7807-6857</dd>
+        <dd>21시부터 - 02시까지</dd>
       </dl>
     </section>
 
@@ -64,45 +63,49 @@
     <section class="user-message">
       <h3>요청사항</h3>
 
-      <dl class="wash">
+      <dl class="delivery">
         <dt>
-          <strong>세탁</strong>
+          <strong>수거/배송 요청사항</strong>
         </dt>
         <dd>
-          <div class="selectorBox">
-            <input class="selector" v-ripple 
-              @focus.stop="washSelectMenu = !washSelectMenu" 
-              @blur.self="washSelectMenu = !washSelectMenu"
-              :value="washSelectText"
-            >
-   
-            <div class="selectMenu" v-show="washSelectMenu">
-              <span 
-                v-for="(item, index) in washMessage" 
-                :key="index"
-                @click="washSelectText = item.text, washSelectMenu = false"
-              >{{item.text}}</span>
-            </div>
+          <div 
+            class="selector"
+            id="selector"
+            @click.stop="selectOpen"
+          >
+            <span>{{selectedText}}</span>
+            <v-icon>mdi-chevron-down</v-icon>
           </div>
+          <div class="cont" v-show="selector">
+            <span 
+              v-ripple
+              v-for="(item, index) in deliveryText" :key="index"
+              @click="selected(item)"
+            >{{item.text}}</span>
+          </div>
+          <textarea 
+            v-show="textarea"
+            placeholder="내용을 입력해주세요"
+          >
+          </textarea>
+        </dd>
+      </dl>
+      <div class="divider"></div>
+      <dl class="wash">
+        <dt>
+          <strong>세탁 요청사항</strong>
+        </dt>
+        <dd>
           <textarea placeholder="내용을 입력해주세요"></textarea>
         </dd>
       </dl>
 
       <dl class="repair">
         <dt>
-          <strong>수선</strong>
+          <strong>수선 요청사항</strong>
         </dt>
         <dd>
           <textarea placeholder="ex) 검은색 바지 기장을 5cm정도 줄여주세요"></textarea>
-        </dd>
-      </dl>
-
-      <dl class="delivery">
-        <dt>
-          <strong>배송</strong>
-        </dt>
-        <dd>
-          <textarea placeholder="내용을 입력해주세요"></textarea>
         </dd>
       </dl>
     </section>
@@ -211,7 +214,7 @@
       </v-btn>
 
       <div class="company">
-        <strong>페이오티</strong>
+        <strong>(주)페이오티</strong>
         <div class="company_info">
           <span>사업자등록번호:599-81-00659</span>
           <span>통신판매업:2021-부산강서구-0877</span>
@@ -237,27 +240,41 @@ export default {
   },
   data() {
     return {
-      couponActive: true,
-      termsBtn: false,
-      washSelectText:'세탁',
-      washSelectMenu:false,
-      washMessage:[
-        {id:0,text:'깨끗하게 세탁 부탁드립니다'},
-        {id:1,text:'직접입력'}
-      ],
-      deliveryMessgae:[
-        {id:0,text:'안전하게 배송해주세요'},
+      deliveryText:[
+        {id:0,text:'안전하게 수거/배송해주세요'},
         {id:1,text:'수거한 백은 돌려주세요'},
         {id:2,text:'직접입력'}
-      ]
+      ],
+
+      selectedText:'안전하게 수거/배송해주세요',
+      selector:false,
+      textarea:false,
       
     };
+  },
+  mounted(){
+    window.addEventListener('click',()=>{
+      this.selector = false
+    })
   },
   methods: {
     request(type, value) {
       const data = JSON.stringify({ type: type, value: value });
       window.ReactNativeWebView.postMessage(data);
     },
+    selectOpen(){
+      this.selector = true
+    },
+    selected(value){
+      this.selectedText = value.text
+      this.selector = false
+      if(value.id === 2){
+        this.textarea = true
+      }else{
+        this.textarea = false
+      }
+    }
+    
   },
 };
 </script>
@@ -277,6 +294,12 @@ export default {
 
   .page-title {
     padding:0 20px;
+    h2{
+      font-weight:normal;
+      b{
+        font-weight:bold;
+      }
+    }
     p {
       margin-top: 5px;
       color: #888;
@@ -296,7 +319,7 @@ export default {
 
   h3 {
     font-size:16px;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
     font-weight: bold;
   }
 
@@ -311,8 +334,9 @@ export default {
       align-items: center;
 
       dt {
-        width: 80px;
-        font-size: 12px;
+        width: 100px;
+        line-height:1;
+        font-size: 14px;
         color: #888;
       }
       dd {
@@ -330,66 +354,72 @@ export default {
 
 
   .user-message {
-
+    .divider{
+      margin:24px 0;
+    }
     dl{
-      margin-bottom:20px;
+      margin-bottom:15px;
 
       &:last-child{
         margin-bottom:0;
       }
       dt{
-        margin-bottom:10px;
+        margin-bottom:5px;
+
       }
       dd{
         textarea{
           width:100%;
           resize: none;
           min-height:80px;
-          border:1px solid #c2c2c2;
+          font-size:14px;
           border-radius:8px;
           padding:10px;
+          background:#f2f2f2;
         }
       }
     }
 
-    .selectorBox{
-      position: relative;
-
-      .selector{
-        width:100%;
-        height:50px;
-        padding:0 10px;
-        border:1px solid #c2c2c2;
-        border-radius:8px;
+    dl.delivery{
+      dd{
+        position: relative;
       }
-
-      .selectMenu{
-        position: absolute;
-        width:100%;
-        top:0px;
-        background:#fff;
+      .selector{
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        height:50px;
         border-radius:8px;
+        border:1px solid #c2c2c2;
+        padding:0 15px;
+        margin-bottom:15px;
+        span{
+          font-size:14px;
+        }
+
+        .v-icon{
+          font-size:20px;
+        }
+      }
+      .cont{
+        position:absolute;
+        background:#fff;
+        border:2px solid #292929;
+        top:0px;
+        width:100%;
         display:flex;
         flex-direction: column;
-        border:2px solid #292929;
-
+        border-radius:8px;
         span{
+          padding:0 15px;
+          font-size:14px;
+          height:40px;
           display:flex;
           align-items: center;
-          padding:10px;
         }
       }
     }
-
-
-    .wash{
-      dd{
-        textarea{
-          display:block;
-          margin-top:10px;
-        }
-      }
-    } 
+   
   }
 
   .product-info {
@@ -405,12 +435,16 @@ export default {
         display:flex;
         flex-direction:column;
         strong{
-          font-size:16px;
+          font-size:14px;
         }
         span{
           margin-top:3px;
           color:#898989;
         }
+      }
+
+      .v-icon{
+        color:#0090FF;
       }
     }
 
@@ -468,6 +502,10 @@ export default {
 
           b{font-weight:bold;}
         }
+      }
+
+      .v-icon{
+        color:#0090FF;
       }
     }
 

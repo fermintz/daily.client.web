@@ -12,7 +12,7 @@
     </div>
 
     <div class="selectCards">
-      <div class="card" @click="$router.push('product')">
+      <div class="card" @click="$router.push('orderDetail')">
         <div class="image">
           <img src="@/assets/img/howUse01.png">
         </div>

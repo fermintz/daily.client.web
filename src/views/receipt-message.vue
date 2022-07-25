@@ -119,7 +119,7 @@
     <div class="divider bold"></div>
 
     <section class="add_charge">
-      <h4>추가비용</h4>
+      <h4>확인내용</h4>
       <div class="item">
         <span>세탁물 외 추가결제금액</span>
         <strong>3,500원</strong>
@@ -138,6 +138,10 @@
           <strong>25,000원</strong>
         </li>
         <li>
+          <span><v-icon size="15px">mdi-plus-circle-outline</v-icon>추가요청금액</span>
+          <strong>3,500원</strong>
+        </li>
+        <li>
           <span><v-icon size="15px">mdi-plus-circle-outline</v-icon>추가된 상품금액</span>
           <strong>5,000원</strong>
         </li>
@@ -151,9 +155,6 @@
         </li>
       </ul>
     </section>
-
-
-
   </div>
 </template>
 
