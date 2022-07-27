@@ -17,7 +17,7 @@
     <LuxuryBrand ref="luxuryBrand"/>
 
     <div class="priceList">
-      <div class="banner" v-ripple>
+      <div class="banner" v-ripple @click="$refs.luxuryBrand.show(true)">
         <div class="left">
           <img src="/img/brand_logo.png">
           <span>내가 가진 브랜드가 명품인지<br>확인해보세요</span>
