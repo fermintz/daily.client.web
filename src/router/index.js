@@ -273,6 +273,11 @@ const routes = [
     name:"receipt-message",
     component: ()=> import('../views/receipt-message.vue')
   },
+  {
+    path:"/luxuryFind",
+    name:"luxuryFind",
+    component: ()=> import('../views/luxuryFind.vue')
+  },
 
   
 ];

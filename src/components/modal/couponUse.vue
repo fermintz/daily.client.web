@@ -31,6 +31,30 @@
             </div>
             <v-icon>mdi-plus-circle-outline</v-icon>
           </li>
+
+          <li v-ripple>
+            <div class="left">
+              <span>무료배송이벤트</span>
+              <strong>3,500원</strong>
+              <p>최소주문금액:15,000원</p>
+              <p>이용기간:2022.07.31일까지</p>
+            </div>
+            <v-icon>mdi-plus-circle-outline</v-icon>
+          </li>
+
+          <li :v-ripple="false" class="selected">
+            <div class="left">
+              <span>무료배송이벤트</span>
+              <strong>3,500원</strong>
+              <p>최소주문금액:15,000원</p>
+              <p>이용기간:2022.07.31일까지</p>
+            </div>
+            <v-icon>mdi-check-circle-outline</v-icon>
+          </li>
+          <li v-ripple class="no_coupon">
+            <v-icon>mdi-close-circle-outline</v-icon>
+            <span>쿠폰적용안함</span>
+          </li>
         </ul>
       </section>
     </div>
@@ -135,8 +159,31 @@ export default {
       }
       .v-icon {
         font-size: 36px;
-        color: #0090ff;
+        color: #292929;
       }
+
+      
+    }
+
+    li.selected{
+      background:#f8f8f8;
+      .v-icon{
+        color:#0099ff;
+      }
+    }
+
+    li.no_coupon{
+      justify-content: flex-start;
+      .v-icon{
+        font-size:22px;
+        color:#aaa;
+      }
+      span{
+        font-size:16px;
+        margin-left:10px;
+        flex:1;
+      }
+
     }
   }
 }

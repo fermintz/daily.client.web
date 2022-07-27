@@ -14,7 +14,17 @@
       </div>
     </div>
 
+    <LuxuryBrand ref="luxuryBrand"/>
+
     <div class="priceList">
+      <div class="banner" v-ripple>
+        <div class="left">
+          <img src="/img/brand_logo.png">
+          <span>내가 가진 브랜드가 명품인지<br>확인해보세요</span>
+        </div>
+        <v-icon>mdi-arrow-right</v-icon>
+      </div>
+
       <dl v-for="items in priceTable" :key="items.category">
         <dt>
           <label>{{ items.category }}</label>
@@ -59,8 +69,12 @@
 
 <script>
 import { groupBy } from "lodash";
+import LuxuryBrand from '@/components/modal/luxuryBrand.vue'
 
 export default {
+  components :{
+    LuxuryBrand,
+  },
   mounted() {
     this.getProductList();
   },
@@ -96,7 +110,7 @@ export default {
 <style lang="scss" scoped>
 .dailyPrice {
   .top {
-    margin-bottom: 40px;
+    margin-bottom: 20px;
     h2 {
       margin-bottom: 15px;
     }
@@ -116,14 +130,35 @@ export default {
       }
 
       .v-btn.active {
-        background: #292929;
+        background: #0090FF;
         border: 0px;
         color: #fff;
       }
     }
   }
 
-  .product {
+  .banner{
+    display:Flex;
+    align-items: center;
+    background:#062951;
+    border-radius:12px;
+    padding:15px 20px;
+    margin-bottom:30px;
+    .left{
+      flex:1;
+      display:flex;
+      align-items: center;
+      img{height:28px;}
+      span{
+        color:#fff;
+        margin-left:15px;
+      }
+    }
+    .v-icon{
+      color:#fff;
+      margin-left:20px;
+    }
+    
   }
 
   dl {
