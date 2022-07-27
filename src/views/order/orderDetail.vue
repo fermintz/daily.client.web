@@ -134,7 +134,15 @@
         <v-icon>
           mdi-chevron-right
         </v-icon>
+      </div>
 
+      <div class="coupon_btn use" v-ripple  v-show="true" @click="$refs.couponUse.show(true)">
+        <div class="left">
+          <strong>쿠폰사용안함</strong>
+        </div>
+        <v-icon>
+          mdi-chevron-right
+        </v-icon>
       </div>
     </section>
 
