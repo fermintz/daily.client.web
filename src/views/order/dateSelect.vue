@@ -1,7 +1,7 @@
 <template>
   <div class="dateSelect contents">
     <div class="page-title">
-      <h2>어떤 날짜에 수거 해 갈까요?</h2>
+      <h2>어떤 날짜에 수거할까요?</h2>
       <p>선택하신 날짜에 세탁물을 수거합니다</p>
     </div>
 
@@ -30,7 +30,7 @@
 
     <div class="time_selector" id="times">
       <div
-        :class="{ time_item: true, active: timeActive === index }"
+        :class="{ time_item: true, active: item.state && timeActive === index, disable: item.state === false}"
         v-for="(item, index) in times"
         :key="index"
         @click="timeActive = index"
@@ -44,7 +44,7 @@
         </div>
         <div class="right">
           <strong>{{ item.text }}</strong>
-          <span>{{ item.description }}</span>
+          <span>{{ item.state ? item.description : '마감되었습니다'}}</span>
         </div>
       </div>
       <p>
@@ -73,7 +73,7 @@ export default {
   data(){
     return{
       dayActive:null,
-      timeActive:0,
+      timeActive:null,
       days:[
         { week: "월요일", day: 1, state: true },
         { week: "화요일", day: 2, state: true },
@@ -86,18 +86,21 @@ export default {
       ],
       times:[
         {
+          state:false,
           color: "#FF8000",
           icon: "mdi-weather-sunset",
           text: "오전에 수거",
           description: "09시부터 - 14시까지",
         },
         {
+          state:true,
           color: "#E5145B",
           icon: "mdi-white-balance-sunny",
           text: "오후에 수거",
           description: "14시부터 - 18시까지",
         },
         {
+          state:true,
           color: "#FFBB00",
           icon: "mdi-weather-night",
           text: "밤에 수거",
@@ -124,7 +127,7 @@ export default {
       times.style.transition = "all 0.4s ease-in-out";
       times.style.top = 0;
       times.style.opacity = 1;
-    }
+    },
   },
 }
 </script>
@@ -254,6 +257,15 @@ export default {
 
   .time_item.active{
     border:2px solid #0090FF;
+  }
+
+  .time_item.disable{
+    border:0;
+    background:#f2f2f2;
+    strong{
+      text-decoration: line-through;
+    }
+
   }
 
   p{
