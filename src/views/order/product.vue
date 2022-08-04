@@ -577,8 +577,8 @@ export default {
         }
         .goods-btns{
           .v-btn{
-            width:30px;
-            height:30px;
+            width:26px;
+            height:26px;
             border:1px solid #e2e2e2;
             .v-icon{
               font-size:18px;
