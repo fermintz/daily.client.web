@@ -2,24 +2,34 @@
   <div class="product contents">
     <div class="inner">
       <div class="page-title">
-        <h2>어떤 세탁물을 맡기실건가요?</h2>
+        <h2>세탁하고 싶은 세탁물을<br>선택해주세요</h2>
+      </div>
+
+      <div class="search_box" @click="$refs.luxuryBrand.show(true)">
+        <span>명품브랜드 검색</span>
+        <v-icon>mdi-magnify</v-icon>
       </div>
     </div>
 
-    <div class="guide_btns">
-      <span>명품브랜드 <v-icon>mdi-help-circle-outline</v-icon></span>
-      <b class="bar">|</b>
-      <span>이용불가품목 <v-icon>mdi-help-circle-outline</v-icon></span>
-      <b class="bar">|</b>
-      <span>주문 주의사항 <v-icon>mdi-help-circle-outline</v-icon></span>
-    </div>
+    <div class="customTabs">
+      <div class="tabs">
+        <v-btn 
+          text
+          v-for="(item, index) in priceTable" 
+          :key="index"
+          @click="tabActive = index"
+          :class="{active:tabActive === index}"
+        >
+          <label>{{item.category}}</label>
+        </v-btn>
+      </div>
+    </div>    
 
-    <v-tabs
+    <!-- <v-tabs
       v-model="tabActive"
       :show-arrows="false"
       hide-slide
       append
-      height="40px"
     >
       <v-tab
         v-for="(tab, index) in priceTable" 
@@ -27,13 +37,10 @@
         :ripple="false"
       >
         <div class="tab-item">
-          <!-- <strong>
-            <img :src="'/img/product-icon' + (index+1) + '.png'" />
-          </strong> -->
           <label>{{ tab.category }}</label>
         </div>
       </v-tab>
-    </v-tabs>
+    </v-tabs> -->
 
 
     <v-tabs-items 
@@ -63,14 +70,14 @@
                     <v-icon >mdi-help-circle-outline</v-icon>
                   </v-btn> -->
                 </span>
-                <span class="sub">Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro, </span>
+                <span class="sub">Lorem ipsum dolor sit</span>
               </div>
               <div class="goods-price">
-                <span>{{item.userAmount}}원</span>
                 <div class="sale">
-                  <label>50</label>
-                  <strong>{{ item.userAmount }}</strong>
+                  <label>50%</label>
+                  <span>{{item.userAmount}}원</span>
                 </div>
+                <strong>{{ item.userAmount}}원</strong>
               </div>
               <div class="goods-btns">
                 <v-btn icon class="add" @click="$refs.snackbar.handle(true)">
@@ -110,7 +117,7 @@
       </v-tab-item>
     </v-tabs-items>
 
-    <div class="floating">
+    <div class="floating" v-show="false">
       <div class="cont" v-show="floating">
         <h4>세탁물 선택이 어려우신가요?</h4>
         <div class="image">
@@ -144,12 +151,6 @@
     </div>
 
     <div class="bottom">
-      <!-- <div class="guide">
-        <div class="guide_in">
-          
-          <span v-ripple>주문시 주의사항</span>
-        </div>
-      </div> -->
       <div class="btns">
         <v-btn text class="basket" @click="$refs.basket.handle(true)">
           <label>장바구니</label>
@@ -165,7 +166,8 @@
 
     <Basket ref="basket"/>
     <Snackbar ref="snackbar" text="장바구니에 담았습니다"/>
-    <ProductInPopup ref="productInPopup"/>
+    <LuxuryBrand ref="luxuryBrand"/>
+
   </div>
 </template>
 
@@ -173,11 +175,11 @@
 import { groupBy } from "lodash";
 import Basket from '@/components/modal/basket'
 import Snackbar from '@/components/modal/snackbar'
-import ProductInPopup from '@/components/modal/productInPopup'
+import LuxuryBrand from '@/components/modal/luxuryBrand.vue'
 
 export default {
   components:{
-    Basket, Snackbar, ProductInPopup
+    Basket, Snackbar,LuxuryBrand,
   },
   mounted() {
     this.getProductList();
@@ -272,43 +274,63 @@ export default {
     display:none;
   }
 
-  .v-tabs{
-    position:sticky;
-    padding-bottom:20px;
-    overflow:auto;
-    top:60px;
-    z-index:99;
-    background:#fff;
-    padding-left:20px;
+  .search_box{
+      display:flex;
+      align-items: center;
+      justify-content: space-between;
+      position: relative;
+      border-bottom:3px solid #292929;
+      height:50px;
+      margin-top:5px;
 
-    .v-tab{
-      min-width:auto;
-      background:#f2f2f2;
-      margin-right:6px;
-      border-radius:12px;
-      padding:0px 12px;
-
-      label {
-        display: block;
-        font-size: 12px;
-        letter-spacing: 0;
+      span{
+        font-size:16px;
         color:#898989;
       }
 
-      &:first-child{
-        margin-left:20px;
+      .v-icon{
+        position: absolute;
+        right:0px;
+        font-size:18px;
+        background:#292929;
+        color:#fff;
+        width:32px;
+        height:32px;
+        border-radius:16px;
       }
     }
 
-    .v-tab.v-tab--active{
+  .customTabs{
+    padding:0 20px;
+    overflow-x:scroll;
+    margin:40px 0 20px 0;
+
+    .tabs{
+      width:130%;
+      display:flex;
+      flex-wrap: wrap;
+      gap:8px;
+    }
+
+    .v-btn{
+      border:1px solid #c2c2c2;
+      height:30px;
+      padding:0 10px;
+      min-width:unset;
+      border-radius:12px;
+    }
+
+    .v-btn.active{
       background:#292929;
-      label{
-        font-size:14px;
-        font-weight:bold;
-        color:#fff
-      }
+      color:#fff;
+      border:0;
+    }
+
+    &::-webkit-scrollbar{
+      display:none;
     }
   }
+
 
   .floating{
     display:flex;
@@ -395,6 +417,7 @@ export default {
     }
     
     .floatingBtn{
+
       position: fixed;
       right:10px;
       width:50px;
@@ -422,17 +445,17 @@ export default {
     }
 
     dl.goods_cate{
-      margin-bottom:20px;
+      margin-bottom:40px;
       
       dt{
         display:flex;
         align-items: center;
         justify-content: space-between;
         font-size:14px;
-        background:#F4F7F9;
-        height:40px;
-        padding:0 15px;
-        border-radius:12px;
+        background:#f2f2f2;
+        height:32px;
+        padding:0 12px;
+        border-radius:8px;
         margin-bottom:10px;
 
         .right{
@@ -457,17 +480,17 @@ export default {
           }
         }
       }
-
+      dd{
+        display:flex;
+        flex-direction: column;
+        gap:10px;
+      }
       .goods{
         display:flex;
         align-items: center;
-        padding:20px 0px;
-        border-bottom:1px solid #e2e2e2;
-
-        &:last-child{
-          border-bottom:0
-        }
-
+        padding:12px;
+        border:1px solid #e2e2e2;
+        border-radius:12px;
 
         .goods-info{
           display:flex;
@@ -477,17 +500,12 @@ export default {
           
           .icons{
             display:flex;
-            margin-bottom:5px;
             label{
               display:flex;
               align-items: center;
               justify-content: center;
-              color:#fff;
-              height:18px;
-              border-radius:100px;
               font-size:11px;
-              padding:0 10px;
-              background:#D20A61
+              color:#D20A61
             }
           }
           span.icon{
@@ -525,62 +543,46 @@ export default {
           }
         }
         .goods-price{
-          margin-right:10px;
+          margin-right:15px;
           text-align:right;
-
-          span{
-            font-size:11px;
-            color:#797979;
-            line-height:1.2;
-            text-decoration:line-through;
-            display:block;
-            margin-bottom:3px;
-          }
 
           .sale{
             display:flex;
             align-items: center;
             text-align:left;
+            margin-bottom:3px;
 
             label{
-              font-size:16px;
+              font-size:11px;
               margin-right:5px;
               color:#D20A61;
               line-height:1;
-
-              &:after{
-                content:'%';
-                font-size:14px;
-              }
             }
-            
-            strong{
-              display:block;
-              font-weight:500;
-              line-height:1.2;
-              font-size:16px;
-              font-weight:bold;
 
-              &:after{
-                content:'원';
-                font-size:14px;
-              }
+            span{
+              font-size:11px;
+              color:#797979;
+              line-height:1.2;
+              text-decoration:line-through;
+              display:block;
             }
           }
-         
+
+          strong{
+            display:block;
+            line-height:1.2;
+            font-size:16px;
+          }
+        
         }
         .goods-btns{
           .v-btn{
-            width:34px;
-            height:34px;
+            width:30px;
+            height:30px;
             border:1px solid #e2e2e2;
-            margin-left:10px;
             .v-icon{
               font-size:18px;
             }
-          }
-          .v-btn:first-child{
-            margin-left:0px;
           }
 
           .add{
@@ -599,56 +601,26 @@ export default {
   .bottom{
     position: fixed;
     width:100%;
-    padding:10px;
-    padding-top:0px;
+    padding:10px 20px;
     bottom:0px;
+    border-top:1px solid #e2e2e2;
     z-index:2;
     background:#fff;
 
-    .guide{
-      display:flex;
-      justify-content: center;
-
-      .guide_in{
-        width:100%;
-        background:#f2f2f2;
-        display:flex;
-        
-        border-radius:5px;
-        
-        align-items: center;
-        span{
-          display:flex;
-          align-items: center;
-          justify-content: center;
-          height:34px;
-          flex:1;
-          font-size:11px;
-          border-right:1px solid #e2e2e2;
-
-          &:last-child{
-            border-right:0
-          }
-        }
-      }
-    }
-  
 
     .btns{
       display:Flex;
       align-items: center;
-      background:#fff;
-      margin-top:6px;
-
       .v-btn{
         height:50px;
         background:#fff;
-        border-radius:0;
+        border-radius:8px;
+        font-size:16px;
       }
 
       .v-btn.basket{
         border:1px solid #c2c2c2;
-        border-radius:5px;
+       
         margin-right:6px;
         .badge{
           display:flex;
@@ -665,10 +637,9 @@ export default {
       }
 
       .v-btn.next{
-        background:#0CA0E2;
-        border-radius:5px;
+        background:#0090ff;
+
         label{
-          font-size:14px;
           color:#fff
         }
 

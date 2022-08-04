@@ -302,7 +302,7 @@ export default {
     font-size:14px;
     color:#fff;
     border-radius:5px;
-    background:#0CA0E2;
+    background:#0090ff;
 
     .v-icon{
       font-size:18px;
