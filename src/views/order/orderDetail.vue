@@ -116,7 +116,7 @@
       <h3>쿠폰사용</h3>
       <div class="no-data" v-show="false">사용가능한 쿠폰이 없습니다.</div>
 
-      <div class="coupon_btn" v-ripple v-show="true"  @click="$refs.couponUse.show(true)">
+      <div class="coupon_btn" v-ripple v-show="false"  @click="$refs.couponUse.show(true)">
         <div class="left">
           <strong>쿠폰 적용하기</strong>
           <span>적용가능한 쿠폰이 <b>1개</b>있습니다</span>
@@ -126,23 +126,17 @@
         </v-icon>
       </div>
 
-      <div class="coupon_btn use" v-ripple  v-show="false" @click="$refs.couponUse.show(true)">
-        <div class="left">
-          <strong>무료배송이벤트</strong>
-          <span><b>3,500</b>원 할인적용</span>
+      <div class="after" v-ripple  v-show="true">
+        <div class="coupon_item">
+          <div class="left">
+            <label>배송비 무료쿠폰</label>
+            <span>주문시 배송비할인</span>
+          </div>
+          <strong>
+            3,500원
+          </strong>
         </div>
-        <v-icon>
-          mdi-chevron-right
-        </v-icon>
-      </div>
-
-      <div class="coupon_btn use" v-ripple  v-show="true" @click="$refs.couponUse.show(true)">
-        <div class="left">
-          <strong>쿠폰사용안함</strong>
-        </div>
-        <v-icon>
-          mdi-chevron-right
-        </v-icon>
+        <v-btn text  @click="$refs.couponUse.show(true)">쿠폰 다시 선택하기</v-btn>
       </div>
     </section>
 
@@ -163,7 +157,7 @@
         </dl>
         <dl class="coupon">
           <dt><v-icon>mdi-minus-circle-outline</v-icon>쿠폰할인</dt>
-          <dd>-5,000</dd>
+          <dd>-3,500</dd>
         </dl>
         <div class="divider"></div>
         <dl class="total">
@@ -517,6 +511,45 @@ export default {
       }
     }
 
+    .after{
+      display:flex;
+      flex-direction: column;
+      gap:10px;
+      .coupon_item{
+        background:#EFF3F8;
+        border-radius:8px;
+        padding:15px;
+        display:flex;
+        align-items: center;
+        justify-content: space-between;
+        .left{
+          display:flex;
+          flex-direction: column;
+          gap:2px;
+          label{
+            font-size:16px;
+            font-weight:500;
+          }
+          span{
+            font-size:12px;
+            color:#898989;
+          }
+        }
+        strong{
+          font-size:18px;
+          font-weight:600;
+          color:#0090FF;
+        }
+      }
+      .v-btn{
+        border:1px solid #c2c2c2;
+        border-radius:8px;
+        width:100%;
+        height:50px;
+        font-size:14px;
+      }
+    }
+
   }
 
   
@@ -552,6 +585,11 @@ export default {
         dd{
           font-size:22px;
           font-weight:600;
+        }
+      }
+      dl.coupon{
+        dd{
+          color:#0090ff;
         }
       }
     }
