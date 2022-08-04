@@ -11,8 +11,8 @@
         </v-btn>
 
         <div class="search_box">
-          <v-icon>mdi-magnify</v-icon>
           <input type="text" placeholder="명품브랜드명 입력(한글or영문)">
+          <v-icon>mdi-magnify</v-icon>
         </div>
       </header>
 
@@ -128,7 +128,8 @@ export default {
         width:100%;
         border-bottom:3px solid #292929;
         height:50px;
-        padding-left:40px;
+        padding-left:0;
+        padding-right:46px;
         font-size:18px;
         outline: none;
         font-weight:bold;
@@ -140,12 +141,13 @@ export default {
 
       .v-icon{
         position: absolute;
-        left:0px;
+        right:0px;
         font-size:18px;
-        background:#e2e2e2;
-        width:30px;
-        height:30px;
-        border-radius:15px;
+        background:#292929;
+        color:#fff;
+        width:32px;
+        height:32px;
+        border-radius:16px;
       }
     }
   }

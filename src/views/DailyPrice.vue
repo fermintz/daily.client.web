@@ -2,6 +2,16 @@
   <div class="dailyPrice contents">
     <div class="top">
       <h2>데일리세탁의 세탁가격을<br />확인해보세요</h2>
+      
+      <div class="search" @click="$refs.luxuryBrand.show(true)">
+        <span>명품브랜드 검색</span>
+        <v-icon>mdi-magnify</v-icon>
+      </div>
+    </div>
+
+    <LuxuryBrand ref="luxuryBrand"/>
+
+    <div class="priceList">
       <div class="area">
         <v-btn
           text
@@ -12,19 +22,6 @@
           >{{ item }}</v-btn
         >
       </div>
-    </div>
-
-    <LuxuryBrand ref="luxuryBrand"/>
-
-    <div class="priceList">
-      <div class="banner" v-ripple @click="$refs.luxuryBrand.show(true)">
-        <div class="left">
-          <img src="/img/brand_logo.png">
-          <span>내가 가진 브랜드가 명품인지<br>확인해보세요</span>
-        </div>
-        <v-icon>mdi-arrow-right</v-icon>
-      </div>
-
       <dl v-for="items in priceTable" :key="items.category">
         <dt>
           <label>{{ items.category }}</label>
@@ -110,12 +107,42 @@ export default {
 <style lang="scss" scoped>
 .dailyPrice {
   .top {
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     h2 {
-      margin-bottom: 15px;
+      margin-bottom: 10px;
+      font-size:24px;
+      line-height:1.3;
     }
 
-    .area {
+    
+  }
+
+  .search{
+    display:Flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom:3px solid #292929;
+    border-radius:0px;
+    height:50px;
+    padding:0px;
+    margin-bottom:30px;
+
+    span{
+      font-size:16px;
+      color:#898989;
+    }
+    .v-icon{
+      width:32px;
+      height:32px;
+      margin-left:20px;
+      background:#292929;
+      color:#fff;
+      border-radius:16px;
+      font-size:16px;
+    }
+  }
+
+  .area {
       border-radius: 5px;
       margin-bottom: 20px;
       .v-btn {
@@ -135,31 +162,6 @@ export default {
         color: #fff;
       }
     }
-  }
-
-  .banner{
-    display:Flex;
-    align-items: center;
-    background:#062951;
-    border-radius:12px;
-    padding:15px 20px;
-    margin-bottom:30px;
-    .left{
-      flex:1;
-      display:flex;
-      align-items: center;
-      img{height:28px;}
-      span{
-        color:#fff;
-        margin-left:15px;
-      }
-    }
-    .v-icon{
-      color:#fff;
-      margin-left:20px;
-    }
-    
-  }
 
   dl {
     margin-bottom: 50px;
@@ -167,8 +169,11 @@ export default {
     dt {
       display: flex;
       align-items: center;
-      border-bottom: 2px solid #292929;
-      padding-bottom: 10px;
+      background:#f2f2f2;
+      border-radius:5px;
+      height:40px;
+      padding:0 15px;
+
 
       label {
         font-size: 16px;
@@ -180,6 +185,7 @@ export default {
       display:flex;
       flex-direction: column;
       gap:15px;
+      padding:0 5px;
 
       .item {
         display: flex;
@@ -196,6 +202,7 @@ export default {
           }
           label{
             font-size:14px;
+
           }
           p{
             font-size:12px;
@@ -206,7 +213,7 @@ export default {
         .right{
           .normal{
             display:none;
-            
+            text-align:right;
           }
           .sale{
             display:flex;
